@@ -30,7 +30,7 @@ TBD
 
 ## Project Description
 
-TBD
+Eshop with pc games
 
 ## Project Roadmap
 
@@ -38,6 +38,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 | **Minimum Viable Product (MVP)**         | **Should Have** | **Nice to Have** |
 |------------------------------------------|-----------------|------------------|
-| TBD                                      | TBD             | TBD              |
-| TBD                                      | TBD             | TBD              |
-| TBD                                      | TBD             | TBD              |
+| Basic UI                                 | TBD             | TBD              |
+| Firebase                                 | TBD             | TBD              |
+| Adding, Deleting, Editing games          | TBD             | TBD              |
