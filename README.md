@@ -41,9 +41,9 @@ TBD - Few lines about the project, what is its purpose and meaning.
 | Basic UI                                 | Enhanced UI/UX        | Multi-language          |
 | Firebase for Backend Solutions           | Game Reviews & Ratings| Achievements and Badges |
 | Adding, Deleting, Editing games          | Advanced Search Filters| Personalization Features|
-| Browsing and Searching Games             | TBD                   | Payment Gateway Integration|
-| Viewing Game Details                     | TBD                   | Managing User Profile    |
-| Responsive Design                        | TBD                   | TBD              |
+| Browsing, Searching, Filtering Games     | Searchbar, Filterbar   | Payment Gateway Integration|
+| Viewing Game Details                     | Genre, Price, etc..   | Managing User Profile    |
+| Responsive Design                        | Phones, PC            | Tablet Responsivity      |
 
 
 
