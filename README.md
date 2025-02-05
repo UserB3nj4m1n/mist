@@ -36,8 +36,14 @@ Eshop with pc games
 
 TBD - Few lines about the project, what is its purpose and meaning.
 
-| **Minimum Viable Product (MVP)**         | **Should Have** | **Nice to Have** |
-|------------------------------------------|-----------------|------------------|
-| Basic UI                                 | TBD             | TBD              |
-| Firebase                                 | TBD             | TBD              |
-| Adding, Deleting, Editing games          | TBD             | TBD              |
+| **Minimum Viable Product (MVP)**         | **Should Have**       | **Nice to Have**        |
+|------------------------------------------|-----------------------|-------------------------|
+| Basic UI                                 | Enhanced UI/UX        | Multi-language          |
+| Firebase for Backend Solutions           | Game Reviews & Ratings| Achievements and Badges |
+| Adding, Deleting, Editing games          | Advanced Search Filters| TBD              |
+| Browsing and Searching Games             | TBD                   | TBD              |
+| Viewing Game Details                     | TBD                   | TBD              |
+| Responsive Design                        | TBD                   | TBD              |
+
+
+
