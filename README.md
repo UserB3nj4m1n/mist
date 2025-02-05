@@ -30,7 +30,8 @@ TBD
 
 ## Project Description
 
-Eshop with pc games
+An online store for purchasing PC games, built with Angular and Firebase. The platform allows users to browse, search, and filter games, add them to a shopping cart, and manage their game library. 
+The goal is to create a fully functional e-commerce experience with an intuitive UI and seamless backend integration.
 
 ## Project Roadmap
 
