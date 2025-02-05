@@ -14,8 +14,8 @@ This is a high school project where students build an Angular web application in
 - Use meaningful commit messages.
 
 ## Team Members
-- **Student 1:** [GitHub Profile](https://github.com/martin852147)
-- **Student 2:** [GitHub Profile](https://github.com/UserB3nj4m1n)
+- **Student 1:** [martin852147](https://github.com/martin852147)
+- **Student 2:** [UserB3nj4m1n](https://github.com/UserB3nj4m1n)
 
 ## Teachers
 - [Peter Lancaric](https://github.com/larkinsss)
