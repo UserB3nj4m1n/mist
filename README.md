@@ -26,7 +26,7 @@ This is a high school project where students build an Angular web application in
 
 ## Project Name
 
-TBD
+Mist
 
 ## Project Description
 
