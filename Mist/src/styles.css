@@ -1,8 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+  Color palet
+      Primary: #6e8396
+      Secondry: #a8b7c4
+      Acent: #89a0b6
+      Text: #070708
+      Background: #f8f8f9
+  
+
+*/
+
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 12%;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  background-color: #f8f8f9;
+}

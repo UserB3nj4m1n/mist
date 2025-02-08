@@ -1,22 +1,37 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #dddddd;
-}
-
-li {
-  float: left;
-  padding: 0px 8px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid #d9d9d9;
 }
 
-li:hover {
-  background-color: #c1c1c1;
+a {
+  color: #070708;
+}
+.navBut {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+.navBut:hover {
+  background-color: #ececee;
+  border-radius: 5px;
+}
+.navbar-brand img {
+  height: 40px;
+}
+.navbar-links {
+  display: flex;
 }
 
-.Logo {
-  height: 50px;
-  width: 50px;
+.loginBut {
+  background-color: #6e8396;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.loginBut:hover {
+  background-color: #65788a;
+  border-radius: 5px;
 }
