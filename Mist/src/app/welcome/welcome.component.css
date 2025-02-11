@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+}
+
+.mainLeft {
+  width: 60%;
+  justify-content: center;
+}
+
+.mainLeftText {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.mainLeftParagraf {
+  font-size: 0.9rem;
+}
+
+.mainRight {
+  background-color: lightcoral;
+  width: 40%;
+}

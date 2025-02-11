@@ -29,6 +29,7 @@ a {
   border-radius: 5px;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  color: #f8f8f9;
 }
 
 .loginBut:hover {
