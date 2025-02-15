@@ -18,8 +18,10 @@
 }
 
 .mainRight {
-  background-color: lightcoral;
   width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainLeftButtons {
@@ -87,4 +89,8 @@
 .mainWhyBoxReason {
   font-size: larger;
   font-weight: 560;
+}
+
+.mainImg {
+  height: 400px;
 }
