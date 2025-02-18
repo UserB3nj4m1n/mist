@@ -13,9 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, WelcomeComponent],
+  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
