@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { StoreComponent } from './store/store.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'store', component: StoreComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 

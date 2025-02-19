@@ -15,9 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
 import { StoreComponent } from './store/store.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent],
+  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent, LoginComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
