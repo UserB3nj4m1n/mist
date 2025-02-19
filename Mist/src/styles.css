@@ -24,3 +24,20 @@ body {
   height: 100%;
   background-color: #f8f8f9;
 }
+
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: auto;
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff00;
+}
