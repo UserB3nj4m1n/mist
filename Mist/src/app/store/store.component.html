@@ -2,6 +2,10 @@
   <div class="filter">
     <p>Game Filters</p>
     <div class="filterLine">
+      <p class="filterMainText">Search</p>
+      <input type="search" placeholder="Search" name="" id="" />
+    </div>
+    <div class="filterLine">
       <p class="filterMainText">Prize</p>
       <input type="range" name="Prize" id="Prize" />
     </div>
@@ -57,6 +61,52 @@
         <option value="VR"></option>
         <option value="Other"></option>
       </datalist>
+    </div>
+    <div class="filterLine">
+      <p class="filterMainText">Year of release</p>
+      <input list="year" name="year" placeholder="Select year" />
+      <datalist id="year">
+        <!-- Generované roky od 2026 do 2000 -->
+        <option value="2026"></option>
+        <option value="2025"></option>
+        <option value="2024"></option>
+        <option value="2023"></option>
+        <option value="2022"></option>
+        <option value="2021"></option>
+        <option value="2020"></option>
+        <option value="2019"></option>
+        <option value="2018"></option>
+        <option value="2017"></option>
+        <option value="2016"></option>
+        <option value="2015"></option>
+        <option value="2014"></option>
+        <option value="2013"></option>
+        <option value="2012"></option>
+        <option value="2011"></option>
+        <option value="2010"></option>
+        <option value="2009"></option>
+        <option value="2008"></option>
+        <option value="2007"></option>
+        <option value="2006"></option>
+        <option value="2005"></option>
+        <option value="2004"></option>
+        <option value="2003"></option>
+        <option value="2002"></option>
+        <option value="2001"></option>
+        <option value="2000"></option>
+      </datalist>
+    </div>
+    <div class="filterLine">
+      <p class="filterMainText">Operating system</p>
+      <input type="checkbox" name="Windows" id="Windows" /><label for="Windows"
+        >Windows</label
+      >
+      <br />
+      <input type="checkbox" name="Linux" id="Linux" /><label for="Linux"
+        >Linux</label
+      >
+      <br />
+      <input type="checkbox" name="Mac" id="Mac" /><label for="Mac">Mac</label>
     </div>
   </div>
   <div class="products">test</div>
