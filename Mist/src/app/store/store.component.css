@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.filterLine {
+  border-top: 2px solid #d9d9d9;
+  margin-top: 0.5rem;
+}
+
+.filterMainText {
+  font-size: 15px;
+}
+
+/*Inputs*/
+
+input {
+  border: 1px solid #6e8396;
+}
+
+input::placeholder {
+  color: #070708;
+}
+
+input[type="checkbox"] {
+  accent-color: #6e8396;
+}
+
+input[type="range"] {
+  background: #6e8396;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border: 2px solid #6e8396;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid #6e8396;
+  border-radius: 50%;
+  cursor: pointer;
+}

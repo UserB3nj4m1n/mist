@@ -1,27 +1,63 @@
-<!--Filtration system-->
-<section>
-    <div>
-        <div>
-            <label for="genre">Genre:</label>
-            <select id="genre">
-                <option value="">All</option>
-            </select>
-        </div>
-        <div>
-            <label for="price">Price:</label>
-            <select id="price">
-                <option value="">All</option>
-            </select>
-        </div>
-        <div>
-            <label for="rating">Rating:</label>
-            <select id="rating">
-                <option value="">All</option>
-            </select>
-        </div>
+<div class="main">
+  <div class="filter">
+    <p>Game Filters</p>
+    <div class="filterLine">
+      <p class="filterMainText">Prize</p>
+      <input type="range" name="Prize" id="Prize" />
     </div>
-</section>
-<!--Data-->
-<section>
-
-</section>
+    <div class="filterLine">
+      <p class="filterMainText">Rating</p>
+      <input type="checkbox" name="5star" id="5star" /><label for="3star"
+        >⭐⭐⭐⭐⭐</label
+      >
+      <br />
+      <input type="checkbox" name="4star" id="4star" /><label for="3star"
+        >⭐⭐⭐⭐</label
+      >
+      <br />
+      <input type="checkbox" name="3star" id="3star" /><label for="3star"
+        >⭐⭐⭐</label
+      >
+      <br />
+      <input type="checkbox" name="2star" id="2star" /><label for="2star"
+        >⭐⭐</label
+      >
+      <br />
+      <input type="checkbox" name="1star" id="1star" /><label for="1star"
+        >⭐</label
+      >
+    </div>
+    <div class="filterLine">
+      <p class="filterMainText">Categories</p>
+      <input list="categories" name="category" placeholder="Select category" />
+      <datalist id="categories">
+        <option value="Action"></option>
+        <option value="Adventure"></option>
+        <option value="Action & Shooting"></option>
+        <option value="Indie"></option>
+        <option value="RPG"></option>
+        <option value="Simulator"></option>
+        <option value="Strategy"></option>
+        <option value="MMO"></option>
+        <option value="Casual"></option>
+        <option value="Sports"></option>
+        <option value="Racing"></option>
+        <option value="Horror"></option>
+        <option value="Economy"></option>
+        <option value="Arcade"></option>
+        <option value="Fighting"></option>
+        <option value="Stealth"></option>
+        <option value="Puzzle"></option>
+        <option value="Kids & Family"></option>
+        <option value="Dance & Music"></option>
+        <option value="Romance"></option>
+        <option value="Sandbox"></option>
+        <option value="Battle Royale"></option>
+        <option value="Fantasy"></option>
+        <option value="VR"></option>
+        <option value="Other"></option>
+      </datalist>
+    </div>
+  </div>
+  <div class="products">test</div>
+</div>
