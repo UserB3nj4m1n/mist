@@ -109,5 +109,8 @@
       <input type="checkbox" name="Mac" id="Mac" /><label for="Mac">Mac</label>
     </div>
   </div>
-  <div class="products">test</div>
+  <div class="game-list">
+    <app-store-card *ngFor="let game of games" [game]="game"></app-store-card>
+  </div>
+  
 </div>

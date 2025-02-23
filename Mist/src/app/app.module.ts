@@ -16,9 +16,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
 import { StoreComponent } from './store/store.component';
 import { LoginComponent } from './login/login.component';
+import { StoreCardComponent } from './store-card/store-card.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent, LoginComponent,],
+  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent, LoginComponent, StoreCardComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

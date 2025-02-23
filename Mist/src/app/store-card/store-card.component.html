@@ -1,0 +1,18 @@
+<div class="game-card">
+    <img [src]="game.imageUrl" alt="{{ game.title }}" class="game-image" />
+    <div class="game-info">
+      <h3 class="game-title">{{ game.title }}</h3>
+      <p class="game-category">{{ game.genre }}</p>
+      <p class="game-release">Release Date: {{ game.releaseYear }}</p>
+    </div>
+    <div class="game-price">
+      <div *ngIf="game.discount > 0" class="game-discount">-{{ game.discount }}%</div>
+      <span class="discounted-price">
+        ${{ (game.price * (1 - game.discount / 100)).toFixed(2) }}
+      </span>
+      <span *ngIf="game.discount > 0" class="original-price">
+        ${{ game.price.toFixed(2) }}
+      </span>
+    </div>
+  </div>
+  

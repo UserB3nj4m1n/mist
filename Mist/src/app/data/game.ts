@@ -6,4 +6,6 @@ export interface Game {
   platform: string[];
   price: number;
   rating: number;
+  discount: number;
+  imageUrl: string;
 }

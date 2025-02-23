@@ -1,0 +1,72 @@
+.game-card {
+    display: flex;
+    align-items: center;
+    background-color: #6e839620;
+    padding: 1px 10px 2px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s;
+    border-radius: 5px;
+    margin: 10px 50px 10px 30px;
+  }
+  
+  .game-card:hover {
+    background-color: #6e839660;
+  }
+  
+  .game-image {
+    width: 185px;
+    height: 100%;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  
+  .game-info {
+    flex: 1;
+  }
+  
+  .game-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .game-tags {
+    font-size: 12px;
+    color: #b8b8b8;
+  }
+  
+  .game-release {
+    font-size: 12px;
+    color: #8f98a0;
+  }
+  
+  .game-discount {
+    background: #6e8396;
+    color: #ffffff;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-right: 10px;
+    text-align: center;
+    min-width: 40px;
+  }
+  
+  .game-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    min-width: 80px;
+  }
+  
+  .discounted-price {
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .original-price {
+    font-size: 12px;
+    color: #b8b8b8;
+    text-decoration: line-through;
+  }
+  
