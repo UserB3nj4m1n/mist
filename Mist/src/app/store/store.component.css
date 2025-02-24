@@ -12,6 +12,9 @@
   font-size: 15px;
 }
 
+.filter {
+  margin-right: 10px;
+}
 /*Inputs*/
 
 input {
@@ -44,4 +47,8 @@ input[type="range"]::-moz-range-thumb {
   border: 2px solid #6e8396;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.game-list {
+  width: 100%;
 }

@@ -66,7 +66,6 @@
       <p class="filterMainText">Year of release</p>
       <input list="year" name="year" placeholder="Select year" />
       <datalist id="year">
-        <!-- Generované roky od 2026 do 2000 -->
         <option value="2026"></option>
         <option value="2025"></option>
         <option value="2024"></option>
@@ -112,5 +111,4 @@
   <div class="game-list">
     <app-store-card *ngFor="let game of games" [game]="game"></app-store-card>
   </div>
-  
 </div>
