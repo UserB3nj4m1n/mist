@@ -59,11 +59,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .sort-by-container p {
-  margin-right: 10px; /* To create space between the text and the select */
+  margin-right: 10px;
 }
 
 .sort-by-container select {
-  margin: 0; /* To remove any extra space around the select */
+  margin: 0;
 }
 
 .sort-by-container {
@@ -76,5 +76,10 @@ input[type="range"]::-moz-range-thumb {
 .ViewLayaut {
   display: flex;
   gap: 20px;
-  margin-left: auto; /* This will push it to the right */
+  margin-left: auto;
+}
+
+.ViewLayautCategory {
+  display: flex;
+  flex-direction: row;
 }
