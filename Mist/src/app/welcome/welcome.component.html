@@ -63,4 +63,21 @@
       <p class="mainWhyParagraf">Mist is going 24/7.</p>
     </div>
   </div>
+  <div class="slider-container">
+    <h2>Most popular</h2>
+    <div class="slider" id="slider">
+      <div class="slide" *ngFor="let game of games">
+        <div class="slide-content">
+          <img [src]="game.imageUrl" alt="Slide image">
+          <div class="slide-info">
+            <h3>{{ game.title }}</h3>
+            <p>Price: ${{ game.price }}</p>
+            <p *ngIf="game.discount > 0">Discount: {{ game.discount }}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="prev" id="prev">&#10094;</button>
+    <button class="next" id="next">&#10095;</button>
+  </div>
 </div>
