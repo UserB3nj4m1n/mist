@@ -52,3 +52,16 @@ input[type="range"]::-moz-range-thumb {
 .game-list {
   width: 100%;
 }
+
+.sort-by-container {
+  display: flex;
+  align-items: center;
+}
+
+.sort-by-container p {
+  margin-right: 10px; /* To create space between the text and the select */
+}
+
+.sort-by-container select {
+  margin: 0; /* To remove any extra space around the select */
+}
