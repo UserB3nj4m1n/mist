@@ -83,3 +83,13 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   flex-direction: row;
 }
+button{
+  border: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #6e8396;
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
