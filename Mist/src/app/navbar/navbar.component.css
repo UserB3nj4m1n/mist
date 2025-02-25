@@ -19,6 +19,7 @@ a {
 }
 .navbar-brand img {
   height: 40px;
+  cursor: pointer;
 }
 .navbar-links {
   display: flex;
