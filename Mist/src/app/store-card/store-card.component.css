@@ -84,4 +84,10 @@
   cursor: pointer;
   width: 100%;
   margin-top: auto;
+  transition: 0.3s;
+}
+
+.buy-now:hover {
+  background-color: #576776;
+  scale: 1.1;
 }

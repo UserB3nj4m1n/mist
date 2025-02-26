@@ -82,14 +82,20 @@ input[type="range"]::-moz-range-thumb {
 .ViewLayautCategory {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  color: #f8f8f9;
 }
-button{
-  border: 0;
-  height: 30px;
-  width: 100%;
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #6e8396;
+  border: none;
   border-radius: 5px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: 500;
+  padding: 0.2rem 1rem;
 }

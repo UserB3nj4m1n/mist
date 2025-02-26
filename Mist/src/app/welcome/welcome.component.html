@@ -21,7 +21,11 @@
       </p>
     </div>
     <div class="mainLeftButtonsDiv">
-      <button class="mainLeftButtons" style="background-color: #a8b7c4; cursor: pointer;" routerLink="/store">
+      <button
+        class="mainLeftButtons"
+        style="background-color: #a8b7c4; cursor: pointer"
+        routerLink="/store"
+      >
         Buy now!
       </button>
       <button class="mainLeftButtons" style="color: #f8f8f9">Play</button>
@@ -64,11 +68,15 @@
     </div>
   </div>
   <div class="slider-container">
-    <h2>Most popular</h2>
+    <div class="mainLeftWhy">
+      <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
+        Most popular
+      </p>
+    </div>
     <div class="slider" id="slider">
       <div class="slide" *ngFor="let game of games">
         <div class="slide-content">
-          <img [src]="game.imageUrl" alt="Slide image">
+          <img [src]="game.imageUrl" alt="Slide image" />
           <div class="slide-info">
             <h3>{{ game.title }}</h3>
             <p>Price: ${{ game.price }}</p>
