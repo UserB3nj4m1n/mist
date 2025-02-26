@@ -1,5 +1,7 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { Game } from '../data/game';
+import { isPlatformBrowser } from '@angular/common';
+
 
 @Component({
   selector: 'app-welcome',
@@ -59,24 +61,33 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
     }
   ];
   
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }  
+  
   currentSlide = 0;
   slideInterval: any;
 
   ngAfterViewInit() {
+    if (!this.isBrowser) return; // Ensure it's only executed in the browser
+  
     this.showSlide(this.currentSlide);
-
+  
     document.getElementById('prev')?.addEventListener('click', () => {
       this.changeSlide(-1);
     });
-
+  
     document.getElementById('next')?.addEventListener('click', () => {
       this.changeSlide(1);
     });
-
+  
     this.slideInterval = setInterval(() => {
       this.changeSlide(1);
     }, 2000);
   }
+  
 
   ngOnDestroy() {
     clearInterval(this.slideInterval);
@@ -88,11 +99,18 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
   }
 
   showSlide(n: number) {
+    if (!this.isBrowser) return; // Prevents execution on the server
+  
     const slides = document.getElementsByClassName('slide') as HTMLCollectionOf<HTMLElement>;
     if (n >= slides.length) { this.currentSlide = 0; }
     if (n < 0) { this.currentSlide = slides.length - 1; }
+  
     const offset = -this.currentSlide * 10;
     const slider = document.getElementById('slider') as HTMLElement;
-    slider.style.transform = `translateX(${offset}%)`;
+    if (slider) {
+      slider.style.transform = `translateX(${offset}%)`;
+    }
   }
-}
+  
+  
+}  
