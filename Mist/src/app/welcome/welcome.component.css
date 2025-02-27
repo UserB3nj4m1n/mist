@@ -114,6 +114,7 @@
   box-sizing: border-box;
   background-color: #6e839620;
   margin: 30px;
+  border-radius: 10px;
 }
 
 .slide-content {
