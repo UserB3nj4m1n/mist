@@ -99,3 +99,12 @@ button {
   font-weight: 500;
   padding: 0.2rem 1rem;
 }
+
+.ButtonsView {
+  transition: 0.3s;
+}
+
+.ButtonsView:hover {
+  background-color: #576776;
+  scale: 1.1;
+}
