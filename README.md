@@ -50,3 +50,11 @@ TBD - Few lines about the project, what is its purpose and meaning.
 | Browsing, Searching, Filtering Games | Searchbar, Filterbar    | Payment Gateway Integration |
 | Viewing Game Details                 | Genre, Price, etc..     | Managing User Profile       |
 | Responsive Design                    | Phones, PC              | Tablet Responsivity         |
+
+## Project Plans
+
+#Spirnt 1
+  - Full responzive website 
+  - Conect Firebase and load data on website
+  - Switching layout mode
+  - Switching Dark, White mode
