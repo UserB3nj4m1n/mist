@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Game } from '../data/game';
+import { Observable } from 'rxjs';
+import { GetdataService } from '../services/getdata.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-store',
@@ -9,57 +12,16 @@ import { Game } from '../data/game';
   styleUrl: './store.component.css',
 })
 export class StoreComponent implements OnInit {
-  games: Game[] = [
-    {
-      id: 1,
-      title: 'Cyber Adventure',
-      genre: 'Action',
-      releaseYear: 2022,
-      platform: ['Windows', 'Mac'],
-      price: 19.99,
-      rating: 4,
-      discount: 0,
-      imageUrl: 'https://cdn.mos.cms.futurecdn.net/ACdzWZfdLaDdriwcnprmUV.jpg',
-    },
-    {
-      id: 2,
-      title: 'Fantasy Quest',
-      genre: 'RPG',
-      releaseYear: 2023,
-      platform: ['Windows'],
-      price: 29.99,
-      discount: 10,
-      rating: 5,
-      imageUrl:
-        'https://www.pcgamesn.com/wp-content/sites/pcgamesn/2022/09/best-fantasy-games-elden-ring.jpg',
-    },
-    {
-      id: 3,
-      title: 'Space Shooter',
-      genre: 'Shooter',
-      releaseYear: 2024,
-      platform: ['Windows', 'Linux'],
-      price: 9.99,
-      discount: 20,
-      rating: 3,
-      imageUrl:
-        'https://play-lh.googleusercontent.com/NwGdwj6SSKss7V7TuFFqJDYMQ7E0JKYt5pLWMl_YuQOaTT6KseSvD2vi4buKtGlh=w526-h296-rw',
-    },
-    {
-      id: 4,
-      title: 'Medieval Strategy',
-      genre: 'Strategy',
-      releaseYear: 2025,
-      platform: ['Windows', 'Mac', 'Linux'],
-      price: 39.99,
-      discount: 15,
-      rating: 4,
-      imageUrl:
-        'https://i.ytimg.com/vi/U_X3sEyeWv0/maxresdefault.jpg',
-    }
-  ];
+  games$: Observable<Game[]>;
+  isBrowser: boolean;
 
-  constructor() {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private getDataService: GetdataService
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    this.games$ = this.getDataService.getGames();
+  }
 
   ngOnInit(): void {}
 }

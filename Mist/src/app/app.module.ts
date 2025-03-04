@@ -17,6 +17,9 @@ import { FooterComponent } from './footer/footer.component';
 import { StoreComponent } from './store/store.component';
 import { LoginComponent } from './login/login.component';
 import { StoreCardComponent } from './store-card/store-card.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { firebaseConfig } from './firebase.config';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent, LoginComponent, StoreCardComponent,],
@@ -26,6 +29,8 @@ import { StoreCardComponent } from './store-card/store-card.component';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),

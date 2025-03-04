@@ -137,6 +137,6 @@
       </div>
     </div>
 
-    <app-store-card *ngFor="let game of games" [game]="game"></app-store-card>
+    <app-store-card *ngFor="let game of games$ | async" [game]="game"></app-store-card>
   </div>
 </div>

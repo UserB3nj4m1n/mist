@@ -74,7 +74,7 @@
       </p>
     </div>
     <div class="slider" id="slider">
-      <div class="slide" *ngFor="let game of games">
+      <div class="slide" *ngFor="let game of games$ | async">
         <div class="slide-content">
           <img [src]="game.imageUrl" alt="Slide image" />
           <div class="slide-info">
