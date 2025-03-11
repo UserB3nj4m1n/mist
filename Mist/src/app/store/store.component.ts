@@ -3,13 +3,26 @@ import { Game } from '../data/game';
 import { Observable } from 'rxjs';
 import { GetdataService } from '../services/getdata.service';
 import { isPlatformBrowser } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { StoreCardComponent } from '../store-card/store-card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-store',
-  standalone: false,
 
   templateUrl: './store.component.html',
   styleUrl: './store.component.css',
+  imports: [
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    StoreCardComponent,
+    CommonModule,
+  ],
 })
 export class StoreComponent implements OnInit {
   games$: Observable<Game[]>;

@@ -20,9 +20,16 @@ import { StoreCardComponent } from './store-card/store-card.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { firebaseConfig } from './firebase.config';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, WelcomeComponent, FooterComponent, StoreComponent, LoginComponent, StoreCardComponent,],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    WelcomeComponent,
+    FooterComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +37,9 @@ import { firebaseConfig } from './firebase.config';
     MatDividerModule,
     MatIconModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreComponent,
+    CommonModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
