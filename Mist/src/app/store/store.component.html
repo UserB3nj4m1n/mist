@@ -121,14 +121,23 @@
         <option value="yearNewest">Release Year: Newest First</option>
         <option value="yearOldest">Release Year: Oldest First</option>
       </select>
+
       <div class="ViewLayaut">
-        <button class="ButtonsView">
+        <button
+          class="ButtonsView"
+          (click)="toggleView('grid')"
+          [class.active]="isGridView"
+        >
           <div class="ViewLayautCategory">
             <mat-icon>grid_on</mat-icon>
             <div>Grid</div>
           </div>
         </button>
-        <button class="ButtonsView">
+        <button
+          class="ButtonsView"
+          (click)="toggleView('list')"
+          [class.active]="!isGridView"
+        >
           <div class="ViewLayautCategory">
             <mat-icon>view_headline</mat-icon>
             <div>Lines</div>
@@ -137,9 +146,9 @@
       </div>
     </div>
 
-    <app-store-card
-      *ngFor="let game of games$ | async"
-      [game]="game"
-    ></app-store-card>
+    <div [ngClass]="{ 'grid-view': isGridView, 'list-view': !isGridView }">
+      <app-store-card *ngFor="let game of games$ | async" [game]="game">
+      </app-store-card>
+    </div>
   </div>
 </div>

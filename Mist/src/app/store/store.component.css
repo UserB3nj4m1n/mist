@@ -108,3 +108,45 @@ button {
   background-color: #576776;
   scale: 1.1;
 }
+
+/*preinanie medzi grid lines*/
+
+.ButtonsView.active {
+  background-color: #576776;
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list-view app-store-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list-view app-store-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-store',
-
   templateUrl: './store.component.html',
   styleUrl: './store.component.css',
   imports: [
@@ -27,6 +26,7 @@ import { CommonModule } from '@angular/common';
 export class StoreComponent implements OnInit {
   games$: Observable<Game[]>;
   isBrowser: boolean;
+  isGridView: boolean = true;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -37,4 +37,8 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  toggleView(mode: string) {
+    this.isGridView = mode === 'grid';
+  }
 }
