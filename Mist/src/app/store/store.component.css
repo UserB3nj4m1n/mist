@@ -118,7 +118,8 @@ button {
 .grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  column-gap: 30px;
+  row-gap: 10px;
 }
 
 .list-view {
@@ -136,7 +137,6 @@ button {
 .grid-view {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 }
 
 .list-view {
@@ -149,4 +149,9 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+app-store-card {
+  margin: 0 !important;
+  padding: 0 !important;
 }
