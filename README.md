@@ -53,11 +53,12 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 ## Project Plans
 
-#Spirnt 0
+#### Spirnt 0
   - Create new Angular project  ✔
   - Basic website  ✔
 
-#Spirnt 1
+  
+#### Spirnt 1
   - Full responzive website 
   - Conect Firebase and load data on website  ✔
   - Switching layout mode  ✔ 
