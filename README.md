@@ -56,7 +56,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
 #Spirnt 0
   - Create new Angular project  ✔
   - Basic website  ✔
-    
+
 #Spirnt 1
   - Full responzive website 
   - Conect Firebase and load data on website  ✔
