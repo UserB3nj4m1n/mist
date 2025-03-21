@@ -180,3 +180,9 @@
   width: 70px;
   height: 70px;
 }
+
+.BuyText {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #070708;
+}

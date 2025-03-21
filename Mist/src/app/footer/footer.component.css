@@ -1,9 +1,17 @@
 footer {
   background-color: #6e839620;
-  color: #070708;
+
   margin-top: 3rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+footer[data-theme="dark"] {
+  color: #ffffff;
+}
+
+footer[data-theme="light"] {
+  color: #070708;
 }
 
 .footer-top {
@@ -41,13 +49,21 @@ footer {
 .footer-col ul li {
   margin-bottom: 10px;
 }
-
+/**/
 .footer-col ul li a {
   color: #070708;
   text-decoration: none;
   transition: color 0.3s;
 }
+.footer-col ul li a[data-theme="dark"] {
+  color: #ffffff;
+}
 
+.footer-col ul li a[data-theme="light"] {
+  color: #000000;
+}
+
+/**/
 .footer-col ul li a:hover {
   color: #6e8396;
 }

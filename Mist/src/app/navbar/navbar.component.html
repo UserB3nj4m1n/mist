@@ -5,7 +5,13 @@
   <div class="navbar-links">
     <a routerLink="store" class="navBut">Store</a>
     <a class="navBut" href="">Library</a>
-    <a class="navBut" href="">Contact</a>
+    <div class="dropdown">
+      <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
+      <div class="dropdown-menu">
+        <a (click)="setTheme('dark')" class="dropdown-item">Dark Mode</a>
+        <a (click)="setTheme('light')" class="dropdown-item">White Mode</a>
+      </div>
+    </div>
     <a routerLink="login" class="loginBut" href="">Login / Register</a>
   </div>
 </nav>

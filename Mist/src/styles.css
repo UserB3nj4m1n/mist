@@ -22,7 +22,6 @@ body {
 html,
 body {
   height: 100%;
-  background-color: #f8f8f9;
 }
 
 /*scrollbar*/
@@ -40,4 +39,14 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff00;
+}
+
+body[data-theme="dark"] {
+  background-color: #070708;
+  color: #f8f8f9;
+}
+
+body[data-theme="light"] {
+  background-color: #f8f8f9;
+  color: #070708;
 }

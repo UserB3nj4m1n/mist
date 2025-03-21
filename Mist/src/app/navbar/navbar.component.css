@@ -37,3 +37,45 @@ a {
   background-color: #65788a;
   border-radius: 5px;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f8f8f9;
+  z-index: 999;
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+  color: #070708;
+  cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #ececee;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-toggle:hover + .dropdown-menu {
+  display: block;
+}
+
+.SetingsBut {
+  min-width: 150px;
+}
