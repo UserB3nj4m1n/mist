@@ -2,12 +2,15 @@
   <div class="navbar-brand">
     <img routerLink="welcome" src="/LogoMist.jpg" />
   </div>
-  <div class="navbar-links">
+  <button class="navbar-toggle" (click)="toggleNavbar()">
+    &#9776;
+  </button>
+  <div class="navbar-links" [class.active]="isNavbarOpen">
     <a routerLink="store" class="navBut">Store</a>
     <a class="navBut" href="">Library</a>
     <div class="dropdown">
-      <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
-      <div class="dropdown-menu">
+      <a class="navBut dropdown-toggle" (click)="toggleDropdown()">Settings</a>
+      <div class="dropdown-menu" [class.active]="isDropdownOpen">
         <a (click)="setTheme('dark')" class="dropdown-item">Dark Mode</a>
         <a (click)="setTheme('light')" class="dropdown-item">White Mode</a>
       </div>
