@@ -59,7 +59,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
   
 #### Spirnt 1
-  - Full responzive website 
+  - Full responzive website  ✔
   - Conect Firebase and load data on website  ✔
   - Switching layout mode  ✔ 
-  - Switching Dark, White mode
+  - Switching Dark, White mode ✔
