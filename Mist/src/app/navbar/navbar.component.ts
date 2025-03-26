@@ -9,11 +9,9 @@ import { Component, Renderer2 } from '@angular/core';
 export class NavbarComponent {
   constructor(private renderer: Renderer2) {}
 
-  setTheme(theme: string): void {
-    if (theme === 'dark') {
-      this.renderer.setAttribute(document.body, 'data-theme', 'dark');
-    } else if (theme === 'light') {
-      this.renderer.setAttribute(document.body, 'data-theme', 'light');
-    }
+  toggleTheme(event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    const theme = isChecked ? 'dark' : 'light';
+    this.renderer.setAttribute(document.body, 'data-theme', theme);
   }
 }
