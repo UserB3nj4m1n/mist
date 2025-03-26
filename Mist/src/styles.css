@@ -19,6 +19,12 @@ body {
   margin: 0 12%;
 }
 
+@media (max-width: 768px) {
+  body {
+    margin: 0 3%;
+  }
+}
+
 html,
 body {
   height: 100%;

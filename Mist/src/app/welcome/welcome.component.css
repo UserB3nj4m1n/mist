@@ -1,5 +1,6 @@
 .main {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .mainLeft {
@@ -22,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .mainLeftButtons {
@@ -49,6 +51,7 @@
 .mainLeftScroll {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .mainLeftWhy {
@@ -59,21 +62,23 @@
 }
 
 .mainLeftTextWhy {
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 600;
   text-align: center;
 }
 
 .mainWhyReason {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
   align-items: center;
 }
 
 .mainWhyBox {
   background-color: #6e839620;
   width: 100%;
+  max-width: 20em;
   display: flex;
   flex-direction: column;
   height: 170px;
@@ -84,6 +89,7 @@
 
 .mainWhyParagraf {
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .mainWhyBoxReason {
@@ -91,11 +97,19 @@
   font-weight: 560;
 }
 
-.mainImg {
-  height: 400px;
+.mainWhyIcon {
+  max-width: 60px;
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 
-/* Slider Styles */
+.mainImg {
+  height: 400px;
+  max-width: 100%;
+}
+
 .slider-container {
   gap: 10px;
   position: relative;
@@ -110,7 +124,7 @@
 }
 
 .slide {
-  min-width: 100%;
+  min-width: 25%;
   box-sizing: border-box;
   background-color: #6e839620;
   margin: 30px;
@@ -157,32 +171,73 @@
   right: 10px;
 }
 
-/* Responsive Styles */
-@media (min-width: 1024px) {
-  .slide {
-    min-width: 25%;
+@media (max-width: 1100px) {
+  .main {
+    flex-direction: column;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1023px) {
+  .mainLeft,
+  .mainRight {
+    width: 100%;
+    margin: 0;
+  }
+
+  .mainLeftText {
+    font-size: 50px;
+    margin-top: 40px;
+  }
+
+  .mainImg {
+    height: 300px;
+  }
+
+  .mainLeftButtons {
+    width: 40%;
+    font-size: 18px;
+  }
+
+  .mainWhyBox {
+    max-width: 15em;
+    height: 150px;
+    padding: 1.5rem;
+  }
+
+  .mainWhyIcon {
+    max-width: 80px;
+    max-height: 80px;
+  }
+
   .slide {
     min-width: 33.33%;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .mainLeftText {
+    font-size: 40px;
+  }
+
+  .mainImg {
+    height: 200px;
+  }
+
+  .mainLeftButtons {
+    width: 60%;
+    font-size: 16px;
+  }
+
+  .mainWhyBox {
+    max-width: 12em;
+    height: 120px;
+    padding: 1rem;
+  }
+
+  .mainWhyIcon {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
   .slide {
     min-width: 100%;
   }
-}
-
-.mainWhyIcon {
-  width: 70px;
-  height: 70px;
-}
-
-.BuyText {
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #070708;
 }

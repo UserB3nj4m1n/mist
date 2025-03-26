@@ -4,29 +4,36 @@
   align-items: center;
   padding: 1rem;
   border-bottom: 2px solid #d9d9d9;
+  position: relative;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  backdrop-filter: blur(5px); /* Optional: Adds a blur effect for a frosted glass look */
 }
 
-a {
-  color: #070708;
-}
-.navBut {
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-.navBut:hover {
-  background-color: #ececee;
-  border-radius: 5px;
-}
 .navbar-brand img {
   height: 40px;
   cursor: pointer;
 }
+
 .navbar-links {
   display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navBut {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: #070708;
+}
+
+.navBut:hover {
+  background-color: rgba(236, 236, 238, 0.8); /* Slightly transparent hover effect */
+  border-radius: 5px;
 }
 
 .loginBut {
-  background-color: #6e8396;
+  background-color: rgba(110, 131, 150, 0.9); /* Slightly transparent button */
   border-radius: 5px;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -34,28 +41,25 @@ a {
 }
 
 .loginBut:hover {
-  background-color: #65788a;
-  border-radius: 5px;
+  background-color: rgba(101, 120, 138, 0.9); /* Slightly transparent hover effect */
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-toggle {
   cursor: pointer;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  text-align: center;
-  display: inline-block;
 }
 
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #f8f8f9;
+  background-color: rgba(248, 248, 249, 0.9); /* Slightly transparent dropdown */
   z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-menu .dropdown-item {
@@ -67,15 +71,69 @@ a {
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #ececee;
+  background-color: rgba(236, 236, 238, 0.8); /* Slightly transparent hover effect */
   border-radius: 5px;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown-toggle:hover + .dropdown-menu {
+.dropdown-menu.active {
   display: block;
 }
 
-.SetingsBut {
-  min-width: 150px;
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-links.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(248, 248, 249, 0.9); /* Slightly transparent background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navBut,
+  .loginBut {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+  }
 }

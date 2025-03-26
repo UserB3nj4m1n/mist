@@ -16,4 +16,16 @@ export class NavbarComponent {
       this.renderer.setAttribute(document.body, 'data-theme', 'light');
     }
   }
+  
+
+  isNavbarOpen = false;
+  isDropdownOpen = false;
+
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
 }
