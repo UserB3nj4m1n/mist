@@ -66,3 +66,34 @@
   margin-top: auto;
   transition: 0.3s;
 }
+
+a {
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.ForgotPass {
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.ForgotPassDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Register {
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.LinksRegPass {
+  color: #070708;
+}

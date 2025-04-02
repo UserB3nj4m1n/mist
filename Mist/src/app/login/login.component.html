@@ -12,21 +12,25 @@
         />
 
         <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter email"
-          name="email"
-        />
-
-        <input
           type="password"
           class="form-control"
           id="pwd"
           placeholder="Enter password"
           name="pswd"
         />
-
+        <div class="ForgotPassDiv">
+          <p class="ForgotPass">
+            <a class="LinksRegPass">Forgot password</a>
+          </p>
+          <p class="Register">
+            <a
+              routerLink="/register"
+              class="LinksRegPass"
+              style="color: #6e8396"
+              >Register</a
+            >
+          </p>
+        </div>
         <button type="login" class="loginButton">Login</button>
       </div>
     </form>
