@@ -8,8 +8,12 @@
     <div class="dropdown">
       <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
       <div class="dropdown-menu">
-        <a (click)="setTheme('dark')" class="dropdown-item">Dark Mode</a>
-        <a (click)="setTheme('light')" class="dropdown-item">White Mode</a>
+        <div class="dropdown-toggle">
+          <label class="switch">
+            <input type="checkbox" (change)="toggleTheme($event)" />
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
     </div>
     <a routerLink="login" class="loginBut" href="">Login / Register</a>
