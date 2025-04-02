@@ -11,6 +11,6 @@ export class GetdataService {
   constructor(private firestore: AngularFirestore) { }
 
   getGames(): Observable<Game[]> {
-    return this.firestore.collection<Game>('game').valueChanges();
+    return this.firestore.collection<Game>('games').valueChanges();
   }
 }
