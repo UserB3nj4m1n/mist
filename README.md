@@ -53,13 +53,19 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 ## Project Plans
 
-#### Spirnt 0
+#### Spirnt 1 (26.2.)
   - Create new Angular project  ✔
   - Basic website  ✔
 
   
-#### Spirnt 1
-  - Full responzive website  ✔
+#### Spirnt 2 (19.3.)
+  - Responzive website  ✔
   - Conect Firebase and load data on website  ✔
   - Switching layout mode  ✔ 
   - Switching Dark, White mode ✔
+
+#### Spirnt 3 (30.4.)
+  - Create Login/Register
+  - Add more games on firebase
+  - Optilamize CSS + HTML
+  - Make woriknig filters for games
