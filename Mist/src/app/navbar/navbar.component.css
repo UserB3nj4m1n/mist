@@ -54,7 +54,7 @@ a {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #f8f8f9;
+
   z-index: 999;
 }
 
