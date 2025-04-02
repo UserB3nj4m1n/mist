@@ -2,17 +2,18 @@
   <div class="navbar-brand">
     <img routerLink="welcome" src="/LogoMist.jpg" />
   </div>
-  <button class="navbar-toggle" (click)="toggleNavbar()">
-    &#9776;
-  </button>
-  <div class="navbar-links" [class.active]="isNavbarOpen">
+  <div class="navbar-links">
     <a routerLink="store" class="navBut">Store</a>
     <a class="navBut" href="">Library</a>
     <div class="dropdown">
-      <a class="navBut dropdown-toggle" (click)="toggleDropdown()">Settings</a>
-      <div class="dropdown-menu" [class.active]="isDropdownOpen">
-        <a (click)="setTheme('dark')" class="dropdown-item">Dark Mode</a>
-        <a (click)="setTheme('light')" class="dropdown-item">White Mode</a>
+      <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-toggle">
+          <label class="switch">
+            <input type="checkbox" (change)="toggleTheme($event)" />
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
     </div>
     <a routerLink="login" class="loginBut" href="">Login / Register</a>
