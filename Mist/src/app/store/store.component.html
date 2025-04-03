@@ -3,7 +3,13 @@
     <p class="filter-title">Game Filters</p>
     <div class="filterLine">
       <p class="filterMainText">Search</p>
-      <input type="search" placeholder="Search" name="" id="" />
+      <input
+        type="Search"
+        class="form-control"
+        id="Search"
+        placeholder="Search"
+        name="Search"
+      />
     </div>
     <div class="filterLine">
       <p class="filterMainText">Price</p>
@@ -11,11 +17,21 @@
     </div>
     <div class="filterLine">
       <p class="filterMainText">Rating</p>
-      <input type="checkbox" name="5star" id="5star" /><label for="5star">⭐⭐⭐⭐⭐</label><br />
-      <input type="checkbox" name="4star" id="4star" /><label for="4star">⭐⭐⭐⭐</label><br />
-      <input type="checkbox" name="3star" id="3star" /><label for="3star">⭐⭐⭐</label><br />
-      <input type="checkbox" name="2star" id="2star" /><label for="2star">⭐⭐</label><br />
-      <input type="checkbox" name="1star" id="1star" /><label for="1star">⭐</label>
+      <input type="checkbox" name="5star" id="5star" /><label for="5star"
+        >⭐⭐⭐⭐⭐</label
+      ><br />
+      <input type="checkbox" name="4star" id="4star" /><label for="4star"
+        >⭐⭐⭐⭐</label
+      ><br />
+      <input type="checkbox" name="3star" id="3star" /><label for="3star"
+        >⭐⭐⭐</label
+      ><br />
+      <input type="checkbox" name="2star" id="2star" /><label for="2star"
+        >⭐⭐</label
+      ><br />
+      <input type="checkbox" name="1star" id="1star" /><label for="1star"
+        >⭐</label
+      >
     </div>
     <div class="filterLine category-container">
       <p class="filterMainText">Categories</p>
@@ -48,8 +64,12 @@
     </div>
     <div class="filterLine">
       <p class="filterMainText">Operating system</p>
-      <input type="checkbox" name="Windows" id="Windows" /><label for="Windows">Windows</label><br />
-      <input type="checkbox" name="Linux" id="Linux" /><label for="Linux">Linux</label><br />
+      <input type="checkbox" name="Windows" id="Windows" /><label for="Windows"
+        >Windows</label
+      ><br />
+      <input type="checkbox" name="Linux" id="Linux" /><label for="Linux"
+        >Linux</label
+      ><br />
       <input type="checkbox" name="Mac" id="Mac" /><label for="Mac">Mac</label>
     </div>
   </div>
@@ -67,13 +87,21 @@
       </select>
 
       <div class="ViewLayaut">
-        <button class="ButtonsView" (click)="toggleView('grid')" [class.active]="isGridView">
+        <button
+          class="ButtonsView"
+          (click)="toggleView('grid')"
+          [class.active]="isGridView"
+        >
           <div class="ViewLayautCategory">
             <mat-icon>grid_on</mat-icon>
             <div>Grid</div>
           </div>
         </button>
-        <button class="ButtonsView" (click)="toggleView('list')" [class.active]="!isGridView">
+        <button
+          class="ButtonsView"
+          (click)="toggleView('list')"
+          [class.active]="!isGridView"
+        >
           <div class="ViewLayautCategory">
             <mat-icon>view_headline</mat-icon>
             <div>Lines</div>
@@ -83,7 +111,10 @@
     </div>
 
     <div [ngClass]="{ 'grid-view': isGridView, 'list-view': !isGridView }">
-      <app-store-card *ngFor="let game of games$ | async" [game]="game"></app-store-card>
+      <app-store-card
+        *ngFor="let game of games$ | async"
+        [game]="game"
+      ></app-store-card>
     </div>
   </div>
 </div>
