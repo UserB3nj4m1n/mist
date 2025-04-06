@@ -44,6 +44,25 @@
   margin-bottom: 15px;
   width: 250px;
 }
+
+#nickname {
+  padding-left: 25px;
+  background: url("/IconUser.png") no-repeat left;
+  background-size: 20px;
+}
+
+#pwd,
+#conpswd {
+  padding-left: 25px;
+  background: url("/IconPassword.png") no-repeat left;
+  background-size: 20px;
+}
+
+#email {
+  padding-left: 25px;
+  background: url("/IconMail.png") no-repeat left;
+  background-size: 20px;
+}
 .form-control:focus {
   outline: none;
   border-bottom: #6e8396 2px solid !important;
