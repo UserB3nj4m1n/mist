@@ -66,6 +66,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 #### Spirnt 3 (30.4.)
   - Create Login/Register
-  - Add more games on firebase
+  - Add more games on firebase ✔
   - Optilamize CSS + HTML
   - Make woriknig filters for games
