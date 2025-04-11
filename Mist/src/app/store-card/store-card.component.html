@@ -10,11 +10,9 @@
     <p class="game-release">Release Date: {{ game.released }}</p>
   </div>
   <div class="game-price">
-    <div class="discounted-price">
-      ${{ game.originalPrice }}
-    </div>
+    <div class="discounted-price">${{ game.discountedPrice }}</div>
     <div *ngIf="game.discount > 0" class="original-price">
-      ${{ game.discountedPrice }}
+      ${{ game.originalPrice }}
     </div>
     <div *ngIf="game.discount > 0" class="game-discount">
       -{{ game.discount }}%
