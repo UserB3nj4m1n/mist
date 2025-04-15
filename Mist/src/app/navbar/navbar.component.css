@@ -9,10 +9,12 @@
 a {
   color: #070708;
 }
+
 .navBut {
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
+
 .navBut:hover {
   background-color: #ececee;
   border-radius: 5px;

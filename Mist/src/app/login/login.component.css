@@ -62,7 +62,11 @@
   border-bottom: #6e8396 2px solid !important;
 }
 
-::placeholder {
+::placeholder[data-theme="dark"] {
+  color: #f8f8f9;
+}
+
+::placeholder[data-theme="light"] {
   color: #070708;
 }
 
@@ -107,6 +111,10 @@ a {
   margin-top: 10px;
 }
 
-.LinksRegPass {
+.LinksRegPass[data-theme="dark"] {
+  color: #f8f8f9;
+}
+
+.LinksRegPass[data-theme="light"] {
   color: #070708;
 }
