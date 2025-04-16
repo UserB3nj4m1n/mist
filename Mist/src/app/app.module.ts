@@ -22,6 +22,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { firebaseConfig } from './firebase.config';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
+import { DetaildPageComponent } from './detaild-page/detaild-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RegisterComponent } from './register/register.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    DetaildPageComponent,
   ],
   imports: [
     BrowserModule,
