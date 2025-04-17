@@ -16,6 +16,7 @@
           id="email"
           placeholder="Enter email"
           name="email"
+          [(ngModel)]="email"
         />
 
         <input
@@ -24,14 +25,16 @@
           id="pwd"
           placeholder="Enter password"
           name="pswd"
+          [(ngModel)]="password"
         />
 
         <input
-          type="conpassword"
+          type="password"
           class="form-control"
           id="conpswd"
           placeholder="Confirm password"
           name="conpswd"
+          [(ngModel)]="confirmPassword"
         />
         <div class="ForgotPassDiv">
           <p class="ForgotPass"></p>
@@ -41,7 +44,9 @@
             >
           </p>
         </div>
-        <button type="login" class="loginButton">Register</button>
+        <button type="login" class="loginButton" (click)="register()">
+          Register
+        </button>
       </div>
     </form>
   </div>

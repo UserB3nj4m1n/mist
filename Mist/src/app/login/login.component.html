@@ -4,11 +4,12 @@
     <form action="">
       <div class="form-group">
         <input
-          type="nickname"
           class="form-control"
           id="nickname"
-          placeholder="Enter nickname"
-          name="nickname"
+          placeholder="Enter email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
         />
 
         <input
@@ -16,7 +17,8 @@
           class="form-control"
           id="pwd"
           placeholder="Enter password"
-          name="pswd"
+          name="password"
+          [(ngModel)]="password"
         />
         <div class="ForgotPassDiv">
           <p class="ForgotPass">
@@ -31,7 +33,9 @@
             >
           </p>
         </div>
-        <button type="login" class="loginButton">Login</button>
+        <button type="login" class="loginButton" (click)="login()">
+          Login
+        </button>
       </div>
     </form>
   </div>

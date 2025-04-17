@@ -23,6 +23,7 @@ import { firebaseConfig } from './firebase.config';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { DetaildPageComponent } from './detaild-page/detaild-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DetaildPageComponent } from './detaild-page/detaild-page.component';
     AngularFirestoreModule,
     StoreComponent,
     CommonModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
