@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { StoreCardComponent } from '../store-card/store-card.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-store',
@@ -27,16 +28,20 @@ export class StoreComponent implements OnInit {
   games$: Observable<Game[]>;
   isBrowser: boolean;
   isGridView: boolean = true;
+  isAuthenticated: boolean = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private getDataService: GetdataService
+    private getDataService: GetdataService,
+    private authService: AuthService
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.games$ = this.getDataService.getGames();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAuthenticated = this.authService.isLoggedIn();
+  }
 
   toggleView(mode: string) {
     this.isGridView = mode === 'grid';

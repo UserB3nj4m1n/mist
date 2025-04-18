@@ -174,3 +174,33 @@ app-store-card {
 ::placeholder {
   color: #070708;
 }
+
+.MustLog {
+  font-size: 25px;
+  display: flex;
+
+  justify-content: center;
+  text-align: center;
+}
+
+.notAuthenticated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+}
+
+.loginBut {
+  background-color: #6e8396;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: #f8f8f9;
+  font-size: 20px;
+}
+
+.loginBut:hover {
+  background-color: #65788a;
+  border-radius: 5px;
+}

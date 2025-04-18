@@ -11,9 +11,10 @@ export class AuthService {
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(
       (res) => {
-        localStorage.setItem('token', 'true');
-
         if (res.user?.emailVerified == true) {
+          res.user.getIdToken().then((token) => {
+            localStorage.setItem('authToken', token);
+          });
           this.router.navigate(['/store']);
         } else {
           this.router.navigate(['/varify-email']);
@@ -74,17 +75,8 @@ export class AuthService {
       }
     );
   }
-}
 
-/*export class AuthService {
-  constructor(private authFire: AngularFireAuth) {}
-  register(email: string, password: string) {
-    return this.authFire.createUserWithEmailAndPassword(email, password);
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('authToken');
   }
-  login(email: string, password: string) {
-    return this.authFire.signInWithEmailAndPassword(email, password);
-  }
-  logout() {
-    return this.authFire.signOut();
-  }
-}*/
+}

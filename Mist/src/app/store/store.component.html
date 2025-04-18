@@ -1,120 +1,131 @@
-<div class="main">
-  <div class="filter">
-    <p class="filter-title">Game Filters</p>
-    <div class="filterLine">
-      <p class="filterMainText">Search</p>
-      <input
-        type="Search"
-        class="form-control"
-        id="Search"
-        placeholder="Search"
-        name="Search"
-      />
-    </div>
-    <div class="filterLine">
-      <p class="filterMainText">Price</p>
-      <input type="range" name="Price" id="Price" />
-    </div>
-    <div class="filterLine">
-      <p class="filterMainText">Rating</p>
-      <input type="checkbox" name="5star" id="5star" /><label for="5star"
-        >⭐⭐⭐⭐⭐</label
-      ><br />
-      <input type="checkbox" name="4star" id="4star" /><label for="4star"
-        >⭐⭐⭐⭐</label
-      ><br />
-      <input type="checkbox" name="3star" id="3star" /><label for="3star"
-        >⭐⭐⭐</label
-      ><br />
-      <input type="checkbox" name="2star" id="2star" /><label for="2star"
-        >⭐⭐</label
-      ><br />
-      <input type="checkbox" name="1star" id="1star" /><label for="1star"
-        >⭐</label
-      >
-    </div>
-    <div class="filterLine category-container">
-      <p class="filterMainText">Categories</p>
-      <select name="category" id="category">
-        <option value="">Select category</option>
-        <option value="Action">Action</option>
-        <option value="Adventure">Adventure</option>
-        <option value="RPG">RPG</option>
-        <option value="Strategy">Strategy</option>
-        <option value="Casual">Casual</option>
-        <option value="Sports">Sports</option>
-        <option value="Racing">Racing</option>
-        <option value="Horror">Horror</option>
-        <option value="VR">VR</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
-    <div class="filterLine year-container">
-      <p class="filterMainText">Year of release</p>
-      <select name="year" id="year">
-        <option value="">Select year</option>
-        <option value="2026">2026</option>
-        <option value="2025">2025</option>
-        <option value="2024">2024</option>
-        <option value="2023">2023</option>
-        <option value="2022">2022</option>
-        <option value="2021">2021</option>
-        <option value="2020">2020</option>
-      </select>
-    </div>
-    <div class="filterLine">
-      <p class="filterMainText">Operating system</p>
-      <input type="checkbox" name="Windows" id="Windows" /><label for="Windows"
-        >Windows</label
-      ><br />
-      <input type="checkbox" name="Linux" id="Linux" /><label for="Linux"
-        >Linux</label
-      ><br />
-      <input type="checkbox" name="Mac" id="Mac" /><label for="Mac">Mac</label>
-    </div>
-  </div>
-
-  <div class="game-list">
-    <div class="sort-by-container">
-      <p>Sort by:</p>
-      <select name="sortBy">
-        <option value="default">Default</option>
-        <option value="priceLowHigh">Price: Low to High</option>
-        <option value="priceHighLow">Price: High to Low</option>
-        <option value="ratingHighLow">Rating: High to Low</option>
-        <option value="yearNewest">Release Year: Newest First</option>
-        <option value="yearOldest">Release Year: Oldest First</option>
-      </select>
-
-      <div class="ViewLayaut">
-        <button
-          class="ButtonsView"
-          (click)="toggleView('grid')"
-          [class.active]="isGridView"
+<div *ngIf="isAuthenticated; else notAuthenticated">
+  <div class="main">
+    <div class="filter">
+      <p class="filter-title">Game Filters</p>
+      <div class="filterLine">
+        <p class="filterMainText">Search</p>
+        <input
+          type="Search"
+          class="form-control"
+          id="Search"
+          placeholder="Search"
+          name="Search"
+        />
+      </div>
+      <div class="filterLine">
+        <p class="filterMainText">Price</p>
+        <input type="range" name="Price" id="Price" />
+      </div>
+      <div class="filterLine">
+        <p class="filterMainText">Rating</p>
+        <input type="checkbox" name="5star" id="5star" /><label for="5star"
+          >⭐⭐⭐⭐⭐</label
+        ><br />
+        <input type="checkbox" name="4star" id="4star" /><label for="4star"
+          >⭐⭐⭐⭐</label
+        ><br />
+        <input type="checkbox" name="3star" id="3star" /><label for="3star"
+          >⭐⭐⭐</label
+        ><br />
+        <input type="checkbox" name="2star" id="2star" /><label for="2star"
+          >⭐⭐</label
+        ><br />
+        <input type="checkbox" name="1star" id="1star" /><label for="1star"
+          >⭐</label
         >
-          <div class="ViewLayautCategory">
-            <mat-icon>grid_on</mat-icon>
-            <div>Grid</div>
-          </div>
-        </button>
-        <button
-          class="ButtonsView"
-          (click)="toggleView('list')"
-          [class.active]="!isGridView"
+      </div>
+      <div class="filterLine category-container">
+        <p class="filterMainText">Categories</p>
+        <select name="category" id="category">
+          <option value="">Select category</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="RPG">RPG</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Casual">Casual</option>
+          <option value="Sports">Sports</option>
+          <option value="Racing">Racing</option>
+          <option value="Horror">Horror</option>
+          <option value="VR">VR</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="filterLine year-container">
+        <p class="filterMainText">Year of release</p>
+        <select name="year" id="year">
+          <option value="">Select year</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+        </select>
+      </div>
+      <div class="filterLine">
+        <p class="filterMainText">Operating system</p>
+        <input type="checkbox" name="Windows" id="Windows" /><label
+          for="Windows"
+          >Windows</label
+        ><br />
+        <input type="checkbox" name="Linux" id="Linux" /><label for="Linux"
+          >Linux</label
+        ><br />
+        <input type="checkbox" name="Mac" id="Mac" /><label for="Mac"
+          >Mac</label
         >
-          <div class="ViewLayautCategory">
-            <mat-icon>view_headline</mat-icon>
-            <div>Lines</div>
-          </div>
-        </button>
       </div>
     </div>
 
-    <div [ngClass]="{ 'grid-view': isGridView, 'list-view': !isGridView }">
-      <app-store-card
-        *ngFor="let game of games$ | async"
-        [game]="game"
-      ></app-store-card>
+    <div class="game-list">
+      <div class="sort-by-container">
+        <p>Sort by:</p>
+        <select name="sortBy">
+          <option value="default">Default</option>
+          <option value="priceLowHigh">Price: Low to High</option>
+          <option value="priceHighLow">Price: High to Low</option>
+          <option value="ratingHighLow">Rating: High to Low</option>
+          <option value="yearNewest">Release Year: Newest First</option>
+          <option value="yearOldest">Release Year: Oldest First</option>
+        </select>
+
+        <div class="ViewLayaut">
+          <button
+            class="ButtonsView"
+            (click)="toggleView('grid')"
+            [class.active]="isGridView"
+          >
+            <div class="ViewLayautCategory">
+              <mat-icon>grid_on</mat-icon>
+              <div>Grid</div>
+            </div>
+          </button>
+          <button
+            class="ButtonsView"
+            (click)="toggleView('list')"
+            [class.active]="!isGridView"
+          >
+            <div class="ViewLayautCategory">
+              <mat-icon>view_headline</mat-icon>
+              <div>Lines</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div [ngClass]="{ 'grid-view': isGridView, 'list-view': !isGridView }">
+        <app-store-card
+          *ngFor="let game of games$ | async"
+          [game]="game"
+        ></app-store-card>
+      </div>
     </div>
   </div>
 </div>
+
+<ng-template #notAuthenticated>
+  <div class="notAuthenticated">
+    <p class="MustLog">You must be logged in to access this page.</p>
+  </div>
+</ng-template>
