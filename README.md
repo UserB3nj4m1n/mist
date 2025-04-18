@@ -66,6 +66,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 #### Spirnt 3 (30.4.)
   - Create Login/Register component ✔
-  - Make Login/Register working
+  - Make Login/Register working ✔
   - Add more games on firebase ✔
   - Make woriknig filters for games
