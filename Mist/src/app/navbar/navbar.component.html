@@ -16,6 +16,14 @@
         </div>
       </div>
     </div>
-    <a routerLink="login" class="loginBut">Login / Register</a>
+    <ng-container *ngIf="!isAuthenticated; else authenticated">
+      <a routerLink="login" class="loginBut">Login / Register</a>
+    </ng-container>
+    <ng-template #authenticated>
+      <a routerLink="profile" class="loginBut">Profile</a>
+      <a routerLink="store" class="navBut" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </ng-template>
   </div>
 </nav>

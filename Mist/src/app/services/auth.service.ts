@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(
+    this.isBrowser() && !!localStorage.getItem('authToken')
+  );
+  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+
   constructor(private fireauth: AngularFireAuth, private router: Router) {}
+
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
 
   // login method
   login(email: string, password: string) {
@@ -13,7 +24,10 @@ export class AuthService {
       (res) => {
         if (res.user?.emailVerified == true) {
           res.user.getIdToken().then((token) => {
-            localStorage.setItem('authToken', token);
+            if (this.isBrowser()) {
+              localStorage.setItem('authToken', token);
+            }
+            this.isAuthenticatedSubject.next(true); // Update authentication status
           });
           this.router.navigate(['/store']);
         } else {
@@ -44,7 +58,10 @@ export class AuthService {
   logout() {
     this.fireauth.signOut().then(
       () => {
-        localStorage.removeItem('token');
+        if (this.isBrowser()) {
+          localStorage.removeItem('authToken');
+        }
+        this.isAuthenticatedSubject.next(false);
         this.router.navigate(['/login']);
       },
       (err) => {
@@ -77,6 +94,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('authToken');
+    return this.isBrowser() && !!localStorage.getItem('authToken');
   }
 }

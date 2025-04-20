@@ -1,20 +1,28 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service'; // Import your AuthService
 
 @Component({
   selector: 'app-navbar',
   standalone: false,
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  constructor(private renderer: Renderer2) {}
+export class NavbarComponent implements OnInit {
+  isAuthenticated: boolean = false;
+
+  constructor(private renderer: Renderer2, private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.isAuthenticated$.subscribe((status: boolean) => {
+      this.isAuthenticated = status;
+    });
+  }
 
   toggleTheme(event: Event): void {
     const isChecked = (event.target as HTMLInputElement).checked;
     const theme = isChecked ? 'dark' : 'light';
     this.renderer.setAttribute(document.body, 'data-theme', theme);
   }
-  
 
   isNavbarOpen = false;
   isDropdownOpen = false;
@@ -25,5 +33,9 @@ export class NavbarComponent {
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }
