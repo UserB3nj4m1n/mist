@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { DetaildPageComponent } from './detaild-page/detaild-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     DetaildPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
