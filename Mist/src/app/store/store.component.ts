@@ -25,7 +25,12 @@ import { AuthService } from '../services/auth.service';
   ],
 })
 export class StoreComponent implements OnInit {
-  games$: Observable<Game[]>;
+  games$: Observable<Game[]>; // Observable of games
+  games: Game[] = []; // Resolved games array
+  paginatedGames: Game[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+  totalPages: number = 1;
   isBrowser: boolean;
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
@@ -41,9 +46,37 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isLoggedIn();
+    this.games$.subscribe((games) => {
+      this.games = games;
+      this.updatePagination();
+    });
   }
 
   toggleView(mode: string) {
     this.isGridView = mode === 'grid';
+  }
+
+  updatePagination(page: number = this.currentPage) {
+    if (page < 1) {
+      page = 1;
+    }
+    if (page > this.totalPages) {
+      page = this.totalPages;
+    }
+    this.currentPage = page;
+
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+
+    this.paginatedGames = this.games.slice(startIndex, endIndex);
+    this.totalPages = Math.ceil(this.games.length / this.itemsPerPage);
+  }
+
+  nextPage() {
+    this.updatePagination(this.currentPage + 1);
+  }
+
+  prevPage() {
+    this.updatePagination(this.currentPage - 1);
   }
 }

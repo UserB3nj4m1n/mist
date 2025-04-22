@@ -116,9 +116,27 @@
 
       <div [ngClass]="{ 'grid-view': isGridView, 'list-view': !isGridView }">
         <app-store-card
-          *ngFor="let game of games$ | async"
+          *ngFor="let game of paginatedGames"
           [game]="game"
         ></app-store-card>
+      </div>
+
+      <div class="pagination">
+        <button
+          class="NextPrevPage"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          <<<
+        </button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button
+          class="NextPrevPage"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          >>>
+        </button>
       </div>
     </div>
   </div>

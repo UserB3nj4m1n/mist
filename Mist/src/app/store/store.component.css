@@ -204,3 +204,15 @@ app-store-card {
   background-color: #65788a;
   border-radius: 5px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NextPrevPage {
+  margin: 20px;
+  color: #f8f8f9;
+  padding: 5px 15px;
+}
