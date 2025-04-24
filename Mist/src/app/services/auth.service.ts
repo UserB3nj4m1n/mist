@@ -31,7 +31,7 @@ export class AuthService {
           });
           this.router.navigate(['/store']);
         } else {
-          this.router.navigate(['/varify-email']);
+          alert('Please verify your email before logging in.');
         }
       },
       (err) => {

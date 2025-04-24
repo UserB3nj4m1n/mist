@@ -22,7 +22,5 @@ export class LoginComponent {
     }
 
     this.auth.login(this.email, this.password);
-    this.email = '';
-    this.password = '';
   }
 }
