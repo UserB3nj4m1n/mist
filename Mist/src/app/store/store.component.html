@@ -33,27 +33,27 @@
           type="checkbox"
           id="5star"
           (change)="toggleRating(5)"
-        /><label for="5star">⭐⭐⭐⭐⭐</label><br />
+        /><label for="5star">⭐⭐⭐⭐⭐ ({{ ratingCounts[5] || 0 }})</label><br />
         <input
           type="checkbox"
           id="4star"
           (change)="toggleRating(4)"
-        /><label for="4star">⭐⭐⭐⭐</label><br />
+        /><label for="4star">⭐⭐⭐⭐ ({{ ratingCounts[4] || 0 }})</label><br />
         <input
           type="checkbox"
           id="3star"
           (change)="toggleRating(3)"
-        /><label for="3star">⭐⭐⭐</label><br />
+        /><label for="3star">⭐⭐⭐ ({{ ratingCounts[3] || 0 }})</label><br />
         <input
           type="checkbox"
           id="2star"
           (change)="toggleRating(2)"
-        /><label for="2star">⭐⭐</label><br />
+        /><label for="2star">⭐⭐ ({{ ratingCounts[2] || 0 }})</label><br />
         <input
           type="checkbox"
           id="1star"
           (change)="toggleRating(1)"
-        /><label for="1star">⭐</label>
+        /><label for="1star">⭐ ({{ ratingCounts[1] || 0 }})</label>
       </div>
       <div class="filterLine category-container">
         <p class="filterMainText">Categories</p>
@@ -69,22 +69,22 @@
         </div>
       </div>
       <div class="filterLine">
-        <p class="filterMainText">Operating system</p>
+        <p class="filterMainText">Platforms</p>
         <input
           type="checkbox"
           id="Windows"
           (change)="togglePlatform('Windows')"
-        /><label for="Windows">Windows</label><br />
+        /><label for="Windows">Windows ({{ platformCounts['Windows'] || 0 }})</label><br />
         <input
           type="checkbox"
           id="Linux"
           (change)="togglePlatform('Linux')"
-        /><label for="Linux">Linux</label><br />
+        /><label for="Linux">Linux ({{ platformCounts['Linux'] || 0 }})</label><br />
         <input
           type="checkbox"
           id="Mac"
           (change)="togglePlatform('Mac')"
-        /><label for="Mac">Mac</label>
+        /><label for="Mac">Mac ({{ platformCounts['Mac'] || 0 }})</label>
       </div>
     </div>
 
@@ -96,8 +96,6 @@
           <option value="priceLowHigh">Price: Low to High</option>
           <option value="priceHighLow">Price: High to Low</option>
           <option value="ratingHighLow">Rating: High to Low</option>
-          <option value="yearNewest">Release Year: Newest First</option>
-          <option value="yearOldest">Release Year: Oldest First</option>
         </select>
 
         <div class="ViewLayaut">
