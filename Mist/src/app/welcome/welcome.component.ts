@@ -28,7 +28,7 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
   slideInterval: any;
 
   ngAfterViewInit() {
-    if (!this.isBrowser) return; // Ensure it's only executed in the browser
+    if (!this.isBrowser) return;
   
     this.showSlide(this.currentSlide);
   

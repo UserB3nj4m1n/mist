@@ -4,11 +4,12 @@
     <form action="">
       <div class="form-group">
         <input
-          type="nickname"
+          type="text"
           class="form-control"
-          id="nickname"
+          id="displayName"
           placeholder="Enter nickname"
-          name="nickname"
+          name="displayName"
+          [(ngModel)]="displayName"
         />
         <input
           type="email"
@@ -36,6 +37,7 @@
           name="conpswd"
           [(ngModel)]="confirmPassword"
         />
+
         <div class="ForgotPassDiv">
           <p class="ForgotPass"></p>
           <p class="Register">

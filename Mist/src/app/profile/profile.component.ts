@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
-  standalone: false,
-
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css',
+  styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent {}
+export class ProfileComponent implements OnInit {
+  displayName: string = '';
+  email: string = '';
+
+  constructor(private auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.auth.getUserData().subscribe((user) => {
+      if (user) {
+        this.displayName = user.displayName || 'No Display Name';
+        this.email = user.email || 'No Email';
+      }
+    });
+  }
+}

@@ -35,7 +35,6 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     DetaildPageComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +47,7 @@ import { ProfileComponent } from './profile/profile.component';
     StoreComponent,
     CommonModule,
     FormsModule,
+    ProfileComponent,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

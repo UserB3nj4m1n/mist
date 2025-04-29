@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class AuthService {
             if (this.isBrowser()) {
               localStorage.setItem('authToken', token);
             }
-            this.isAuthenticatedSubject.next(true); // Update authentication status
+            this.isAuthenticatedSubject.next(true);
           });
           this.router.navigate(['/store']);
         } else {
@@ -41,9 +41,14 @@ export class AuthService {
     );
   }
 
-  register(email: string, password: string) {
+  register(email: string, password: string, displayName?: string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then(
       (res) => {
+        if (displayName) {
+          res.user?.updateProfile({ displayName }).then(() => {
+            console.log('Display name updated:', displayName);
+          });
+        }
         alert('Registration Successful');
         this.sendEmailForVarification(res.user);
         this.router.navigate(['/login']);
@@ -95,5 +100,13 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return this.isBrowser() && !!localStorage.getItem('authToken');
+  }
+
+  getUserDetails() {
+    return this.fireauth.currentUser;
+  }
+
+  getUserData(): Observable<any> {
+    return this.fireauth.authState;
   }
 }
