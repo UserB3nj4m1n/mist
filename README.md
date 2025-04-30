@@ -68,4 +68,4 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Create Login/Register component ✔
   - Make Login/Register working ✔
   - Add more games on firebase ✔
-  - Make woriknig filters for games
+  - Make woriknig filters for games ✔
