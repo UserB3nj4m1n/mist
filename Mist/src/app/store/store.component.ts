@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Game } from '../data/game';
 import { Observable } from 'rxjs';
 import { GetdataService } from '../services/getdata.service';
@@ -50,7 +50,8 @@ export class StoreComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private getDataService: GetdataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.games$ = this.getDataService.getGames();
@@ -62,6 +63,7 @@ export class StoreComponent implements OnInit {
     this.games$.subscribe((games) => {
       this.games = games;
       this.filteredGames = games;
+      this.cdr.markForCheck();
       this.updatePagination();
     });
     this.genres$.subscribe((genres) => {
