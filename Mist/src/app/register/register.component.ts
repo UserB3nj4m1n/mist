@@ -39,6 +39,11 @@ export class RegisterComponent {
       return;
     }
 
+    if (this.displayName == '') {
+      alert('Please enter name');
+      return;
+    }
+
     this.auth.register(this.email, this.password, this.displayName);
   }
 }

@@ -219,3 +219,8 @@ app-store-card {
 #prizeRange {
   margin-bottom: 0;
 }
+
+.Count {
+  font-size: 10px;
+  color: #6e8396;
+}

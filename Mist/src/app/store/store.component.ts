@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { Game } from '../data/game';
 import { Observable } from 'rxjs';
 import { GetdataService } from '../services/getdata.service';
@@ -115,7 +121,7 @@ export class StoreComponent implements OnInit {
         );
       const matchesPlatform =
         this.selectedPlatforms.length === 0 ||
-        this.selectedPlatforms.includes(game.platform)
+        this.selectedPlatforms.includes(game.platform);
 
       return (
         matchesSearch &&
@@ -137,7 +143,7 @@ export class StoreComponent implements OnInit {
       this.filteredGames.sort((a, b) => b.discountedPrice - a.discountedPrice);
     } else if (this.sortBy === 'ratingHighLow') {
       this.filteredGames.sort((a, b) => b.rating - a.rating);
-    } 
+    }
   }
 
   toggleRating(rating: number) {

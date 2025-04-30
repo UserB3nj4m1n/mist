@@ -59,7 +59,8 @@
             (change)="toggleCategory(genre.name)"
           />
           <label [for]="genre.name">
-            {{ genre.name }} ({{ genre.count }}) </label
+            {{ genre.name }}
+            <span class="Count">({{ genre.count }})</span> </label
           ><br />
         </div>
       </div>
