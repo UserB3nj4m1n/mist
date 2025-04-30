@@ -216,3 +216,6 @@ app-store-card {
   color: #f8f8f9;
   padding: 5px 15px;
 }
+#prizeRange {
+  margin-bottom: 0;
+}

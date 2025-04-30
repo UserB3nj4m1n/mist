@@ -11,10 +11,10 @@
   </div>
   <div class="game-price">
     <div class="discounted-price">
-      <p class="discounted-price-text">${{ game.discountedPrice }}</p>
+      <p class="discounted-price-text">{{ game.discountedPrice }}€</p>
     </div>
     <div *ngIf="game.discount > 0" class="original-price">
-      ${{ game.originalPrice }}
+      {{ game.originalPrice }}€
     </div>
     <div *ngIf="game.discount > 0" class="game-discount">
       -{{ game.discount }}%
