@@ -69,3 +69,5 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Make Login/Register working ✔
   - Add more games on firebase ✔
   - Make woriknig filters for games ✔
+  - Pagination ✔
+  - Some profile page (Structure for next sprint) ✔
