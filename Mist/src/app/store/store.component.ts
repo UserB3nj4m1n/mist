@@ -44,6 +44,8 @@ export class StoreComponent implements OnInit {
   selectedCategories: string[] = [];
   selectedPlatforms: string[] = [];
   sortBy: string = 'default';
+  ratingCounts: { [key: number]: number } = {};
+  platformCounts: { [key: string]: number } = {};
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -134,11 +136,6 @@ export class StoreComponent implements OnInit {
     } else if (this.sortBy === 'ratingHighLow') {
       this.filteredGames.sort((a, b) => b.rating - a.rating);
     } 
-    // else if (this.sortBy === 'yearNewest') {
-    //   this.filteredGames.sort((a, b) => b.added - a.added);
-    // } else if (this.sortBy === 'yearOldest') {
-    //   this.filteredGames.sort((a, b) => a.added - b.added);
-    // }
   }
 
   toggleRating(rating: number) {
