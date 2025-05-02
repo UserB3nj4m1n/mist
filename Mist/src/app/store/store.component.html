@@ -3,87 +3,88 @@
     <div class="filter">
       <p class="filter-title">Game Filters</p>
       <div class="filterLine">
-        <p class="filterMainText">Search</p>
-        <input
-          type="search"
-          class="form-control"
-          id="Search"
-          placeholder="Search"
-          name="Search"
-          [(ngModel)]="searchQuery"
-          (input)="applyFilters()"
-        />
-      </div>
-      <div class="filterLine">
-        <p class="filterMainText">Price</p>
-        <p class="filterMainText" id="prizeRange">1€ - {{ selPrice }}€</p>
-        <input
-          type="range"
-          name="Price"
-          id="Price"
-          min="1"
-          max="200"
-          [(ngModel)]="selPrice"
-          (change)="applyFilters()"
-        />
-      </div>
-      <div class="filterLine">
-        <p class="filterMainText">Rating</p>
-        <input type="checkbox" id="5star" (change)="toggleRating(5)" /><label
-          for="5star"
-          >⭐⭐⭐⭐⭐</label
-        ><br />
-        <input type="checkbox" id="4star" (change)="toggleRating(4)" /><label
-          for="4star"
-          >⭐⭐⭐⭐</label
-        ><br />
-        <input type="checkbox" id="3star" (change)="toggleRating(3)" /><label
-          for="3star"
-          >⭐⭐⭐</label
-        ><br />
-        <input type="checkbox" id="2star" (change)="toggleRating(2)" /><label
-          for="2star"
-          >⭐⭐</label
-        ><br />
-        <input type="checkbox" id="1star" (change)="toggleRating(1)" /><label
-          for="1star"
-          >⭐</label
-        >
-      </div>
-      <div class="filterLine category-container">
-        <p class="filterMainText">Categories</p>
-        <div *ngFor="let genre of genres">
+        <p class="filterMainText" (click)="toggleFilter('search')">
+          Search
+          <span class="getTogleSymbol">{{ getToggleSymbol("search") }}</span>
+        </p>
+        <div *ngIf="!collapsedFilters['search']">
           <input
-            type="checkbox"
-            [id]="genre.name"
-            (change)="toggleCategory(genre.name)"
+            type="search"
+            class="form-control"
+            id="Search"
+            placeholder="Search"
+            name="Search"
+            [(ngModel)]="searchQuery"
+            (input)="applyFilters()"
           />
-          <label [for]="genre.name">
-            {{ genre.name }}
-            <span class="Count">({{ genre.count }})</span> </label
-          ><br />
         </div>
       </div>
       <div class="filterLine">
-        <p class="filterMainText">Platforms</p>
-        <input
-          type="checkbox"
-          id="Windows"
-          (change)="togglePlatform('Windows')"
-        /><label for="Windows"
-          >Windows ({{ platformCounts["Windows"] || 0 }})</label
-        ><br />
-        <input
-          type="checkbox"
-          id="Linux"
-          (change)="togglePlatform('Linux')"
-        /><label for="Linux">Linux ({{ platformCounts["Linux"] || 0 }})</label
-        ><br />
-        <input
-          type="checkbox"
-          id="Mac"
-          (change)="togglePlatform('Mac')"
-        /><label for="Mac">Mac ({{ platformCounts["Mac"] || 0 }})</label>
+        <p class="filterMainText" (click)="toggleFilter('price')">
+          Price
+          <span class="getTogleSymbol">{{ getToggleSymbol("price") }}</span>
+        </p>
+        <div *ngIf="!collapsedFilters['price']">
+          <p id="prizeRange">1€ - {{ selPrice }}€</p>
+          <input
+            type="range"
+            name="Price"
+            id="Price"
+            min="1"
+            max="200"
+            [(ngModel)]="selPrice"
+            (change)="applyFilters()"
+          />
+        </div>
+      </div>
+      <div class="filterLine category-container">
+        <p class="filterMainText" (click)="toggleFilter('categories')">
+          Categories
+          <span class="getTogleSymbol">{{
+            getToggleSymbol("categories")
+          }}</span>
+        </p>
+
+        <div *ngIf="!collapsedFilters['categories']">
+          <div *ngFor="let genre of genres">
+            <input
+              type="checkbox"
+              [id]="genre.name"
+              (change)="toggleCategory(genre.name)"
+            />
+            <label [for]="genre.name">
+              {{ genre.name }}
+              <span class="Count">({{ genre.count }})</span>
+            </label>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="filterLine">
+        <p class="filterMainText" (click)="toggleFilter('platforms')">
+          Platforms
+          <span class="getTogleSymbol">{{ getToggleSymbol("platforms") }}</span>
+        </p>
+        <div *ngIf="!collapsedFilters['platforms']">
+          <input
+            type="checkbox"
+            id="Windows"
+            (change)="togglePlatform('Windows')"
+          /><label for="Windows"
+            >Windows ({{ platformCounts["Windows"] || 0 }})</label
+          ><br />
+          <input
+            type="checkbox"
+            id="Linux"
+            (change)="togglePlatform('Linux')"
+          /><label for="Linux">Linux ({{ platformCounts["Linux"] || 0 }})</label
+          ><br />
+          <input
+            type="checkbox"
+            id="Mac"
+            (change)="togglePlatform('Mac')"
+          /><label for="Mac">Mac ({{ platformCounts["Mac"] || 0 }})</label>
+        </div>
       </div>
     </div>
 

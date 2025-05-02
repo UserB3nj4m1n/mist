@@ -53,6 +53,13 @@ export class StoreComponent implements OnInit {
   ratingCounts: { [key: number]: number } = {};
   platformCounts: { [key: string]: number } = {};
 
+  collapsedFilters: { [key: string]: boolean } = {
+    search: false,
+    price: false,
+    categories: false,
+    platforms: false,
+  };
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private getDataService: GetdataService,
@@ -175,6 +182,14 @@ export class StoreComponent implements OnInit {
       this.selectedCategories.push(category);
     }
     this.applyFilters();
+  }
+
+  toggleFilter(filter: string): void {
+    this.collapsedFilters[filter] = !this.collapsedFilters[filter];
+  }
+
+  getToggleSymbol(filter: string): string {
+    return this.collapsedFilters[filter] ? '▲' : '▼';
   }
 
   onSortChange() {

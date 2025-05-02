@@ -10,10 +10,13 @@
 
 .filterMainText {
   font-size: 15px;
+  margin-bottom: 5px;
+  font-size: medium;
 }
 
 .filter {
   margin-right: 10px;
+  min-width: 178.4px;
 }
 /*Inputs*/
 
@@ -218,9 +221,18 @@ app-store-card {
 }
 #prizeRange {
   margin-bottom: 0;
+  font-size: 15px;
 }
 
 .Count {
   font-size: 10px;
   color: #6e8396;
+  float: right;
+  padding-right: 5px;
+}
+
+.getTogleSymbol {
+  float: right;
+  margin-right: 10px;
+  font-size: 10px;
 }
