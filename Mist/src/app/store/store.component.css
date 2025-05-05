@@ -235,4 +235,21 @@ app-store-card {
   float: right;
   margin-right: 10px;
   font-size: 10px;
+  cursor: pointer;
+}
+
+.sortBy {
+  padding: 10px;
+  padding-bottom: 7px;
+  border-radius: 5px 5px 0 0;
+  border: none;
+  border-bottom: #6e8396 1px solid !important;
+  background-color: transparent;
+
+  font-size: 13px;
+  transition: 0.3s;
+}
+.sortBy:focus {
+  outline: none;
+  border-bottom: #6e8396 2px solid !important;
 }
