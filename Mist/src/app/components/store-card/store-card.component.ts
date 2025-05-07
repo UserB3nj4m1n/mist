@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Game } from '../data/game';
+import { Game } from '../../data/game';
 import { CommonModule, NgIf } from '@angular/common';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service'; // Import your AuthService
+import { AuthService } from '../../services/auth.service'; // Import your AuthService
 
 @Component({
   selector: 'app-navbar',

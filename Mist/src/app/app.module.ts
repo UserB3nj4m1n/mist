@@ -7,24 +7,24 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { FooterComponent } from './footer/footer.component';
-import { StoreComponent } from './store/store.component';
-import { LoginComponent } from './login/login.component';
-import { StoreCardComponent } from './store-card/store-card.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { StoreComponent } from './components/store/store.component';
+import { LoginComponent } from './components/login/login.component';
+import { StoreCardComponent } from './components/store-card/store-card.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { firebaseConfig } from './firebase.config';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register/register.component';
-import { DetaildPageComponent } from './detaild-page/detaild-page.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
 import { FormsModule } from '@angular/forms';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
