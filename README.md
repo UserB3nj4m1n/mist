@@ -1,27 +1,27 @@
 # AppsLab Angular Project
 
-## Project Overview
+## Project Overview 📽️
 
 This is a high school project where students build an Angular web application in groups (ideally in pairs).
 
-## Features
+## Features ⚙️
 
 - Built with Angular framework
 - Interactive UI
 - Uses Firebase Backend Solutions
 
-## Contribution Guidelines
+## Contribution Guidelines 📖
 
 - Each student should work on their own feature branch.
 - Always **pull** the latest changes before coding.
 - Use meaningful commit messages.
 
-## Team Members
+## Team Members 🧑🏼‍🎓
 
 - **Student 1:** [Martin Ceniga](https://github.com/martin852147)
 - **Student 2:** [Benjamín Baričiak](https://github.com/UserB3nj4m1n)
 
-## Teachers
+## Teachers 🧑🏻‍🏫
 
 - [Peter Lancaric](https://github.com/larkinsss)
 - [Lukas Konkol](https://github.com/lukkon)
@@ -29,16 +29,16 @@ This is a high school project where students build an Angular web application in
 
 ---
 
-## Project Name
+## Project Name 🏷️
 
 Mist
 
-## Project Description
+## Project Description 📄
 
 An online store for purchasing PC games, built with Angular and Firebase. The platform allows users to browse, search, and filter games, add them to a shopping cart, and manage their game library.
 The goal is to create a fully functional e-commerce experience with an intuitive UI and seamless backend integration.
 
-## Project Roadmap
+## Project Roadmap 🗺️
 
 TBD - Few lines about the project, what is its purpose and meaning.
 
@@ -53,21 +53,26 @@ TBD - Few lines about the project, what is its purpose and meaning.
 
 ## Project Plans
 
-#### Spirnt 1 (26.2.)
-  - Create new Angular project  ✔
-  - Basic website  ✔
+#### Spirnt 1 (26.2.) 🚩
+  - Create new Angular project  ✅
+  - Basic website  ✅
 
   
-#### Spirnt 2 (19.3.)
-  - Responzive website  ✔
-  - Conect Firebase and load data on website  ✔
-  - Switching layout mode  ✔ 
-  - Switching Dark, White mode ✔
+#### Spirnt 2 (19.3.) 🚩
+  - Responzive website  ✅
+  - Conect Firebase and load data on website  ✅
+  - Switching layout mode  ✅
+  - Switching Dark, White mode ✅
 
-#### Spirnt 3 (30.4.)
-  - Create Login/Register component ✔
-  - Make Login/Register working ✔
-  - Add more games on firebase ✔
-  - Make woriknig filters for games ✔
-  - Pagination ✔
-  - Some profile page (Structure for next sprint) ✔
+#### Spirnt 3 (30.4.) 🚩
+  - Create Login/Register component ✅
+  - Make Login/Register working ✅
+  - Add more games on firebase ✅
+  - Make woriknig filters for games ✅
+  - Pagination ✅
+  - Some profile page (Structure for next sprint) ✅
+
+#### Spirnt 4 (30.4.) 🚩
+  - Make working detail page for the games
+  - Fix filtering problems
+  - Remake structure of project ✅
