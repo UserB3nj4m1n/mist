@@ -60,6 +60,36 @@
           </div>
         </div>
       </div>
+
+      <div class="filterLine">
+        <p class="filterMainText" (click)="toggleFilter('rating')">
+          Rating
+          <span class="getTogleSymbol">{{ getToggleSymbol("rating") }}</span>
+        </p>
+        <div *ngIf="!collapsedFilters['rating']">
+          <input type="checkbox" id="5star" (change)="toggleRating(5)" /><label
+            for="5star"
+            >⭐⭐⭐⭐⭐</label
+          ><br />
+          <input type="checkbox" id="4star" (change)="toggleRating(4)" /><label
+            for="4star"
+            >⭐⭐⭐⭐</label
+          ><br />
+          <input type="checkbox" id="3star" (change)="toggleRating(3)" /><label
+            for="3star"
+            >⭐⭐⭐</label
+          ><br />
+          <input type="checkbox" id="2star" (change)="toggleRating(2)" /><label
+            for="2star"
+            >⭐⭐</label
+          ><br />
+          <input type="checkbox" id="1star" (change)="toggleRating(1)" /><label
+            for="1star"
+            >⭐</label
+          >
+        </div>
+      </div>
+
       <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('platforms')">
           Platforms

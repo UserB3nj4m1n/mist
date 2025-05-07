@@ -4,11 +4,10 @@ import { map, Observable } from 'rxjs';
 import { Game, Genre } from '../data/game';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetdataService {
-
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) {}
 
   getGames(): Observable<Game[]> {
     return this.firestore.collection<Game>('games').valueChanges();

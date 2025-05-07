@@ -57,6 +57,7 @@ export class StoreComponent implements OnInit {
     search: false,
     price: false,
     categories: false,
+    rating: false,
     platforms: false,
   };
 
