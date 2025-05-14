@@ -72,7 +72,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Pagination ✔️
   - Some profile page (Structure for next sprint) ✔️
 
-#### Spirnt 4 (30.4.) 🚩
+#### Spirnt 4 (4.6.) 🚩
   - Make working detail page for the games
   - Fix filtering problems
   - Remake structure of project ✔️
