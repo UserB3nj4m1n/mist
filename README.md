@@ -54,25 +54,25 @@ TBD - Few lines about the project, what is its purpose and meaning.
 ## Project Plans
 
 #### Spirnt 1 (26.2.) 🚩
-  - Create new Angular project  ✅
-  - Basic website  ✅
+  - Create new Angular project ✔️
+  - Basic website ✔️
 
   
 #### Spirnt 2 (19.3.) 🚩
-  - Responzive website  ✅
-  - Conect Firebase and load data on website  ✅
-  - Switching layout mode  ✅
-  - Switching Dark, White mode ✅
+  - Responzive website ✔️
+  - Conect Firebase and load data on website ✔️  
+  - Switching layout mode ✔️
+  - Switching Dark, White mode ✔️
 
 #### Spirnt 3 (30.4.) 🚩
-  - Create Login/Register component ✅
-  - Make Login/Register working ✅
-  - Add more games on firebase ✅
-  - Make woriknig filters for games ✅
-  - Pagination ✅
-  - Some profile page (Structure for next sprint) ✅
+  - Create Login/Register component ✔️
+  - Make Login/Register working ✔️
+  - Add more games on firebase ✔️
+  - Make woriknig filters for games ✔️
+  - Pagination ✔️
+  - Some profile page (Structure for next sprint) ✔️
 
 #### Spirnt 4 (30.4.) 🚩
   - Make working detail page for the games
   - Fix filtering problems
-  - Remake structure of project ✅
+  - Remake structure of project ✔️
