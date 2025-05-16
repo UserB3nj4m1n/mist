@@ -1,0 +1,121 @@
+.main {
+  width: 100%;
+  height: auto;
+  background-color: #6e839620;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.game-details {
+  padding: 10px;
+}
+
+.game-info {
+  height: 100%;
+}
+
+.game-top {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.game-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.game-info-table {
+  width: 100%;
+}
+
+.game-description {
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.game-price {
+  display: flex;
+  color: #070708;
+  min-width: 80px;
+  margin-top: 0px;
+  font-size: 30px;
+  font-weight: 600;
+  justify-content: end;
+  margin-right: 20px;
+}
+
+/*--------------*/
+
+.game-info-bottom {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 20px;
+}
+
+.game-price-container {
+  justify-content: center;
+}
+
+.game-auction-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: end;
+  margin-top: -25px;
+  margin-right: 20px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #a8b7c4;
+  font-size: 15px;
+}
+
+.game-discount {
+  color: #070708;
+  font-size: 15px;
+  background: linear-gradient(135deg, #ef6a16, #ebd254);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.buy-now {
+  background-color: #6e8396;
+  color: #f8f8f9;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 66px;
+  margin-top: auto;
+  transition: 0.3s;
+}
+
+.buy-now:hover {
+  background-color: #576776;
+  scale: 1.1;
+}
+
+.game-tags-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 130px;
+}
+
+.game-tags {
+  text-align: center;
+  border: 1px solid #6e8396;
+  padding: 3px;
+
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}

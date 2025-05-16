@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">{{ slideIndex + 1 }} / {{ images.length }}</div>
+    <img [src]="images[slideIndex].src" class="slide-image" />
+  </div>
+
+  <a class="prev" (click)="prevSlide()">❮</a>
+  <a class="next" (click)="nextSlide()">❯</a>
+
+  <div class="row">
+    <div class="column" *ngFor="let img of images; let i = index">
+      <img
+        [src]="img.thumb"
+        [class.active]="i === slideIndex"
+        (click)="goToSlide(i)"
+        class="demoCursor"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Inšpiracai: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_gallery -->

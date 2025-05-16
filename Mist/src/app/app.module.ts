@@ -25,6 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     DetaildPageComponent,
+    SlideshowComponent,
   ],
   imports: [
     BrowserModule,
