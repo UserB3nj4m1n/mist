@@ -26,6 +26,7 @@ import { DetaildPageComponent } from './components/detaild-page/detaild-page.com
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
     CommonModule,
     FormsModule,
     ProfileComponent,
+    MatTabsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
