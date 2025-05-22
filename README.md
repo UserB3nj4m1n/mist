@@ -76,3 +76,4 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Make working detail page for the games
   - Fix filtering problems
   - Remake structure of project ✔️
+  - Rework firebase + interface for the games
