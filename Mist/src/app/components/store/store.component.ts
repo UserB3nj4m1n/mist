@@ -129,7 +129,7 @@ export class StoreComponent implements OnInit {
         );
       const matchesPlatform =
         this.selectedPlatforms.length === 0 ||
-        this.selectedPlatforms.includes(game.platform);
+        this.selectedPlatforms.includes(game.platforms);
 
       return (
         matchesSearch &&
