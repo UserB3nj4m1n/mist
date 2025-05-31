@@ -121,7 +121,7 @@ export class StoreComponent implements OnInit {
       const matchesPrice = game.discountedPrice <= this.selPrice;
       const matchesRating =
         this.selectedRating.length === 0 ||
-        this.selectedRating.includes(Math.floor(game.rating));
+        this.selectedRating.includes(Math.floor(game.rating_star));
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>
@@ -129,7 +129,9 @@ export class StoreComponent implements OnInit {
         );
       const matchesPlatform =
         this.selectedPlatforms.length === 0 ||
-        this.selectedPlatforms.includes(game.platforms);
+        game.platforms.some((platform) =>
+          this.selectedPlatforms.includes(platform.abbreviation)
+        );
 
       return (
         matchesSearch &&
@@ -150,7 +152,7 @@ export class StoreComponent implements OnInit {
     } else if (this.sortBy === 'priceHighLow') {
       this.filteredGames.sort((a, b) => b.discountedPrice - a.discountedPrice);
     } else if (this.sortBy === 'ratingHighLow') {
-      this.filteredGames.sort((a, b) => b.rating - a.rating);
+      this.filteredGames.sort((a, b) => b.rating_star - a.rating_star);
     }
   }
 
