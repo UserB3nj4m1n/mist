@@ -1,3 +1,4 @@
+// src/app/services/getdata.service.ts
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
@@ -11,6 +12,17 @@ export class GetdataService {
 
   getGames(): Observable<Game[]> {
     return this.firestore.collection<Game>('games').valueChanges();
+  }
+
+  getGameById(id: number): Observable<Game | undefined> {
+    return this.firestore
+      .collection<Game>('games', (ref) => ref.where('id', '==', id).limit(1))
+      .valueChanges()
+      .pipe(
+        map((gamesArray: Game[]) =>
+          gamesArray.length > 0 ? gamesArray[0] : undefined,
+        ),
+      );
   }
 
   getGenres(): Observable<{ name: string; count: number }[]> {
