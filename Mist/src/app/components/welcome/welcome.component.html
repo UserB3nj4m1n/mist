@@ -1,4 +1,4 @@
-<div class="main">
+<section class="main">
   <div class="mainLeft">
     <div>
       <p class="mainLeftText">
@@ -32,10 +32,18 @@
   </div>
 
   <div class="mainRight">
-    <img src="/_5fa369d9-47e1-427c-9f0a-8ba03754dde4.jpg" class="mainImg" />
+    <model-viewer
+      src="/ControllerModel.glb"
+      class="mainImg"
+      alt="3D model"
+      camera-controls
+      auto-rotate
+      background-color="#f8f8f9"
+      style="width: 100%; height: 400px"
+    ></model-viewer>
   </div>
-</div>
-<div>
+</section>
+<section>
   <div class="mainLeftWhy">
     <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
       Why Mist
@@ -60,7 +68,8 @@
       <p class="mainWhyParagraf">Mist is going 24/7.</p>
     </div>
   </div>
-  <!-- <div class="slider-container">
+</section>
+<!-- <div class="slider-container">
     <div class="mainLeftWhy">
       <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
         Most popular
@@ -81,4 +90,3 @@
     <button class="prev" id="prev">&#10094;</button>
     <button class="next" id="next">&#10095;</button>
   </div> -->
-</div>

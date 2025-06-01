@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
@@ -58,5 +58,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
