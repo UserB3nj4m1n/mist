@@ -45,7 +45,7 @@ export class StoreComponent implements OnInit {
   isAuthenticated: boolean = false;
 
   searchQuery: string = '';
-  selPrice: number = 200;
+  selPrice: number = 100;
   selectedRating: number[] = [];
   selectedCategories: string[] = [];
   selectedPlatforms: string[] = [];
@@ -61,6 +61,11 @@ export class StoreComponent implements OnInit {
     platforms: false,
   };
 
+  platforms$: Observable<{ abbreviation: string; count: number }[]>;
+  platforms: { abbreviation: string; count: number }[] = [];
+  ratings$: Observable<{ rating: number; count: number }[]>;
+  ratings: { rating: number; count: number }[] = [];
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private getDataService: GetdataService,
@@ -70,6 +75,8 @@ export class StoreComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.games$ = this.getDataService.getGames();
     this.genres$ = this.getDataService.getGenres();
+    this.platforms$ = this.getDataService.getPlatforms();
+    this.ratings$ = this.getDataService.getRatings();
   }
 
   ngOnInit(): void {
@@ -82,6 +89,12 @@ export class StoreComponent implements OnInit {
     });
     this.genres$.subscribe((genres) => {
       this.genres = genres;
+    });
+    this.platforms$.subscribe((platforms) => {
+      this.platforms = platforms;
+    });
+    this.ratings$.subscribe((ratings) => {
+      this.ratings = ratings;
     });
   }
 
@@ -113,6 +126,37 @@ export class StoreComponent implements OnInit {
     this.updatePagination(this.currentPage - 1);
   }
 
+  toggleRating(rating: number) {
+    if (this.selectedRating.includes(rating)) {
+      this.selectedRating = this.selectedRating.filter((r) => r !== rating);
+    } else {
+      this.selectedRating.push(rating);
+    }
+    this.applyFilters();
+  }
+
+  togglePlatform(abbreviation: string) {
+    if (this.selectedPlatforms.includes(abbreviation)) {
+      this.selectedPlatforms = this.selectedPlatforms.filter(
+        (p) => p !== abbreviation
+      );
+    } else {
+      this.selectedPlatforms.push(abbreviation);
+    }
+    this.applyFilters();
+  }
+
+  toggleCategory(category: string) {
+    if (this.selectedCategories.includes(category)) {
+      this.selectedCategories = this.selectedCategories.filter(
+        (c) => c !== category
+      );
+    } else {
+      this.selectedCategories.push(category);
+    }
+    this.applyFilters();
+  }
+
   applyFilters() {
     this.filteredGames = this.games.filter((game) => {
       const matchesSearch =
@@ -121,7 +165,7 @@ export class StoreComponent implements OnInit {
       const matchesPrice = game.discountedPrice <= this.selPrice;
       const matchesRating =
         this.selectedRating.length === 0 ||
-        this.selectedRating.includes(Math.floor(game.rating_star));
+        (game.rating_star && this.selectedRating.includes(Math.floor(game.rating_star)));
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>
@@ -154,37 +198,6 @@ export class StoreComponent implements OnInit {
     } else if (this.sortBy === 'ratingHighLow') {
       this.filteredGames.sort((a, b) => b.rating_star - a.rating_star);
     }
-  }
-
-  toggleRating(rating: number) {
-    if (this.selectedRating.includes(rating)) {
-      this.selectedRating = this.selectedRating.filter((r) => r !== rating);
-    } else {
-      this.selectedRating.push(rating);
-    }
-    this.applyFilters();
-  }
-
-  togglePlatform(platform: string) {
-    if (this.selectedPlatforms.includes(platform)) {
-      this.selectedPlatforms = this.selectedPlatforms.filter(
-        (p) => p !== platform
-      );
-    } else {
-      this.selectedPlatforms.push(platform);
-    }
-    this.applyFilters();
-  }
-
-  toggleCategory(category: string) {
-    if (this.selectedCategories.includes(category)) {
-      this.selectedCategories = this.selectedCategories.filter(
-        (c) => c !== category
-      );
-    } else {
-      this.selectedCategories.push(category);
-    }
-    this.applyFilters();
   }
 
   toggleFilter(filter: string): void {

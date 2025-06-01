@@ -30,8 +30,8 @@
             type="range"
             name="Price"
             id="Price"
-            min="1"
-            max="200"
+            min="20"
+            max="100"
             [(ngModel)]="selPrice"
             (change)="applyFilters()"
           />
@@ -47,16 +47,15 @@
 
         <div *ngIf="!collapsedFilters['categories']">
           <div *ngFor="let genre of genres">
-            <input
-              type="checkbox"
-              [id]="genre.name"
-              (change)="toggleCategory(genre.name)"
-            />
-            <label [for]="genre.name">
-              {{ genre.name }}
+            <label [for]="genre.name" class="genre-label">
+              <input
+                type="checkbox"
+                [id]="genre.name"
+                (change)="toggleCategory(genre.name)"
+              />
+              <span class="genre-name">{{ genre.name }}</span>
               <span class="Count">({{ genre.count }})</span>
             </label>
-            <br />
           </div>
         </div>
       </div>
@@ -67,26 +66,17 @@
           <span class="getTogleSymbol">{{ getToggleSymbol("rating") }}</span>
         </p>
         <div *ngIf="!collapsedFilters['rating']">
-          <input type="checkbox" id="5star" (change)="toggleRating(5)" /><label
-            for="5star"
-            >⭐⭐⭐⭐⭐</label
-          ><br />
-          <input type="checkbox" id="4star" (change)="toggleRating(4)" /><label
-            for="4star"
-            >⭐⭐⭐⭐</label
-          ><br />
-          <input type="checkbox" id="3star" (change)="toggleRating(3)" /><label
-            for="3star"
-            >⭐⭐⭐</label
-          ><br />
-          <input type="checkbox" id="2star" (change)="toggleRating(2)" /><label
-            for="2star"
-            >⭐⭐</label
-          ><br />
-          <input type="checkbox" id="1star" (change)="toggleRating(1)" /><label
-            for="1star"
-            >⭐</label
-          >
+          <div *ngFor="let rating of ratings">
+            <label [for]="'rating-' + rating.rating" class="genre-label">
+              <input
+                type="checkbox"
+                [id]="'rating-' + rating.rating"
+                (change)="toggleRating(rating.rating)"
+              />
+              <span class="genre-name">{{ rating.rating }}</span>
+              <span class="Count">({{ rating.count }})</span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -96,24 +86,17 @@
           <span class="getTogleSymbol">{{ getToggleSymbol("platforms") }}</span>
         </p>
         <div *ngIf="!collapsedFilters['platforms']">
-          <input
-            type="checkbox"
-            id="Windows"
-            (change)="togglePlatform('Windows')"
-          /><label for="Windows"
-            >Windows ({{ platformCounts["Windows"] || 0 }})</label
-          ><br />
-          <input
-            type="checkbox"
-            id="Linux"
-            (change)="togglePlatform('Linux')"
-          /><label for="Linux">Linux ({{ platformCounts["Linux"] || 0 }})</label
-          ><br />
-          <input
-            type="checkbox"
-            id="Mac"
-            (change)="togglePlatform('Mac')"
-          /><label for="Mac">Mac ({{ platformCounts["Mac"] || 0 }})</label>
+          <div *ngFor="let platform of platforms">
+            <label [for]="'platform-' + platform.abbreviation" class="genre-label">
+              <input
+                type="checkbox"
+                [id]="'platform-' + platform.abbreviation"
+                (change)="togglePlatform(platform.abbreviation)"
+              />
+              <span class="genre-name">{{ platform.abbreviation }}</span>
+              <span class="Count">({{ platform.count }})</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>

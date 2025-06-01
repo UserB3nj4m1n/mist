@@ -16,4 +16,12 @@ export class GetdataService {
   getGenres(): Observable<{ name: string; count: number }[]> {
     return this.firestore.collection<Genre>('genres').valueChanges();
   }
+
+  getPlatforms(): Observable<{ abbreviation: string; count: number }[]> {
+    return this.firestore.collection<{ abbreviation: string; count: number }>('platforms').valueChanges();
+  }
+
+  getRatings(): Observable<{ rating: number; count: number }[]> {
+    return this.firestore.collection<{ rating: number; count: number }>('ratings').valueChanges();
+  }
 }
