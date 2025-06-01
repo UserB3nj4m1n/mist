@@ -43,6 +43,7 @@ export class StoreComponent implements OnInit {
   isBrowser: boolean;
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
+  loading: boolean = true; // Add this line
 
   searchQuery: string = '';
   selPrice: number = 100;
@@ -81,11 +82,13 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isLoggedIn();
+    this.loading = true; // Start loading
     this.games$.subscribe((games) => {
       this.games = games;
       this.filteredGames = games;
       this.cdr.markForCheck();
       this.updatePagination();
+      this.loading = false;
     });
     this.genres$.subscribe((genres) => {
       this.genres = genres;
@@ -197,6 +200,8 @@ export class StoreComponent implements OnInit {
       this.filteredGames.sort((a, b) => b.discountedPrice - a.discountedPrice);
     } else if (this.sortBy === 'ratingHighLow') {
       this.filteredGames.sort((a, b) => b.rating_star - a.rating_star);
+    } else if (this.sortBy === 'ratingLowHigh') {
+      this.filteredGames.sort((a, b) => a.rating_star - b.rating_star);
     }
   }
 
