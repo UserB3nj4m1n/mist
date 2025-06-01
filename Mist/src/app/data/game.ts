@@ -14,7 +14,7 @@ export interface Game {
   genres: Genre[];
   release_dates: { human: string }[];
   platforms: Platform[];
-  rating_star: number;
+  rating: number;
   summary: string;
   storyline: string;
   screenshots: { url: string}[];
