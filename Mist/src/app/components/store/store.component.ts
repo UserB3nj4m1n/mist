@@ -43,7 +43,7 @@ export class StoreComponent implements OnInit {
   isBrowser: boolean;
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
-  loading: boolean = true; // Add this line
+  loading: boolean = true;
 
   searchQuery: string = '';
   selPrice: number = 100;
@@ -82,7 +82,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isLoggedIn();
-    this.loading = true; // Start loading
+    this.loading = true;
     this.games$.subscribe((games) => {
       this.games = games;
       this.filteredGames = games;
