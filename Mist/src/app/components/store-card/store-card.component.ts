@@ -3,7 +3,6 @@ import { Game } from '../../data/game';
 import { CommonModule, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-
 @Component({
   selector: 'app-store-card',
   templateUrl: './store-card.component.html',
@@ -12,4 +11,5 @@ import { RouterModule } from '@angular/router';
 })
 export class StoreCardComponent {
   @Input() game!: Game;
+  @Input() viewMode: string = 'grid';
 }
