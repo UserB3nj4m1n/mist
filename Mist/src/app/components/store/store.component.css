@@ -253,3 +253,25 @@ app-store-card {
   outline: none;
   border-bottom: #6e8396 2px solid !important;
 }
+
+.genre-label {
+  display: flex;
+  align-items: center;
+  max-width: 190px;
+  gap: 4px;
+}
+
+.genre-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .ViewLayaut {
+    display: none !important;
+  }
+}
+
