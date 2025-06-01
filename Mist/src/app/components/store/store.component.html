@@ -101,7 +101,11 @@
       </div>
     </div>
 
-    <div class="game-list">
+    <div *ngIf="loading" class="loader-container">
+      <div class="loader"></div>
+      <p>Loading games...</p>
+    </div>
+    <div class="game-list" *ngIf="!loading">
       <div class="sort-by-container">
         <p>Sort by:</p>
         <select
@@ -113,6 +117,7 @@
           <option value="default">Default</option>
           <option value="priceLowHigh">Price: Low to High</option>
           <option value="priceHighLow">Price: High to Low</option>
+          <option value="ratingLowHigh">Rating: Low to High</option>
           <option value="ratingHighLow">Rating: High to Low</option>
         </select>
 

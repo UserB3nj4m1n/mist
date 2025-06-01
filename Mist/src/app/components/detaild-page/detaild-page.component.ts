@@ -40,12 +40,4 @@ export class DetaildPageComponent implements OnInit {
       })
     );
   }
-
-  getRatingStars(rating: number | undefined): string {
-    if (rating === undefined) {
-      return '';
-    }
-    const validatedRating = Math.max(0, Math.min(5, Math.round(rating)));
-    return '⭐'.repeat(validatedRating);
-  }
 }
