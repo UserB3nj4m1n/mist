@@ -32,6 +32,7 @@
             id="Price"
             min="20"
             max="100"
+            style="width: 100%"
             [(ngModel)]="selPrice"
             (change)="applyFilters()"
           />
@@ -87,7 +88,10 @@
         </p>
         <div *ngIf="!collapsedFilters['platforms']">
           <div *ngFor="let platform of platforms">
-            <label [for]="'platform-' + platform.abbreviation" class="genre-label">
+            <label
+              [for]="'platform-' + platform.abbreviation"
+              class="genre-label"
+            >
               <input
                 type="checkbox"
                 [id]="'platform-' + platform.abbreviation"

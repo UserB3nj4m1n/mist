@@ -15,18 +15,8 @@
         {{ genre.name }}<span *ngIf="i < game.genres.length - 1">, </span>
       </span>
     </p>
-    <p class="game-release">
-      Release Date: {{ game.release_dates[0].human }}
-    </p>
-    <p class="game-release">
-      Rating: {{ game.rating_star }}
-    </p>
-    <p class="game-release">
-      Platforms:
-      <span *ngFor="let platform of game.platforms; let i = index">
-        {{ platform.abbreviation }}<span *ngIf="i < game.platforms.length - 1">, </span>
-      </span>
-    </p>
+    <p class="game-category">Release Date: {{ game.release_dates[0].human }}</p>
+    <p class="game-category">Rating: {{ game.rating_star }}</p>
   </div>
   <div class="game-price">
     <div class="discounted-price">
