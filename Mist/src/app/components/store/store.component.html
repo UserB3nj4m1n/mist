@@ -41,18 +41,16 @@
       <div class="filterLine category-container">
         <p class="filterMainText" (click)="toggleFilter('categories')">
           Categories
-          <span class="getTogleSymbol">{{
-            getToggleSymbol("categories")
-          }}</span>
+          <span class="getTogleSymbol">{{ getToggleSymbol("categories") }}</span>
         </p>
-
         <div *ngIf="!collapsedFilters['categories']">
           <div *ngFor="let genre of genres">
             <label [for]="genre.name" class="genre-label">
               <input
                 type="checkbox"
                 [id]="genre.name"
-                (change)="toggleCategory(genre.name)"
+                [(ngModel)]="selectedCategoriesMap[genre.name]"
+                (ngModelChange)="onCategoryChange(genre.name, $event)"
               />
               <span class="genre-name">{{ genre.name }}</span>
               <span class="Count">({{ genre.count }})</span>
@@ -61,7 +59,7 @@
         </div>
       </div>
 
-      <div class="filterLine">
+      <!-- <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('rating')">
           Rating
           <span class="getTogleSymbol">{{ getToggleSymbol("rating") }}</span>
@@ -72,14 +70,15 @@
               <input
                 type="checkbox"
                 [id]="'rating-' + rating.rating"
-                (change)="toggleRating(rating.rating)"
+                [(ngModel)]="selectedRatingsMap[rating.rating]"
+                (ngModelChange)="onRatingChange(rating.rating, $event)"
               />
               <span class="genre-name">{{ rating.rating }}</span>
               <span class="Count">({{ rating.count }})</span>
             </label>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('platforms')">
@@ -88,14 +87,12 @@
         </p>
         <div *ngIf="!collapsedFilters['platforms']">
           <div *ngFor="let platform of platforms">
-            <label
-              [for]="'platform-' + platform.abbreviation"
-              class="genre-label"
-            >
+            <label [for]="'platform-' + platform.abbreviation" class="genre-label">
               <input
                 type="checkbox"
                 [id]="'platform-' + platform.abbreviation"
-                (change)="togglePlatform(platform.abbreviation)"
+                [(ngModel)]="selectedPlatformsMap[platform.abbreviation]"
+                (ngModelChange)="onPlatformChange(platform.abbreviation, $event)"
               />
               <span class="genre-name">{{ platform.abbreviation }}</span>
               <span class="Count">({{ platform.count }})</span>
@@ -163,7 +160,6 @@
           (click)="prevPage()"
           [disabled]="currentPage === 1"
         >
-          <<<
         </button>
         <span>Page {{ currentPage }} of {{ totalPages }}</span>
         <button
@@ -171,7 +167,6 @@
           (click)="nextPage()"
           [disabled]="currentPage === totalPages"
         >
-          >>>
         </button>
       </div>
     </div>
