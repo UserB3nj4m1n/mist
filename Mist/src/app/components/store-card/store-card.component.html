@@ -16,7 +16,12 @@
       </span>
     </p>
     <p class="game-category">Release Date: {{ game.release_dates[0].human }}</p>
-    <p class="game-category">Rating: {{ game.rating_star }}</p>
+    <p class="game-category">
+      Rating: {{ game.rating_star }}⭐
+      <span *ngFor="let platform of game.platforms">
+        <i *ngIf="platformIconMap[platform.abbreviation]" [class]="platformIconMap[platform.abbreviation]" title="{{ platform.abbreviation }}"></i>
+      </span>
+    </p>
   </div>
   <div class="game-price">
     <div class="discounted-price">
