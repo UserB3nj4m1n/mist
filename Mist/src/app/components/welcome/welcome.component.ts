@@ -13,12 +13,13 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-welcome',
   standalone: false,
-
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements AfterViewInit, OnDestroy {
   games$: Observable<Game[]>;
+  topGames: Game[] = [];
+  loading = true;
   isBrowser: boolean;
 
   constructor(
@@ -29,53 +30,15 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
     this.games$ = this.getDataService.getGames();
   }
 
-  currentSlide = 0;
-  slideInterval: any;
-
   ngAfterViewInit() {
     if (!this.isBrowser) return;
-
-    this.showSlide(this.currentSlide);
-
-    document.getElementById('prev')?.addEventListener('click', () => {
-      this.changeSlide(-1);
+    this.games$.subscribe((games) => {
+      this.topGames = [...games]
+        .sort((a, b) => b.rating_star - a.rating_star)
+        .slice(0, 3);
+      this.loading = false;
     });
-
-    document.getElementById('next')?.addEventListener('click', () => {
-      this.changeSlide(1);
-    });
-
-    this.slideInterval = setInterval(() => {
-      this.changeSlide(1);
-    }, 2000);
   }
 
-  ngOnDestroy() {
-    clearInterval(this.slideInterval);
-  }
-
-  changeSlide(n: number) {
-    this.currentSlide += n;
-    this.showSlide(this.currentSlide);
-  }
-
-  showSlide(n: number) {
-    if (!this.isBrowser) return; // Prevents execution on the server
-
-    const slides = document.getElementsByClassName(
-      'slide'
-    ) as HTMLCollectionOf<HTMLElement>;
-    if (n >= slides.length) {
-      this.currentSlide = 0;
-    }
-    if (n < 0) {
-      this.currentSlide = slides.length - 1;
-    }
-
-    const offset = -this.currentSlide * 10;
-    const slider = document.getElementById('slider') as HTMLElement;
-    if (slider) {
-      slider.style.transform = `translateX(${offset}%)`;
-    }
-  }
+  ngOnDestroy() {}
 }
