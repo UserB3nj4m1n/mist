@@ -47,9 +47,14 @@ export class StoreComponent implements OnInit {
 
   searchQuery: string = '';
   selPrice: number = 100;
-  selectedRating: number[] = [];
   selectedCategories: string[] = [];
+  selectedCategoriesMap: { [key: string]: boolean } = {};
+
+  selectedRatings: number[] = [];
+  selectedRatingsMap: { [key: number]: boolean } = {};
+
   selectedPlatforms: string[] = [];
+  selectedPlatformsMap: { [key: string]: boolean } = {};
   sortBy: string = 'default';
   ratingCounts: { [key: number]: number } = {};
   platformCounts: { [key: string]: number } = {};
@@ -92,12 +97,21 @@ export class StoreComponent implements OnInit {
     });
     this.genres$.subscribe((genres) => {
       this.genres = genres;
+      // Initialize map for genres
+      this.selectedCategoriesMap = {};
+      genres.forEach(g => this.selectedCategoriesMap[g.name] = false);
     });
     this.platforms$.subscribe((platforms) => {
       this.platforms = platforms;
+      // Initialize map for platforms
+      this.selectedPlatformsMap = {};
+      platforms.forEach(p => this.selectedPlatformsMap[p.abbreviation] = false);
     });
     this.ratings$.subscribe((ratings) => {
       this.ratings = ratings;
+      // Initialize map for ratings
+      this.selectedRatingsMap = {};
+      ratings.forEach(r => this.selectedRatingsMap[r.rating] = false);
     });
   }
 
@@ -129,33 +143,35 @@ export class StoreComponent implements OnInit {
     this.updatePagination(this.currentPage - 1);
   }
 
-  toggleRating(rating: number) {
-    if (this.selectedRating.includes(rating)) {
-      this.selectedRating = this.selectedRating.filter((r) => r !== rating);
+  onCategoryChange(category: string, checked: boolean) {
+    if (checked) {
+      if (!this.selectedCategories.includes(category)) {
+        this.selectedCategories.push(category);
+      }
     } else {
-      this.selectedRating.push(rating);
+      this.selectedCategories = this.selectedCategories.filter(c => c !== category);
     }
     this.applyFilters();
   }
 
-  togglePlatform(abbreviation: string) {
-    if (this.selectedPlatforms.includes(abbreviation)) {
-      this.selectedPlatforms = this.selectedPlatforms.filter(
-        (p) => p !== abbreviation
-      );
+  onPlatformChange(platform: string, checked: boolean) {
+    if (checked) {
+      if (!this.selectedPlatforms.includes(platform)) {
+        this.selectedPlatforms.push(platform);
+      }
     } else {
-      this.selectedPlatforms.push(abbreviation);
+      this.selectedPlatforms = this.selectedPlatforms.filter(p => p !== platform);
     }
     this.applyFilters();
   }
 
-  toggleCategory(category: string) {
-    if (this.selectedCategories.includes(category)) {
-      this.selectedCategories = this.selectedCategories.filter(
-        (c) => c !== category
-      );
+  onRatingChange(rating: number, checked: boolean) {
+    if (checked) {
+      if (!this.selectedRatings.includes(rating)) {
+        this.selectedRatings.push(rating);
+      }
     } else {
-      this.selectedCategories.push(category);
+      this.selectedRatings = this.selectedRatings.filter(r => r !== rating);
     }
     this.applyFilters();
   }
@@ -167,8 +183,8 @@ export class StoreComponent implements OnInit {
         game.name.toLowerCase().includes(this.searchQuery.toLowerCase());
       const matchesPrice = game.discountedPrice <= this.selPrice;
       const matchesRating =
-        this.selectedRating.length === 0 ||
-        (game.rating_star && this.selectedRating.includes(Math.floor(game.rating_star)));
+        this.selectedRatings.length === 0 ||
+        (game.rating_star && this.selectedRatings.includes(Math.floor(game.rating_star)));
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>
