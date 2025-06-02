@@ -184,7 +184,7 @@ export class StoreComponent implements OnInit {
       const matchesPrice = game.discountedPrice <= this.selPrice;
       const matchesRating =
         this.selectedRatings.length === 0 ||
-        (game.rating_star && this.selectedRatings.includes(Math.floor(game.rating_star)));
+        (game.rating_star !== undefined && this.selectedRatings.includes(game.rating_star));
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>

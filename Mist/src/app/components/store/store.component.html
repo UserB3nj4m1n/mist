@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <!-- <div class="filterLine">
+      <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('rating')">
           Rating
           <span class="getTogleSymbol">{{ getToggleSymbol("rating") }}</span>
@@ -73,12 +73,12 @@
                 [(ngModel)]="selectedRatingsMap[rating.rating]"
                 (ngModelChange)="onRatingChange(rating.rating, $event)"
               />
-              <span class="genre-name">{{ rating.rating }}</span>
+              <span class="genre-name">{{ rating.rating }} ⭐</span>
               <span class="Count">({{ rating.count }})</span>
             </label>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('platforms')">
