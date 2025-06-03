@@ -49,6 +49,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
 | Adding, Deleting, Editing games      | Advanced Search Filters | Personalization Features    |
 | Browsing, Searching, Filtering Games | Searchbar, Filterbar    | Payment Gateway Integration |
 | Viewing Game Details                 | Genre, Price, etc..     | Managing User Profile       |
+| Price comparison for other stores    | Listing many stores     | Buying most cheap on Mist   |
 | Responsive Design                    | Phones, PC              | Tablet Responsivity         |
 
 ## Project Plans
@@ -73,7 +74,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Some profile page (Structure for next sprint) ✔️
 
 #### Spirnt 4 (4.6.) 🚩
-  - Make working detail page for the games
-  - Fix filtering problems
+  - Make working detail page for the games - Stuck: Issues with SSR on detail page
+  - Fix filtering problems ✔️
   - Remake structure of project ✔️
-  - Rework firebase + interface for the games
+  - Rework firebase + interface for the games ✔️
