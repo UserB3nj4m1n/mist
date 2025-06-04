@@ -74,7 +74,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Some profile page (Structure for next sprint) ✔️
 
 #### Spirnt 4 (4.6.) 🚩
-  - Make working detail page for the games - Stuck: Issues with SSR on detail page
+  - Make working detail page for the games ✔️
   - Fix filtering problems ✔️
   - Remake structure of project ✔️
   - Rework firebase + interface for the games ✔️
