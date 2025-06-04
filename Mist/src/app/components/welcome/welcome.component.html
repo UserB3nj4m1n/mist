@@ -69,24 +69,36 @@
     </div>
   </div>
 </section>
-<!-- <div class="slider-container">
-    <div class="mainLeftWhy">
-      <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
-        Most popular
-      </p>
-    </div>
-    <div class="slider" id="slider">
-      <div class="slide" *ngFor="let game of games$ | async">
-        <div class="slide-content">
-          <img [src]="game.imageUrl" alt="Slide image" />
-          <div class="slide-info">
-            <h3>{{ game.title }}</h3>
-            <p>Price: ${{ game.price }}</p>
-            <p *ngIf="game.discount > 0">Discount: {{ game.discount }}%</p>
-          </div>
+<section>
+  <div class="mainLeftWhy">
+    <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
+      Most popular
+    </p>
+  </div>
+  <div class="top-games-row">
+    <ng-container *ngIf="!loading">
+      <div class="most-popular-box" *ngFor="let game of topGames">
+        <div class="most-popular-row">
+          <img [src]="game.cover.url" alt="{{ game.name }}" class="most-popular-image" />
+          <!-- <div class="most-popular-price-container">
+            <div class="discounted-price">
+              <p class="discounted-price-text">{{ game.discountedPrice }}€</p>
+            </div>
+            <div *ngIf="game.discount > 0" class="original-price">
+              {{ game.originalPrice }}€
+            </div>
+            <div *ngIf="game.discount > 0" class="game-discount">
+              -{{ game.discount }}%
+            </div>
+          </div> -->
         </div>
+        <div class="most-popular-title">{{ game.name }}</div>
       </div>
-    </div>
-    <button class="prev" id="prev">&#10094;</button>
-    <button class="next" id="next">&#10095;</button>
-  </div> -->
+    </ng-container>
+    <ng-container *ngIf="loading">
+      <div class="top-games-spinner">
+        <span>Loading games...</span>
+      </div>
+    </ng-container>
+  </div>
+</section>

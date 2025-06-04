@@ -6,38 +6,50 @@ import { Game } from '../../data/game';
 import { GetdataService } from '../../services/getdata.service';
 
 @Component({
-  selector: 'app-detaild-page',
   standalone: false,
+  selector: 'app-detaild-page',
   templateUrl: './detaild-page.component.html',
-  styleUrl: './detaild-page.component.css'
+  styleUrls: ['./detaild-page.component.css'],
 })
 export class DetaildPageComponent implements OnInit {
-  game$: Observable<Game | undefined>;
+  game: Game | undefined;
+  slideshowImages: { url: string }[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private getdataService: GetdataService
-  ) {
-    this.game$ = of(undefined);
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.game$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        const idString = params.get('id');
-        if (idString) {
-          const gameId = Number(idString);
-          if (!isNaN(gameId)) {
-            return this.getdataService.getGameById(gameId);
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          const idString = params.get('id');
+          if (idString) {
+            const gameId = Number(idString);
+            if (!isNaN(gameId)) {
+              return this.getdataService.getGameById(gameId);
+            } else {
+              console.error('Game ID from route is not a number:', idString);
+              return of(undefined);
+            }
           } else {
-            console.error('Game ID from route is not a number:', idString);
+            console.error('No Game ID found in route parameters.');
             return of(undefined);
           }
+        })
+      )
+      .subscribe((game) => {
+        if (game) {
+          this.game = game;
+
+          this.slideshowImages = [
+            { url: game.cover.url },
+            ...game.screenshots,
+          ];
         } else {
-          console.error('No Game ID found in route parameters.');
-          return of(undefined);
+          console.error('Game not found or invalid ID.');
         }
-      })
-    );
+      });
   }
 }
