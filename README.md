@@ -78,3 +78,9 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Fix filtering problems ✔️
   - Remake structure of project ✔️
   - Rework firebase + interface for the games ✔️
+
+#### Spirnt 5 () 🚩
+  - Make contact page
+  - Improve detail page
+  - Add 3D model on welcome page
+  - 
