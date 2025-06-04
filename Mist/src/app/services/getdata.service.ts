@@ -20,8 +20,8 @@ export class GetdataService {
       .valueChanges()
       .pipe(
         map((gamesArray: Game[]) =>
-          gamesArray.length > 0 ? gamesArray[0] : undefined,
-        ),
+          gamesArray.length > 0 ? gamesArray[0] : undefined
+        )
       );
   }
 

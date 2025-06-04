@@ -1,42 +1,32 @@
-<div class="main" *ngIf="game$">
+<div class="main" *ngIf="game">
   <div class="game-details">
     <div class="game-top">
       <div class="game-imageDiv">
-        <app-slideshow></app-slideshow>
+        <app-slideshow [images]="slideshowImages"></app-slideshow>
       </div>
       <div class="game-info">
         <table class="game-info-table">
           <tr>
             <td colspan="2">
-              <h1 class="game-title">Game Title</h1>
+              <h1 class="game-title"> {{game.name}} </h1>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <p>⭐⭐⭐⭐⭐</p>
+              <p> {{ game.rating_star }} ⭐</p>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               <p class="game-description">
-                Game description Game description Game description Game
-                description Game description Game description Game description
-                Game description Game description Game description Game
-                description Game description Game description Game description
-                Game description Game description Game description Game
-                description Game description Game description Game description
-                Game description Game description Game description Game
-                description
+                {{game.summary}}
               </p>
             </td>
           </tr>
           <tr>
             <div class="game-tags-container">
               <p>Tags:</p>
-              <p class="game-tags">Action</p>
-              <p class="game-tags">Adventure</p>
-              <p class="game-tags">RPG</p>
-              <p class="game-tags">Shooter</p>
+              <p class="game-tags" *ngFor="let genre of game.genres">{{genre.name}}</p>
             </div>
           </tr>
           <tr>
@@ -45,10 +35,10 @@
             </td>
             <td>
               <div class="game-price-container">
-                <p class="game-price">39.50€</p>
+                <p class="game-price">{{game.discountedPrice}}€</p>
                 <div class="game-auction-container">
-                  <div class="original-price">20€</div>
-                  <div class="game-discount">45%</div>
+                  <div class="original-price">{{game.originalPrice}}€</div>
+                  <div class="game-discount">{{game.discount}}%</div>
                 </div>
               </div>
             </td>
@@ -59,7 +49,7 @@
 
     <mat-tab-group>
       <mat-tab label="Prices"> </mat-tab>
-      <mat-tab label="Description"> Text Text Text </mat-tab>
+      <mat-tab label="Description">Storyline: <br> {{game.storyline}} </mat-tab>
       <mat-tab label="Requirements">
         <div class="game-tab-container">
           <div class="game-tab-div">

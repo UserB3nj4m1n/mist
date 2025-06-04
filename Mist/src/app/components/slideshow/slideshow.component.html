@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="images.length > 0">
   <div class="mySlides">
     <div class="numbertext">{{ slideIndex + 1 }} / {{ images.length }}</div>
-    <img [src]="images[slideIndex].src" class="slide-image" />
+    <img [src]="images[slideIndex].url" class="slide-image" />
   </div>
 
   <a class="prev" (click)="prevSlide()">❮</a>
@@ -10,7 +10,7 @@
   <div class="row">
     <div class="column" *ngFor="let img of images; let i = index">
       <img
-        [src]="img.thumb"
+        [src]="img.url"
         [class.active]="i === slideIndex"
         (click)="goToSlide(i)"
         class="demoCursor"
