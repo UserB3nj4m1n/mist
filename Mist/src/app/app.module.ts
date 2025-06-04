@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     RegisterComponent,
     DetaildPageComponent,
     SlideshowComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

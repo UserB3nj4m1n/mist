@@ -41,7 +41,9 @@
       <div class="filterLine category-container">
         <p class="filterMainText" (click)="toggleFilter('categories')">
           Categories
-          <span class="getTogleSymbol">{{ getToggleSymbol("categories") }}</span>
+          <span class="getTogleSymbol">{{
+            getToggleSymbol("categories")
+          }}</span>
         </p>
         <div *ngIf="!collapsedFilters['categories']">
           <div *ngFor="let genre of genres">
@@ -87,12 +89,17 @@
         </p>
         <div *ngIf="!collapsedFilters['platforms']">
           <div *ngFor="let platform of platforms">
-            <label [for]="'platform-' + platform.abbreviation" class="genre-label">
+            <label
+              [for]="'platform-' + platform.abbreviation"
+              class="genre-label"
+            >
               <input
                 type="checkbox"
                 [id]="'platform-' + platform.abbreviation"
                 [(ngModel)]="selectedPlatformsMap[platform.abbreviation]"
-                (ngModelChange)="onPlatformChange(platform.abbreviation, $event)"
+                (ngModelChange)="
+                  onPlatformChange(platform.abbreviation, $event)
+                "
               />
               <span class="genre-name">{{ platform.abbreviation }}</span>
               <span class="Count">({{ platform.count }})</span>
@@ -160,6 +167,7 @@
           (click)="prevPage()"
           [disabled]="currentPage === 1"
         >
+          <
         </button>
         <span>Page {{ currentPage }} of {{ totalPages }}</span>
         <button
@@ -167,6 +175,7 @@
           (click)="nextPage()"
           [disabled]="currentPage === totalPages"
         >
+          >
         </button>
       </div>
     </div>
