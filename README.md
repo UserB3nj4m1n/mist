@@ -79,8 +79,8 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Remake structure of project ✔️
   - Rework firebase + interface for the games ✔️
 
-#### Spirnt 5 () 🚩
+#### Spirnt 5 (18.6.) 🚩
   - Make contact page
   - Improve detail page
   - Add 3D model on welcome page
-  - 
+  - Try to make prize comparison
