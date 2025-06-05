@@ -84,3 +84,4 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Improve detail page
   - Add 3D model on welcome page ✔️
   - Try to make prize comparison
+  - Add more text on welcome page
