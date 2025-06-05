@@ -79,7 +79,11 @@
     <ng-container *ngIf="!loading">
       <div class="most-popular-box" *ngFor="let game of topGames">
         <div class="most-popular-row">
-          <img [src]="game.cover.url" alt="{{ game.name }}" class="most-popular-image" />
+          <img
+            [src]="game.cover.url"
+            alt="{{ game.name }}"
+            class="most-popular-image"
+          />
           <!-- <div class="most-popular-price-container">
             <div class="discounted-price">
               <p class="discounted-price-text">{{ game.discountedPrice }}€</p>
@@ -92,7 +96,13 @@
             </div>
           </div> -->
         </div>
-        <div class="most-popular-title">{{ game.name }}</div>
+        <div class="most-popular-title">
+          {{
+            game.name.length > 18
+              ? (game.name | slice : 0 : 18) + "..."
+              : game.name
+          }}
+        </div>
       </div>
     </ng-container>
     <ng-container *ngIf="loading">

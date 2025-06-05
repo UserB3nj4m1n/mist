@@ -35,7 +35,7 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
     this.games$.subscribe((games) => {
       this.topGames = [...games]
         .sort((a, b) => b.rating_star - a.rating_star)
-        .slice(0, 3);
+        .slice(0, 4);
       this.loading = false;
     });
   }

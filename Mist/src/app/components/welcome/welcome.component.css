@@ -114,7 +114,6 @@
   display: flex;
   gap: 24px;
   justify-content: center;
-  align-items: stretch;
   margin: 32px 0;
 }
 .top-games-spinner {
@@ -134,7 +133,8 @@
   flex-direction: column;
   height: 200px;
   border-radius: 10px;
-  padding: 2.5rem;
+  padding: 20px;
+  padding-bottom: auto;
   align-items: center;
 }
 .most-popular-image {
@@ -226,29 +226,29 @@
     max-height: 80px;
   }
 
-@media (max-width: 768px) {
-  .mainLeftText {
-    font-size: 40px;
-  }
+  @media (max-width: 768px) {
+    .mainLeftText {
+      font-size: 40px;
+    }
 
-  .mainImg {
-    height: 200px;
-  }
+    .mainImg {
+      height: 200px;
+    }
 
-  .mainLeftButtons {
-    width: 60%;
-    font-size: 16px;
-  }
+    .mainLeftButtons {
+      width: 60%;
+      font-size: 16px;
+    }
 
-  .mainWhyBox {
-    max-width: 12em;
-    height: 120px;
-    padding: 1rem;
-  }
+    .mainWhyBox {
+      max-width: 12em;
+      height: 120px;
+      padding: 1rem;
+    }
 
-  .mainWhyIcon {
-    max-width: 60px;
-    max-height: 60px;
+    .mainWhyIcon {
+      max-width: 60px;
+      max-height: 60px;
+    }
   }
-}
 }
