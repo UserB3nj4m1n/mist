@@ -80,8 +80,8 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Rework firebase + interface for the games ✔️
 
 #### Spirnt 5 (18.6.) 🚩
-  - Make contact page
-  - Improve detail page
+  - Make contact page component ✔️
+  - Improve detail page ✔️
   - Add 3D model on welcome page ✔️
   - Try to make prize comparison
   - Add more text on welcome page
