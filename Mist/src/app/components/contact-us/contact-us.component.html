@@ -2,14 +2,25 @@
   <p class="contact-us-title">Contact Us</p>
   <div class="contact-us-form">
     <form action="" class="contact-form">
-      <input class="inputName" type="text" placeholder="Your Name" required />
-      <input class="inputName" type="email" placeholder="Your Email" required />
+      <div class="inputNameContainer">
+        <input class="inputName" type="text" placeholder="Your Name" required />
+        <input class="inputName" type="text" placeholder="Your Name" required />
+      </div>
+      <div>
+        <input
+          class="inputName"
+          type="email"
+          placeholder="Your Email"
+          required
+        />
+      </div>
       <textarea
         class="inputName"
-        style="height: 300px"
+        style="height: 300px; padding-top: 10px; max-width: 350px"
         placeholder="Your Message"
         required
       ></textarea>
+
       <button class="loginBut" type="submit">Send Message</button>
     </form>
   </div>
