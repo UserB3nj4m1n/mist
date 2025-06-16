@@ -23,7 +23,7 @@ import { firebaseConfig } from './firebase.config';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
 import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -52,6 +52,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     StoreComponent,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ProfileComponent,
     MatTabsModule,
   ],
