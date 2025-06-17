@@ -55,11 +55,11 @@ export class DetaildPageComponent implements OnInit {
   getStoreOffers() {
     const basePrice = this.game?.discountedPrice ?? 0;
     const storeData = [
-      { name: 'Steam', logo: 'steam.png' },
-      { name: 'Epic Games', logo: 'eg.png' },
-      { name: 'GOG', logo: 'gog.png' },
-      { name: 'Xbox', logo: 'xbox.png' },
-      { name: 'PlayStation', logo: 'ps.png' },
+      { name: 'Steam', logo: 'steam.png', url: 'https://store.steampowered.com/' },
+      { name: 'Epic Games', logo: 'eg.png', url: 'https://store.epicgames.com/' },
+      { name: 'GOG', logo: 'gog.png', url: 'https://www.gog.com/' },
+      { name: 'Xbox', logo: 'xbox.png', url: 'https://www.xbox.com/en-US/games/store' },
+      { name: 'PlayStation', logo: 'ps.png', url: 'https://store.playstation.com/' },
     ];
     return storeData.map((store, i) => ({
       ...store,

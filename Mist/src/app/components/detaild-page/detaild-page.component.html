@@ -60,7 +60,11 @@
             />
             <div class="store-offer-header">{{ offer.name }}</div>
             <div class="store-offer-price">{{ offer.price }}€</div>
-            <button class="store-offer-btn">Go to Store</button>
+            <button class="store-offer-btn">
+              <a class="store-offer-btn" [href]="offer.url" target="_blank" rel="noopener">
+              Go to Store
+              </a>
+            </button>
           </div>
         </div>
       </mat-tab>
