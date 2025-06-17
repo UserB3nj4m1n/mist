@@ -14,7 +14,6 @@ import { GetdataService } from '../../services/getdata.service';
 export class DetaildPageComponent implements OnInit {
   game: Game | undefined;
   slideshowImages: { url: string }[] = [];
-
   constructor(
     private route: ActivatedRoute,
     private getdataService: GetdataService
@@ -51,5 +50,20 @@ export class DetaildPageComponent implements OnInit {
           console.error('Game not found or invalid ID.');
         }
       });
+  }
+
+  getStoreOffers() {
+    const basePrice = this.game?.discountedPrice ?? 0;
+    const storeData = [
+      { name: 'Steam', logo: 'steam.png' },
+      { name: 'Epic Games', logo: 'eg.png' },
+      { name: 'GOG', logo: 'gog.png' },
+      { name: 'Xbox', logo: 'xbox.png' },
+      { name: 'PlayStation', logo: 'ps.png' },
+    ];
+    return storeData.map((store, i) => ({
+      ...store,
+      price: basePrice + i * 2,
+    }));
   }
 }

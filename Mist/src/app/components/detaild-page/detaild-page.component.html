@@ -14,6 +14,7 @@
           <tr>
             <td colspan="2">
               <p> {{ game.rating_star }} ⭐</p>
+              <p *ngFor="let platform of game.platforms">Platforms: {{ platform.abbreviation }} </p>
             </td>
           </tr>
           <tr>
@@ -48,8 +49,26 @@
     </div>
 
     <mat-tab-group>
-      <mat-tab label="Prices"> </mat-tab>
-      <mat-tab label="Description">Storyline: <br> {{game.storyline}} </mat-tab>
+      
+      <mat-tab label="Prices">
+        <div *ngFor="let offer of getStoreOffers()" class="price-compare-row">
+          <div class="price-compare-box">
+            <img
+              class="store-logo"
+              [src]="'/stores/' + offer.logo"
+              [alt]="offer.name + ' logo'"
+            />
+            <div class="store-offer-header">{{ offer.name }}</div>
+            <div class="store-offer-price">{{ offer.price }}€</div>
+            <button class="store-offer-btn">Go to Store</button>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Description"><b>Storyline:</b>
+        <p>
+          {{game.storyline}} 
+        </p>
+      </mat-tab>
       <mat-tab label="Requirements">
         <div class="game-tab-container">
           <div class="game-tab-div">

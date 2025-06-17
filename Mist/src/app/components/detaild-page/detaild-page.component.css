@@ -152,3 +152,70 @@
   width: 50%;
   justify-items: center;
 }
+
+.price-compare-box {
+  width: 60%;
+  background-color: #6e839620;
+  border-radius: 12px;
+  padding: 18px 28px;
+  margin: 10px 3em;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.price-compare-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.price-compare-box:hover {
+  box-shadow: 0 4px 24px #6e839650;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.store-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #ececee;
+  padding: 4px;
+  box-shadow: 0 1px 4px #6e839620;
+}
+
+.store-offer-header {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #6e8396;
+  flex: 1;
+}
+
+.store-offer-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #070708;
+  min-width: 70px;
+  text-align: right;
+}
+
+.store-offer-btn {
+  background-color: #6e8396;
+  color: #f8f8f9;
+  border: none;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.store-offer-btn:hover {
+  background-color: #576776;
+  scale: 1.07;
+}
