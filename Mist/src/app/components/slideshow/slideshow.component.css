@@ -87,6 +87,8 @@ img {
 
 .demoCursor {
   width: 100%;
+  height: 60px;
+  object-fit: cover;
   border-radius: 1px;
   cursor: pointer;
   opacity: 0.6;
