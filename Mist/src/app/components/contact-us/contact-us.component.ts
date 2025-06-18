@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../firebase.config'; // upravený import path
+import { db } from '../../firebase.config';
 
 @Component({
   selector: 'app-contact-us',
