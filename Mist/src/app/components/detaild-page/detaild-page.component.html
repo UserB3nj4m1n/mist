@@ -8,26 +8,33 @@
         <table class="game-info-table">
           <tr>
             <td colspan="2">
-              <h1 class="game-title"> {{game.name}} </h1>
+              <h1 class="game-title">{{ game.name }}</h1>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <p> {{ game.rating_star }} ⭐</p>
-              <p *ngFor="let platform of game.platforms">Platforms: {{ platform.abbreviation }} </p>
+              <p>{{ game.rating_star }} ⭐</p>
+              <div class="game-platforms">
+                Platforms:
+                <div *ngFor="let platform of game.platforms">
+                  {{ platform.abbreviation }},
+                </div>
+              </div>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               <p class="game-description">
-                {{game.summary}}
+                {{ game.summary }}
               </p>
             </td>
           </tr>
           <tr>
             <div class="game-tags-container">
               <p>Tags:</p>
-              <p class="game-tags" *ngFor="let genre of game.genres">{{genre.name}}</p>
+              <p class="game-tags" *ngFor="let genre of game.genres">
+                {{ genre.name }}
+              </p>
             </div>
           </tr>
           <tr>
@@ -36,10 +43,10 @@
             </td>
             <td>
               <div class="game-price-container">
-                <p class="game-price">{{game.discountedPrice}}€</p>
+                <p class="game-price">{{ game.discountedPrice }}€</p>
                 <div class="game-auction-container">
-                  <div class="original-price">{{game.originalPrice}}€</div>
-                  <div class="game-discount">{{game.discount}}%</div>
+                  <div class="original-price">{{ game.originalPrice }}€</div>
+                  <div class="game-discount">{{ game.discount }}%</div>
                 </div>
               </div>
             </td>
@@ -49,7 +56,6 @@
     </div>
 
     <mat-tab-group>
-      
       <mat-tab label="Prices">
         <div *ngFor="let offer of getStoreOffers()" class="price-compare-row">
           <div class="price-compare-box">
@@ -61,16 +67,21 @@
             <div class="store-offer-header">{{ offer.name }}</div>
             <div class="store-offer-price">{{ offer.price }}€</div>
             <button class="store-offer-btn">
-              <a class="store-offer-btn" [href]="offer.url" target="_blank" rel="noopener">
-              Go to Store
+              <a
+                class="store-offer-btn"
+                [href]="offer.url"
+                target="_blank"
+                rel="noopener"
+              >
+                Go to Store
               </a>
             </button>
           </div>
         </div>
       </mat-tab>
-      <mat-tab label="Description"><b>Storyline:</b>
+      <mat-tab label="Description">
         <p>
-          {{game.storyline}} 
+          {{ game.storyline }}
         </p>
       </mat-tab>
       <mat-tab label="Requirements">

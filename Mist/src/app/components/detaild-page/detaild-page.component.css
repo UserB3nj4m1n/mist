@@ -105,7 +105,7 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
-  margin-bottom: 130px;
+  margin-bottom: 0px;
 }
 
 .game-tags {
@@ -154,13 +154,13 @@
 }
 
 .price-compare-box {
-  width: 60%;
+  width: 100%;
   background-color: #6e839620;
   border-radius: 12px;
   padding: 18px 28px;
   margin: 10px 3em;
   box-sizing: border-box;
-  transition: box-shadow 0.2s, transform 0.3s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -174,8 +174,7 @@
 }
 
 .price-compare-box:hover {
-  box-shadow: 0 4px 24px #6e839650;
-  transform: translateY(-2px) scale(1.01);
+  scale: 1.02;
 }
 
 .store-logo {
@@ -218,4 +217,12 @@
 .store-offer-btn:hover {
   background-color: #576776;
   scale: 1.02;
+}
+
+.game-platforms {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
