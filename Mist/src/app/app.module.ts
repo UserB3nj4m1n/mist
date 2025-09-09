@@ -28,6 +28,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     DetaildPageComponent,
     SlideshowComponent,
     ContactUsComponent,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
