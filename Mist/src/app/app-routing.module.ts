@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
+  { path: 'graph', component: GraphComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
