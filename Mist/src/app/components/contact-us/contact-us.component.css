@@ -58,6 +58,9 @@
 .inputNameContainer {
   display: flex;
   flex-direction: row;
-  gap: 10px;
   width: 350px;
+}
+
+.inputNameUnderline {
+  width: 10px;
 }

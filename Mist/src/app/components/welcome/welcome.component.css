@@ -252,3 +252,10 @@
     }
   }
 }
+
+.background-img {
+  position: absolute;
+  width: 35%;
+  height: auto;
+  opacity: 0.4;
+}

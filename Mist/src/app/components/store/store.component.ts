@@ -99,19 +99,21 @@ export class StoreComponent implements OnInit {
       this.genres = genres;
       // Initialize map for genres
       this.selectedCategoriesMap = {};
-      genres.forEach(g => this.selectedCategoriesMap[g.name] = false);
+      genres.forEach((g) => (this.selectedCategoriesMap[g.name] = false));
     });
     this.platforms$.subscribe((platforms) => {
       this.platforms = platforms;
       // Initialize map for platforms
       this.selectedPlatformsMap = {};
-      platforms.forEach(p => this.selectedPlatformsMap[p.abbreviation] = false);
+      platforms.forEach(
+        (p) => (this.selectedPlatformsMap[p.abbreviation] = false)
+      );
     });
     this.ratings$.subscribe((ratings) => {
       this.ratings = ratings;
       // Initialize map for ratings
       this.selectedRatingsMap = {};
-      ratings.forEach(r => this.selectedRatingsMap[r.rating] = false);
+      ratings.forEach((r) => (this.selectedRatingsMap[r.rating] = false));
     });
   }
 
@@ -149,7 +151,9 @@ export class StoreComponent implements OnInit {
         this.selectedCategories.push(category);
       }
     } else {
-      this.selectedCategories = this.selectedCategories.filter(c => c !== category);
+      this.selectedCategories = this.selectedCategories.filter(
+        (c) => c !== category
+      );
     }
     this.applyFilters();
   }
@@ -160,7 +164,9 @@ export class StoreComponent implements OnInit {
         this.selectedPlatforms.push(platform);
       }
     } else {
-      this.selectedPlatforms = this.selectedPlatforms.filter(p => p !== platform);
+      this.selectedPlatforms = this.selectedPlatforms.filter(
+        (p) => p !== platform
+      );
     }
     this.applyFilters();
   }
@@ -171,7 +177,7 @@ export class StoreComponent implements OnInit {
         this.selectedRatings.push(rating);
       }
     } else {
-      this.selectedRatings = this.selectedRatings.filter(r => r !== rating);
+      this.selectedRatings = this.selectedRatings.filter((r) => r !== rating);
     }
     this.applyFilters();
   }
@@ -184,7 +190,8 @@ export class StoreComponent implements OnInit {
       const matchesPrice = game.discountedPrice <= this.selPrice;
       const matchesRating =
         this.selectedRatings.length === 0 ||
-        (game.rating_star !== undefined && this.selectedRatings.includes(game.rating_star));
+        (game.rating_star !== undefined &&
+          this.selectedRatings.includes(game.rating_star));
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>
