@@ -85,3 +85,7 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Add 3D model on welcome page ✔️
   - Try to make prize comparison ✔️
   - Add more text on welcome page ✔️
+
+#### Spirnt 1 (7.10.) 🚩
+  - Make graph component / spoločna praca
+    
