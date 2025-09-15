@@ -89,5 +89,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
 #### Spirnt 1 (7.10.) 🚩
   - Make graph component / spoločna praca
   - Add/make admin page
-  - 
+  - Fix problem with loading profile name
+
     
