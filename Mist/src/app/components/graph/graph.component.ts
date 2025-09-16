@@ -5,30 +5,14 @@ import { single } from './data';
 
 @Component({
   selector: 'app-graph',
-  standalone: false,
+
   templateUrl: './graph.component.html',
   styleUrl: './graph.component.css',
+  imports: [NgxChartsModule],
 })
 export class GraphComponent {
-  single: any[] = [
-    {
-      name: 'Germany',
-      value: 8940000,
-    },
-    {
-      name: 'USA',
-      value: 5000000,
-    },
-    {
-      name: 'France',
-      value: 7200000,
-    },
-    {
-      name: 'UK',
-      value: 6200000,
-    },
-  ];
-  view: any[] = [700, 400];
+  single: any[] = [];
+  view: [number, number] = [700, 400];
 
   // options
   gradient: boolean = true;
@@ -38,22 +22,22 @@ export class GraphComponent {
   legendPosition: string = 'below';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
+    domain: ['#1fb112ff', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
   constructor() {
-    Object.assign(this, [data]);
+    Object.assign(this, { single });
   }
 
-  onSelect(data): void {
+  onSelect(data: { name: string; value: number }): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
-  onActivate(data): void {
+  onActivate(data: { name: string; value: number }): void {
     console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
-  onDeactivate(data): void {
+  onDeactivate(data: { name: string; value: number }): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 }

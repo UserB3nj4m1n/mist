@@ -1,16 +1,15 @@
-<p>graph works!</p>
-<!-- In your component's template file, e.g., app.component.html -->
-<ngx-charts-pie-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="single"
-  [gradient]="gradient"
-  [legend]="showLegend"
-  [legendPosition]="legendPosition"
-  [labels]="showLabels"
-  [doughnut]="isDoughnut"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
->
-</ngx-charts-pie-chart>
+<div class="chart-container">
+  <ngx-charts-pie-chart
+    [view]="view"
+    [results]="single"
+    [gradient]="gradient"
+    [legend]="showLegend"
+    [labels]="showLabels"
+    [doughnut]="isDoughnut"
+    [customColors]="colorScheme"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+  >
+  </ngx-charts-pie-chart>
+</div>

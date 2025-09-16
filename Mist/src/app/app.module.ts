@@ -30,6 +30,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { SlideshowModule } from './models/slideshow/slideshow.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,6 @@ import { SlideshowModule } from './models/slideshow/slideshow.module';
     LoginComponent,
     RegisterComponent,
     ContactUsComponent,
-    GraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +58,8 @@ import { SlideshowModule } from './models/slideshow/slideshow.module';
     MatTabsModule,
     DetaildPageComponent,
     SlideshowModule,
+    NgxChartsModule,
+    GraphComponent,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
