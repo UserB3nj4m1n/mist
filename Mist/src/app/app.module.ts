@@ -29,6 +29,7 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { SlideshowModule } from './models/slideshow/slideshow.module';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,6 @@ import { GraphComponent } from './components/graph/graph.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    DetaildPageComponent,
-    SlideshowComponent,
     ContactUsComponent,
     GraphComponent,
   ],
@@ -57,6 +56,8 @@ import { GraphComponent } from './components/graph/graph.component';
     ReactiveFormsModule,
     ProfileComponent,
     MatTabsModule,
+    DetaildPageComponent,
+    SlideshowModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

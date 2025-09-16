@@ -30,10 +30,14 @@ export class GetdataService {
   }
 
   getPlatforms(): Observable<{ abbreviation: string; count: number }[]> {
-    return this.firestore.collection<{ abbreviation: string; count: number }>('platforms').valueChanges();
+    return this.firestore
+      .collection<{ abbreviation: string; count: number }>('platforms')
+      .valueChanges();
   }
 
   getRatings(): Observable<{ rating: number; count: number }[]> {
-    return this.firestore.collection<{ rating: number; count: number }>('ratings').valueChanges();
+    return this.firestore
+      .collection<{ rating: number; count: number }>('ratings')
+      .valueChanges();
   }
 }
