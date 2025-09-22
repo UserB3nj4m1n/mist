@@ -32,6 +32,8 @@ import { GraphComponent } from './components/graph/graph.component';
 import { SlideshowModule } from './models/slideshow/slideshow.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
+import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
     RegisterComponent,
     ContactUsComponent,
     AdminPanelComponent,
+    DashboardComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

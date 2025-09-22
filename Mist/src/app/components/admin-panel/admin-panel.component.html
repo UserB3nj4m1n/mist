@@ -1,8 +1,26 @@
 <div class="admin-panel">
   <div class="admin-panel-side">
-    <div class="admin-panel-side-content"><p>Admin Panel</p></div>
+    <div routerLink="dashboard" routerLinkActive="active" class="admin-list">
+      <p>Dashboard</p>
+    </div>
+    <div routerLink="users" routerLinkActive="active" class="admin-list">
+      <p>Users</p>
+    </div>
+    <div routerLink="games" routerLinkActive="active" class="admin-list">
+      <p>Games</p>
+    </div>
+    <div routerLink="settings" routerLinkActive="active" class="admin-list">
+      <p>Settings</p>
+    </div>
   </div>
   <div class="admin-panel-main">
-    <div class="admin-panel-side-content"><p>Dashboard</p></div>
+    <div class="admin-panel-side-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
+</div>
+<div class="admin-wrapper">
+  <nav class="admin-nav"></nav>
+
+  <div class="admin-content"></div>
 </div>

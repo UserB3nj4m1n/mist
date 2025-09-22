@@ -21,3 +21,17 @@
   width: 100%;
   height: 100%;
 }
+
+.admin-list {
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.admin-panel-side div.active {
+  background-color: #ececee;
+}
