@@ -31,6 +31,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { GraphComponent } from './components/graph/graph.component';
 import { SlideshowModule } from './models/slideshow/slideshow.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LoginComponent,
     RegisterComponent,
     ContactUsComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

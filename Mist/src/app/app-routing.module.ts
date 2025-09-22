@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'graph', component: GraphComponent },
+  { path: 'admin', component: AdminPanelComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 

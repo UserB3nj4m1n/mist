@@ -15,4 +15,8 @@ export var single = [
     name: 'Adventure',
     value: 620,
   },
+  {
+    name: 'Sports',
+    value: 620,
+  },
 ];
