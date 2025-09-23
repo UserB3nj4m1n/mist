@@ -34,6 +34,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
+import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { UsersComponent } from './components/admin-panel/tabs/users/users.compon
     AdminPanelComponent,
     DashboardComponent,
     UsersComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { GraphComponent } from './components/graph/graph.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
+import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'contacts', component: ContactComponent },
     ],
   },
 

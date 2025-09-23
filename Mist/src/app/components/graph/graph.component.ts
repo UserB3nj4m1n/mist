@@ -20,10 +20,7 @@ export class GraphComponent {
   showLabels: boolean = true;
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
-
-  colorScheme = {
-    domain: ['#1fb112ff', '#A10A28', '#C7B42C', '#AAAAAA'],
-  };
+  showTooltip: boolean = false;
 
   constructor() {
     Object.assign(this, { single });
