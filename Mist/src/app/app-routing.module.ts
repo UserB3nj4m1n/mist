@@ -12,6 +12,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
 import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
+import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent },
       { path: 'contacts', component: ContactComponent },
+      { path: 'games', component: GamesComponent },
     ],
   },
 

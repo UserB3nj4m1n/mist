@@ -35,6 +35,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
 import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
+import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ContactComponent } from './components/admin-panel/tabs/contact/contact.
     DashboardComponent,
     UsersComponent,
     ContactComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
