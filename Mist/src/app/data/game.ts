@@ -1,5 +1,5 @@
 export interface Genre {
-  count: number;
+  value: number;
   name: string;
 }
 
