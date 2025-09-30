@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dash
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
 import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
 import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent },
