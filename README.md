@@ -87,9 +87,9 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Add more text on welcome page ✔️
 
 #### Spirnt 1 (7.10.) 🚩
-  - Make graph component / spoločna praca
-  - Add/make admin page component
-  - Fix problem with loading profile name
-  - Fix problem with detaild page
+  - Make graph component / spoločna praca ✔️
+  - Add/make admin page component ✔️
+  - Fix problem with loading profile name ✔️
+  - Fix problem with detaild page ✔️
 
     
