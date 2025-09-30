@@ -35,8 +35,7 @@ export class GetdataService {
       );
   }
 
-  getGenres(): Observable<{ name: string; count: number }[]> {
-    if (!this.isBrowser) return of([]);
+  getGenres(): Observable<{ name: string; value: number }[]> {
     return this.firestore.collection<Genre>('genres').valueChanges();
   }
 
