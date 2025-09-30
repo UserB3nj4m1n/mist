@@ -1,5 +1,5 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service'; // Import your AuthService
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +9,16 @@ import { AuthService } from '../../services/auth.service'; // Import your AuthSe
 })
 export class NavbarComponent implements OnInit {
   isAuthenticated: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private renderer: Renderer2, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.isAuthenticated$.subscribe((status: boolean) => {
       this.isAuthenticated = status;
+    });
+    this.authService.isAdmin().subscribe((isAdmin: boolean) => {
+      this.isAdmin = isAdmin;
     });
   }
 

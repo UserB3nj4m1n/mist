@@ -1,4 +1,4 @@
-.contact-table {
+/*.contact-table {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
@@ -34,4 +34,26 @@
   font-weight: bold;
   background-color: #6e839620;
   height: 50px;
+}
+*/
+table {
+  width: 100%;
+  border: 1px solid #ececee;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: left;
+  border-bottom: 1px solid #ececee;
+}
+
+th {
+  background-color: #ececee;
+}
+
+.contact-date {
+  width: 6em;
+  padding: 5px;
+  text-align: center;
 }

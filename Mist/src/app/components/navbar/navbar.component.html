@@ -5,6 +5,7 @@
   <div class="navbar-links">
     <a routerLink="store" class="navBut">Store</a>
     <a class="navBut">Library</a>
+    <a *ngIf="isAdmin" routerLink="/admin/dashboard" class="navBut">Admin</a>
     <div class="dropdown">
       <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
       <div class="dropdown-menu">
