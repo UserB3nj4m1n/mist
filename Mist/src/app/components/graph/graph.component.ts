@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { single } from './data';
+import { GraphService } from '../../services/graph.service';
 
 @Component({
   selector: 'app-graph',
-
   templateUrl: './graph.component.html',
   styleUrl: './graph.component.css',
   imports: [NgxChartsModule],
 })
-export class GraphComponent {
+export class GraphComponent implements OnInit {
   single: any[] = [];
   view: [number, number] = [700, 400];
 
@@ -22,8 +20,12 @@ export class GraphComponent {
   legendPosition: string = 'below';
   showTooltip: boolean = false;
 
-  constructor() {
-    Object.assign(this, { single });
+  constructor(private graphService: GraphService) {}
+
+  ngOnInit(): void {
+    this.graphService.getGenreDistribution().subscribe((data) => {
+      this.single = data;
+    });
   }
 
   onSelect(data: { name: string; value: number }): void {
