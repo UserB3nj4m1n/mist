@@ -34,8 +34,8 @@ export class StoreComponent implements OnInit {
   games$: Observable<Game[]>;
   games: Game[] = [];
   filteredGames: Game[] = [];
-  genres$: Observable<{ name: string; count: number }[]>;
-  genres: { name: string; count: number }[] = [];
+  genres$: Observable<{ name: string; value: number }[]>;
+  genres: { name: string; value: number }[] = [];
   paginatedGames: Game[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 10;
@@ -43,7 +43,7 @@ export class StoreComponent implements OnInit {
   isBrowser: boolean;
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
-  loading: boolean = true;
+    loading: boolean = true;
 
   searchQuery: string = '';
   selPrice: number = 100;

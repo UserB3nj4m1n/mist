@@ -2,17 +2,33 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(
-    this.isBrowser() && !!localStorage.getItem('authToken')
-  );
-  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+  private isAuthenticatedSubject: BehaviorSubject<boolean>;
+  isAuthenticated$: Observable<boolean>;
 
-  constructor(private fireauth: AngularFireAuth, private router: Router) {}
+  private adminEmails = ['cenigamartin@gmail.com', 'dogiyo@protonmail.com'];
+
+  isAdmin$: Observable<boolean>;
+
+  constructor(private fireauth: AngularFireAuth, private router: Router) {
+    this.isAuthenticatedSubject = new BehaviorSubject<boolean>(
+      this.isBrowser() && !!localStorage.getItem('authToken')
+    );
+    this.isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+
+    this.isAdmin$ = this.fireauth.authState.pipe(
+      map((user) => !!user && this.adminEmails.includes(user.email ?? ''))
+    );
+  }
+
+  isAdmin(): Observable<boolean> {
+    return this.isAdmin$;
+  }
 
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';

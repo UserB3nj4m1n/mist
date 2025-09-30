@@ -28,6 +28,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { GraphComponent } from './components/graph/graph.component';
+import { SlideshowModule } from './models/slideshow/slideshow.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
+import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
+import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
+import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +45,12 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    DetaildPageComponent,
-    SlideshowComponent,
     ContactUsComponent,
+    AdminPanelComponent,
+    DashboardComponent,
+    UsersComponent,
+    ContactComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +66,10 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     ReactiveFormsModule,
     ProfileComponent,
     MatTabsModule,
+    DetaildPageComponent,
+    SlideshowModule,
+    NgxChartsModule,
+    GraphComponent,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

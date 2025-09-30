@@ -1,0 +1,26 @@
+<table class="contact-table">
+  <thead>
+    <tr class="contact-header">
+      <th class="contact-date">Date</th>
+      <th class="contact-name">Name</th>
+      <th class="contact-surname">Surname</th>
+      <th class="contact-email">Email</th>
+      <th class="contact-message">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td class="contact-date">
+        {{
+          contact.date?.toDate
+            ? (contact.date.toDate() | date : "short")
+            : contact.date
+        }}
+      </td>
+      <td class="contact-name">{{ contact.name }}</td>
+      <td class="contact-surname">{{ contact.surname }}</td>
+      <td class="contact-email">{{ contact.email }}</td>
+      <td class="contact-message">{{ contact.message }}</td>
+    </tr>
+  </tbody>
+</table>

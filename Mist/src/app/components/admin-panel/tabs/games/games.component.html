@@ -1,0 +1,24 @@
+<table *ngIf="games$ | async as games; else loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Game Name</th>
+      <th>Rating</th>
+      <th>Price</th>
+      <th>Discounted Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games">
+      <td>{{ game?.id }}</td>
+      <td>{{ game?.name }}</td>
+      <td>{{ game?.rating_star }}</td>
+      <td>{{ game?.originalPrice }}€</td>
+      <td>{{ game?.discountedPrice }}€</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #loading>
+  <p>Loading games…</p>
+</ng-template>

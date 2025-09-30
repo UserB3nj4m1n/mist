@@ -7,6 +7,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DetaildPageComponent } from './components/detaild-page/detaild-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { GraphComponent } from './components/graph/graph.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dashboard.component';
+import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
+import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
+import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -16,6 +23,19 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
+  { path: 'graph', component: GraphComponent },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'contacts', component: ContactComponent },
+      { path: 'games', component: GamesComponent },
+    ],
+  },
+
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
