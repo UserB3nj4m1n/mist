@@ -2,7 +2,7 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable, of } from 'rxjs';
-import { Game, Genre } from '../data/game';
+import { Game, Genre } from '../interface/game';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({

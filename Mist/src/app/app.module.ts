@@ -36,6 +36,9 @@ import { DashboardComponent } from './components/admin-panel/tabs/dashboard/dash
 import { UsersComponent } from './components/admin-panel/tabs/users/users.component';
 import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
 import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
+import { CartSummaryComponent } from './components/cart/cart-summary/cart-summary.component';
+import { CartItemsComponent } from './components/cart/cart-items/cart-items.component';
+import { ProductComponent } from './components/cart/product/product.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { GamesComponent } from './components/admin-panel/tabs/games/games.compon
     UsersComponent,
     ContactComponent,
     GamesComponent,
+    CartSummaryComponent,
+    CartItemsComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GetdataService } from '../../../../services/getdata.service';
-import { Game } from '../../../../data/game';
+import { Game } from '../../../../interface/game';
 
 @Component({
   selector: 'app-games',
