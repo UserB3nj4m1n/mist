@@ -1,11 +1,10 @@
+body {
+  margin: 0 0 !important;
+}
+
 .main {
   display: flex;
   flex-direction: row;
-}
-
-.filterLine {
-  border-top: 2px solid #d9d9d9;
-  margin-top: 0.5rem;
 }
 
 .filterMainText {
@@ -15,8 +14,17 @@
 }
 
 .filter {
-  margin-right: 10px;
+  padding: 20px;
+
   min-width: 178.4px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.filter-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
 /*Inputs*/
 
@@ -80,6 +88,7 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   gap: 20px;
   margin-left: auto;
+  margin-right: 10px;
 }
 
 .ViewLayautCategory {
@@ -121,7 +130,7 @@ button {
 .grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  column-gap: 30px;
+  column-gap: 10px;
   row-gap: 10px;
 }
 
@@ -139,7 +148,7 @@ button {
 
 .grid-view {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .list-view {
@@ -222,6 +231,9 @@ app-store-card {
 #prizeRange {
   margin-bottom: 0;
   font-size: 15px;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .Count {
@@ -259,6 +271,11 @@ app-store-card {
   align-items: center;
   max-width: 190px;
   gap: 4px;
+  color: #4b5563;
+}
+
+.genre-label input {
+  display: none;
 }
 
 .genre-name {
@@ -267,6 +284,14 @@ app-store-card {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.SelpriceText {
+  float: right;
 }
 
 @media (max-width: 600px) {

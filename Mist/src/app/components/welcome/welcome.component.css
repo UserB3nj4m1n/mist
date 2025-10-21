@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 10%;
 }
 
 .mainLeft {

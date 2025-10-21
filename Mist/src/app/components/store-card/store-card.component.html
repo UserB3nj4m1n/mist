@@ -1,4 +1,4 @@
-<div class="game-card" [routerLink]="['/game', game.id]">
+<!--<div class="game-card" [routerLink]="['/game', game.id]">
   <img [src]="game.cover.url" alt="{{ game.name }}" class="game-image" />
   <div class="game-info">
     <h3 class="game-title">
@@ -30,4 +30,130 @@
     </div>
     <button class="buy-now">Buy Now</button>
   </div>
+</div>-->
+
+<!-- ------------------------------------------------------------ -->
+<!-- 
+<div class="game-card" [routerLink]="['/game', game.id]">
+  <div>
+    <div class="favorite">♥</div>
+    <img [src]="game.cover.url" alt="{{ game.name }}" class="game-image" />
+  </div>
+  <p class="game-title">
+    <ng-container *ngIf="viewMode === 'grid'; else fullTitle">
+      {{ game.name | slice : 0 : 22
+      }}<span *ngIf="game.name.length > 22">...</span>
+    </ng-container>
+    <ng-template #fullTitle>
+      {{ game.name }}
+    </ng-template>
+  </p>
+  <p class="game-category">
+    <span *ngFor="let genre of game.genres; let i = index">
+      {{ genre.name }}<span *ngIf="i < game.genres.length - 1">, </span>
+    </span>
+  </p>
+  <div class="icons">
+    <img src="Vector.svg" />
+    <img src="Vector.svg" />
+    <img src="Vector.svg" />
+    <img src="Vector.svg" />
+    <img src="Vector.svg" />
+
+    <p class="rating">({{ game.rating_star }})</p>
+  </div>
+  <div *ngIf="game.discount > 0" class="original-price">
+    {{ game.originalPrice }}€
+  </div>
 </div>
+------------------------------------------------------------ -->
+
+<mat-card
+  class="game-card"
+  [routerLink]="['/game', game.id]"
+  *ngIf="viewMode === 'grid'"
+>
+  <img
+    mat-card-image
+    [src]="game.cover.url"
+    alt="{{ game.name }}"
+    class="game-image"
+  />
+  <div class="card-content">
+    <div class="game-info">
+      <p class="game-title">
+        {{ game.name | slice : 0 : 20
+        }}<span *ngIf="game.name.length > 20">...</span>
+      </p>
+
+      <p class="game-category">
+        <span *ngFor="let genre of game.genres; let i = index">
+          {{ genre.name }}<span *ngIf="i < game.genres.length - 1">, </span>
+        </span>
+      </p>
+    </div>
+    <div class="icons">
+      <ng-container *ngFor="let star of getStars(game.rating_star)">
+        <img src="Vector.svg" class="icon" />
+      </ng-container>
+
+      <p class="rating">({{ game.rating_star }})</p>
+    </div>
+    <div class="game-price">
+      <div *ngIf="game.discount > 0" class="game-discount">
+        <p class="p-game-discount">-{{ game.discount }}%</p>
+      </div>
+      <div class="discounted-price">
+        <p>{{ game.discountedPrice }}€</p>
+      </div>
+      <div *ngIf="game.discount > 0" class="original-price">
+        <p class="p-original-price">{{ game.originalPrice }}€</p>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card
+  class="game-card list"
+  [routerLink]="['/game', game.id]"
+  *ngIf="viewMode !== 'grid'"
+>
+  <img
+    mat-card-image
+    [src]="game.cover.url"
+    alt="{{ game.name }}"
+    class="game-image"
+  />
+  <div class="card-content">
+    <div class="game-info">
+      <p class="game-title">
+        {{ game.name | slice : 0 : 20
+        }}<span *ngIf="game.name.length > 20">...</span>
+      </p>
+
+      <p class="game-category">
+        <span *ngFor="let genre of game.genres; let i = index">
+          {{ genre.name }}<span *ngIf="i < game.genres.length - 1">, </span>
+        </span>
+      </p>
+    </div>
+    <div class="icons">
+      <ng-container *ngFor="let star of getStars(game.rating_star)">
+        <img src="Vector.svg" class="icon" />
+      </ng-container>
+
+      <p class="rating">({{ game.rating_star }})</p>
+    </div>
+    <div class="game-price">
+      <div *ngIf="game.discount > 0" class="game-discount">
+        <p class="p-game-discount">-{{ game.discount }}%</p>
+      </div>
+      <div class="discounted-price">
+        <p>{{ game.discountedPrice }}€</p>
+      </div>
+      <div *ngIf="game.discount > 0" class="original-price">
+        <p class="p-original-price">{{ game.originalPrice }}€</p>
+      </div>
+    </div>
+  </div>
+</mat-card>

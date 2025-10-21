@@ -1,7 +1,7 @@
 <div *ngIf="isAuthenticated; else notAuthenticated">
   <div class="main">
     <div class="filter">
-      <p class="filter-title">Game Filters</p>
+      <p class="filter-title">Filters</p>
       <div class="filterLine">
         <p class="filterMainText" (click)="toggleFilter('search')">
           Search
@@ -25,7 +25,9 @@
           <span class="getTogleSymbol">{{ getToggleSymbol("price") }}</span>
         </p>
         <div *ngIf="!collapsedFilters['price']">
-          <p id="prizeRange">1€ - {{ selPrice }}€</p>
+          <p id="prizeRange">
+            0€ <span id="SelpriceText">{{ selPrice }}€</span>
+          </p>
           <input
             type="range"
             name="Price"
@@ -54,7 +56,12 @@
                 [(ngModel)]="selectedCategoriesMap[genre.name]"
                 (ngModelChange)="onCategoryChange(genre.name, $event)"
               />
-              <span class="genre-name">{{ genre.name }}</span>
+              <span
+                class="genre-name"
+                [ngClass]="{ 'bold-text': selectedCategoriesMap[genre.name] }"
+              >
+                {{ genre.name }}
+              </span>
               <span class="Count">({{ genre.value }})</span>
             </label>
           </div>
@@ -75,7 +82,13 @@
                 [(ngModel)]="selectedRatingsMap[rating.rating]"
                 (ngModelChange)="onRatingChange(rating.rating, $event)"
               />
-              <span class="genre-name">{{ rating.rating }} ⭐</span>
+              <span
+                class="genre-name"
+                [ngClass]="{ 'bold-text': selectedRatingsMap[rating.rating] }"
+              >
+                {{ rating.rating }} <img src="Vector.svg" class="icon" />
+              </span>
+
               <span class="Count">({{ rating.count }})</span>
             </label>
           </div>
@@ -101,7 +114,14 @@
                   onPlatformChange(platform.abbreviation, $event)
                 "
               />
-              <span class="genre-name">{{ platform.abbreviation }}</span>
+              <span
+                class="genre-name"
+                [ngClass]="{
+                  'bold-text': selectedPlatformsMap[platform.abbreviation]
+                }"
+              >
+                {{ platform.abbreviation }}
+              </span>
               <span class="Count">({{ platform.count }})</span>
             </label>
           </div>

@@ -38,12 +38,12 @@ export class StoreComponent implements OnInit {
   genres: { name: string; value: number }[] = [];
   paginatedGames: Game[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 24;
   totalPages: number = 1;
   isBrowser: boolean;
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
-    loading: boolean = true;
+  loading: boolean = true;
 
   searchQuery: string = '';
   selPrice: number = 100;
@@ -119,6 +119,7 @@ export class StoreComponent implements OnInit {
 
   toggleView(mode: string) {
     this.isGridView = mode === 'grid';
+    
   }
 
   updatePagination(page: number = this.currentPage) {

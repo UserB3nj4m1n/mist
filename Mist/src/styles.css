@@ -14,14 +14,13 @@
 */
 
 body {
+  font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif !important;
+  user-select: none;
   margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-  margin: 0 12%;
 }
 
 @media (max-width: 768px) {
   body {
-    margin: 0 3%;
   }
 }
 
@@ -32,11 +31,11 @@ body {
 
 /*scrollbar*/
 ::-webkit-scrollbar {
-  width: auto;
+  width: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0);
+  background: rgb(255, 255, 255);
   border-radius: 10px;
 }
 
