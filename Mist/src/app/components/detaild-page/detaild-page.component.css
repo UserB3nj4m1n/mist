@@ -191,7 +191,7 @@
   font-weight: bold;
   font-size: 1.15rem;
   color: #6e8396;
-  flex: 1;
+  flex: 1;  
 }
 
 .store-offer-price {
@@ -229,4 +229,7 @@
 
 #bottom{
   justify-content: flex-end;
+}
+#buybuttons {
+  display: flex;
 }
