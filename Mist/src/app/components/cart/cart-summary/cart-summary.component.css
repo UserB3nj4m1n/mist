@@ -1,0 +1,28 @@
+.cart-summary {
+  padding: 15px;
+  border-top: 1px solid #eee;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.cart-summary p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.cart-summary button {
+  background-color: #6e8396;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: #f8f8f9;
+}
+
+.cart-summary button:hover {
+  background-color: #5a6b7d;
+}

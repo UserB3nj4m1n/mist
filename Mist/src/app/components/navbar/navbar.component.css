@@ -5,6 +5,7 @@
   padding: 1rem;
   padding-right: 0;
   border-bottom: 2px solid #d9d9d9;
+  position: relative; /* Added for cart dropdown positioning */
 }
 
 a {
@@ -144,4 +145,18 @@ input:checked + .slider:before {
 .dropdown-toggle {
   display: flex;
   justify-content: center;
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  z-index: 1000;
+  min-width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links .navBut i.fas.fa-shopping-cart {
+  font-size: 1.2em;
 }

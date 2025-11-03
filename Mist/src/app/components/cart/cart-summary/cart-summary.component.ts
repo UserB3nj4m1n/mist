@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './cart-summary.component.css'
 })
 export class CartSummaryComponent {
-
+  cartTotal = 50;
+  itemCount = 5;
 }
