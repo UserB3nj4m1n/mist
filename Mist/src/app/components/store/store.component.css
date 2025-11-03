@@ -15,7 +15,6 @@ body {
 
 .filter {
   padding: 20px;
-
   min-width: 178.4px;
   margin-top: 0;
   padding-top: 0;
@@ -60,8 +59,8 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-.game-list {
-  width: 100%;
+#Search {
+  border: solid 1px #d1d5db;
 }
 
 .sort-by-container {
@@ -135,7 +134,8 @@ button {
 }
 
 .list-view {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   flex-direction: column;
   gap: 10px;
 }
@@ -152,15 +152,17 @@ button {
 }
 
 .list-view {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
+
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .list-view app-store-card {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-right: 400px !important;
 }
 
 app-store-card {
@@ -172,7 +174,7 @@ app-store-card {
   padding: 10px;
   border-radius: 5px 5px 0 0;
   border: none;
-  border-bottom: #6e8396 1px solid !important;
+
   background-color: transparent;
 
   font-size: 13px;
@@ -180,7 +182,7 @@ app-store-card {
 }
 .form-control:focus {
   outline: none;
-  border-bottom: #6e8396 2px solid !important;
+  border: solid 1px #84868a !important;
 }
 
 ::placeholder {

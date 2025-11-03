@@ -41,6 +41,10 @@ a {
   border-radius: 5px;
 }
 
+.marginright {
+  margin-right: 10px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

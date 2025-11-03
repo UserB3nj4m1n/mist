@@ -237,3 +237,10 @@
   transform: translateY(-5px);
   transition: all 0.3s ease;
 }
+
+.list:hover {
+  background-color: #63636310;
+  transform: scale(1.05);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}

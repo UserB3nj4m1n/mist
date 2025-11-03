@@ -6,6 +6,7 @@
       <th>Rating</th>
       <th>Price</th>
       <th>Discounted Price</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,11 @@
       <td>{{ game?.rating_star }}</td>
       <td>{{ game?.originalPrice }}€</td>
       <td>{{ game?.discountedPrice }}€</td>
+      <td style="text-align: center">
+        <span class="material-symbols-outlined" style="cursor: pointer">
+          edit
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>
