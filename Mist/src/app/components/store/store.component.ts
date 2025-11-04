@@ -5,7 +5,7 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
-import { Game } from '../../data/game';
+import { Game } from '../../interface/game';
 import { Observable } from 'rxjs';
 import { GetdataService } from '../../services/getdata.service';
 import { isPlatformBrowser } from '@angular/common';

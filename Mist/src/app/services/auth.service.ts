@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { doc } from 'firebase/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { db } from '../firebase.config';
 
 @Injectable({
   providedIn: 'root',
@@ -63,6 +65,7 @@ export class AuthService {
         if (displayName) {
           res.user?.updateProfile({ displayName }).then(() => {
             console.log('Display name updated:', displayName);
+            doc(db, 'users', email)
           });
         }
         alert('Registration Successful');

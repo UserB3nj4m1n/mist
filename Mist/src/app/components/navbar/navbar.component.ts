@@ -39,6 +39,12 @@ export class NavbarComponent implements OnInit {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  isCartDropdownOpen: boolean = false;
+
+  toggleCartDropdown() {
+    this.isCartDropdownOpen = !this.isCartDropdownOpen;
+  }
+
   logout(): void {
     this.authService.logout();
   }

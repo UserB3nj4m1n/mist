@@ -14,6 +14,7 @@ import { UsersComponent } from './components/admin-panel/tabs/users/users.compon
 import { ContactComponent } from './components/admin-panel/tabs/contact/contact.component';
 import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
 import { AdminGuard } from './guards/admin.guard';
+import { CartItemsComponent } from './components/cart/cart-items/cart-items.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'graph', component: GraphComponent },
+  { path: 'cart', component: CartItemsComponent},
   {
     path: 'admin',
     component: AdminPanelComponent,

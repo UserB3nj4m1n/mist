@@ -5,7 +5,7 @@ import {
   PLATFORM_ID,
   Inject,
 } from '@angular/core';
-import { Game } from '../../data/game';
+import { Game } from '../../interface/game';
 import { isPlatformBrowser } from '@angular/common';
 import { GetdataService } from '../../services/getdata.service';
 import { Observable } from 'rxjs';

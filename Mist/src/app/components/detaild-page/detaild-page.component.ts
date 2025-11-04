@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Game } from '../../data/game';
+import { Game } from '../../interface/game';
 import { GetdataService } from '../../services/getdata.service';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -82,5 +82,9 @@ export class DetaildPageComponent implements OnInit {
       ...store,
       price: basePrice + i * 2,
     }));
+  }
+
+  addToCart() {
+    
   }
 }
