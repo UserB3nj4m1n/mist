@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { doc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { db } from '../firebase.config';
@@ -13,7 +13,7 @@ export class AuthService {
   private isAuthenticatedSubject: BehaviorSubject<boolean>;
   isAuthenticated$: Observable<boolean>;
 
-  private adminEmails = ['cenigamartin@gmail.com', 'dogiyo@protonmail.com'];
+  private adminEmails = ['cenigamartin@gmail.com', 'bengenixgames@outlook.sk'];
 
   isAdmin$: Observable<boolean>;
 
@@ -34,6 +34,17 @@ export class AuthService {
 
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
+
+    createUserDataDocument(user: any) {
+    if (user && user.email) {
+      const userDocRef = doc(db, 'users', user.email);
+      setDoc(userDocRef, {
+        email: user.email,
+        uid: user.uid,
+        createdAt: new Date().toISOString(),
+      })
+    }
   }
 
   // login method
@@ -65,8 +76,10 @@ export class AuthService {
         if (displayName) {
           res.user?.updateProfile({ displayName }).then(() => {
             console.log('Display name updated:', displayName);
-            doc(db, 'users', email)
+            this.createUserDataDocument(res.user);
           });
+        } else {
+          this.createUserDataDocument(res.user);
         }
         alert('Registration Successful');
         this.sendEmailForVarification(res.user);
