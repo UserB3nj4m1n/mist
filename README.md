@@ -65,4 +65,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Improve store layoutt ✔️
   - Improve overall css ✔️
   - Create mock of Shopping cart / Checkout system ✔️
-
+### Sprint 3 () 🚩
+  - Remove the isAdmin email from frontend
+  - Create the shopping cart functions
