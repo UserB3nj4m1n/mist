@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <a class="navBut" (click)="toggleCartDropdown()">Cart</a>
+    <a class="navBut" routerLink="/cart">Cart</a>
     <ng-container *ngIf="!isAuthenticated; else authenticated">
       <a routerLink="login" class="loginBut marginright">Login / Register</a>
     </ng-container>
@@ -27,8 +27,5 @@
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </ng-template>
-  </div>
-  <div *ngIf="isCartDropdownOpen" class="cart-dropdown">
-    <app-cart-summary></app-cart-summary>
   </div>
 </nav>

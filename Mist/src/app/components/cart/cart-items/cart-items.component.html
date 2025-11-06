@@ -1,25 +1,90 @@
-<div class="cart-container">
-  <h2>Your Cart</h2>
-
+<!--<div class="cart-container">
   <div *ngIf="cartItems.length === 0" class="empty-cart-message">
     <p>Your cart is empty.</p>
   </div>
 
   <div *ngIf="cartItems.length > 0" class="cart-items-list">
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <div class="item-details">
-        <img [src]="item.game.image" alt="{{ item.game.title }}" class="item-image">
-        <div class="item-info">
-          <h3>{{ item.game.title }}</h3>
-          <p>Quantity: {{ item.quantity }}</p>
-          <p>Price: ${{ item.price | number:'1.2-2' }}</p>
+    <h2 class="">Shopping Cart</h2>
+    <div class="card-content">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-details">
+          <img
+            [src]="item.game.image"
+            alt="{{ item.game.title }}"
+            class="item-image"
+          />
+          <div class="item-info">
+            <h3>{{ item.game.title }}</h3>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Price: ${{ item.price | number : "1.2-2" }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <h3>Total: ${{ getTotal() | number : "1.2-2" }}</h3>
+        <button (click)="checkout()" class="checkout-button">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="cartMainDiv">
+  <p class="cartText">Shopping Cart</p>
+  <div class="cartContainer">
+    <div class="cardItems">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-details">
+          <img
+            alt="{{ item.game.title }}"
+            class="item-image"
+            src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3vzn.jpg"
+          />
+          <div class="item-info">
+            <h3>{{ item.game.title }}</h3>
+            <p>{{ item.price | number : "1.2-2" }}€</p>
+          </div>
+          <div class="itemOperations">
+            <p>
+              <span class="addremove">-</span> {{ item.quantity }}
+              <span class="addremove">+</span>
+            </p>
+            <i class="fa-solid fa-trash fa-lg trashIcon"></i>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="cart-summary">
-      <h3>Total: ${{ getTotal() | number:'1.2-2' }}</h3>
-      <button (click)="checkout()" class="checkout-button">Proceed to Checkout</button>
+    <div class="cardSummary">
+      <div class="sumaryTextDiv"><p class="summaryText">Order Summary</p></div>
+      <div class="sumaryTextDiv">
+        <div class="summaryRow" style="margin-top: 10px">
+          <p class="sumarryInfo">Subtotal</p>
+          <p class="sumarryValue">{{ getTotal() | number : "1.2-2" }}€</p>
+        </div>
+        <div class="summaryRow">
+          <p class="sumarryInfo">Shipping</p>
+          <p class="sumarryValue">Free</p>
+        </div>
+        <div class="summaryRow" style="margin-bottom: 10px">
+          <p class="sumarryInfo">Taxes (15%)</p>
+          <p class="sumarryValue">
+            {{ getTotal() * 0.15 | number : "1.2-2" }}€
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="summaryRow" style="margin-top: 10px; margin-bottom: 10px">
+          <p class="sumarryValue" style="font-size: large">Total</p>
+          <p class="sumarryValue" style="font-size: large">
+            {{ getTotal() * 1.15 | number : "1.2-2" }}€
+          </p>
+        </div>
+        <div class="summaryButtons">
+          <button class="checkout-button">Checkout</button>
+          <button class="checkout-buttonContinue">Continue Shopping</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

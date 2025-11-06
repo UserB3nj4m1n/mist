@@ -65,7 +65,7 @@ export class AuthService {
         if (displayName) {
           res.user?.updateProfile({ displayName }).then(() => {
             console.log('Display name updated:', displayName);
-            doc(db, 'users', email)
+            doc(db, 'users', email);
           });
         }
         alert('Registration Successful');

@@ -1,0 +1,148 @@
+.cartMainDiv {
+  margin: 0 150px;
+}
+.cartContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardItems {
+  width: 65%;
+}
+
+.cardSummary {
+  background-color: #63636310;
+  width: 30%;
+  padding: 30px;
+  padding-top: 10px;
+  height: fit-content;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #63636310;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.item-image {
+  background-color: #63636310;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.cartText {
+  font-size: 30px;
+  padding: 10px 0;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.item-info {
+  width: 35%;
+  margin-left: 10px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.itemOperations {
+  align-items: end;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  padding-right: 10px;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.addremove {
+  cursor: pointer;
+  background-color: #6363632a;
+  padding: 5px 10px;
+  border-radius: 50%;
+  line-height: 0;
+  margin: 0 10px;
+}
+
+.summaryText {
+  font-size: 25px;
+  padding: 10px 0;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.sumaryTextDiv {
+  border-bottom: 2px solid #d9d9d9;
+}
+.summaryRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sumarryInfo {
+  padding: 0;
+  line-height: 0;
+  color: #6b7280;
+}
+.sumarryValue {
+  padding: 0;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.summaryButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkout-button {
+  background-color: #6e8396;
+  color: #f8f8f9;
+  border: none;
+  padding: 10px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkout-buttonContinue {
+  background-color: #a8b7c4;
+  color: #070708;
+  border: none;
+  padding: 10px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.trashIcon {
+  color: #070708;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.trashIcon:hover {
+  color: rgb(196, 0, 0);
+}
