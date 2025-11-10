@@ -91,7 +91,6 @@ export class DetaildPageComponent implements OnInit {
   addToCart() {
     if (this.game) {
       this.cartService.addToCart(this.game);
-      alert('Game added to cart!');
     }
   }
 }
