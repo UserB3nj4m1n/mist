@@ -5,6 +5,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { db } from '../firebase.config';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -60,11 +61,21 @@ export class AuthService {
           });
           this.router.navigate(['/store']);
         } else {
-          alert('Please verify your email before logging in.');
+          Swal.fire({
+            title: 'Email Not Verified',
+            text: 'Please verify your email before logging in.',
+            icon: 'warning',
+            confirmButtonColor: '#6e8396',
+          });
         }
       },
       (err) => {
-        alert(err.message);
+        Swal.fire({
+          title: 'Login Failed',
+          text: err.message,
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
         this.router.navigate(['/login']);
       }
     );
@@ -81,12 +92,22 @@ export class AuthService {
         } else {
           this.createUserDataDocument(res.user);
         }
-        alert('Registration Successful');
+        Swal.fire({
+          title: 'Registration Successful',
+          text: 'You have been registered successfully',
+          icon: 'success',
+          confirmButtonColor: '#6e8396',
+        });
         this.sendEmailForVarification(res.user);
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err.message);
+        Swal.fire({
+          title: 'Registration Failed',
+          text: err.message,
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
         this.router.navigate(['/register']);
       }
     );
@@ -102,7 +123,12 @@ export class AuthService {
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err.message);
+        Swal.fire({
+          title: 'Something went wrong',
+          text: err.message,
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
       }
     );
   }
@@ -113,7 +139,12 @@ export class AuthService {
         this.router.navigate(['/varify-email']);
       },
       (err) => {
-        alert('Something went wrong');
+        Swal.fire({
+          title: 'Something went wrong',
+          text: err.message,
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
       }
     );
   }
@@ -125,7 +156,12 @@ export class AuthService {
         this.router.navigate(['/varify-email']);
       },
       (err: any) => {
-        alert('Something went wrong. Not able to send mail to your email.');
+        Swal.fire({
+          title: 'Something went wrong',
+          text: 'Not able to send mail to your email.',
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
       }
     );
   }

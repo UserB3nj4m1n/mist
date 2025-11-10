@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -19,28 +20,52 @@ export class RegisterComponent {
   ngOnInit(): void {}
 
   register() {
+    if (this.displayName == '') {
+      Swal.fire({
+        title: 'Empty Name',
+        text: 'Please enter a valid name',
+        icon: 'error',
+        confirmButtonColor: '#6e8396',
+      });
+      return;
+    }
     if (this.email == '') {
-      alert('Please enter email');
+      Swal.fire({
+        title: 'Empty Email',
+        text: 'Please enter a valid email',
+        icon: 'error',
+        confirmButtonColor: '#6e8396',
+      });
       return;
     }
 
     if (this.password == '') {
-      alert('Please enter password');
+      Swal.fire({
+        title: 'Empty Password',
+        text: 'Please enter a password',
+        icon: 'error',
+        confirmButtonColor: '#6e8396',
+      });
       return;
     }
 
     if (this.confirmPassword == '') {
-      alert('Please confirm your password');
+      Swal.fire({
+        title: 'Empty Confirm Password',
+        text: 'Please confirm your password',
+        icon: 'error',
+        confirmButtonColor: '#6e8396',
+      });
       return;
     }
 
     if (this.password !== this.confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
-
-    if (this.displayName == '') {
-      alert('Please enter name');
+      Swal.fire({
+        title: 'Password Mismatch',
+        text: 'Passwords do not match',
+        icon: 'error',
+        confirmButtonColor: '#6e8396',
+      });
       return;
     }
 
