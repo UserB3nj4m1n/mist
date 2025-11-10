@@ -17,7 +17,12 @@
         </div>
       </div>
     </div>
-    <a class="navBut" routerLink="/cart">Cart</a>
+    <a class="navBut cart-link" routerLink="/cart">
+      Cart
+      <span *ngIf="cartItemCount > 0" class="cart-bubble" [class.item-added-animation]="showItemAddedAnimation">
+        {{ cartItemCount }}
+      </span>
+    </a>
     <ng-container *ngIf="!isAuthenticated; else authenticated">
       <a routerLink="login" class="loginBut marginright">Login / Register</a>
     </ng-container>

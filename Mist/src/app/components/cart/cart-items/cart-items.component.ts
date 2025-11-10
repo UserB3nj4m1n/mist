@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../../services/cart.service';
+import { CartItem } from '../../../interface/cart';
 
 @Component({
   selector: 'app-cart-items',
@@ -7,78 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './cart-items.component.css',
 })
 export class CartItemsComponent implements OnInit {
-  cartItems: any[] = [];
+  cartItems: CartItem[] = [];
+
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartItems = [
-      {
-        game: {
-          id: '1',
-          title: 'Mock Game 1',
-          description: 'Description for Mock Game 1',
-          price: 59.99,
-          releaseDate: new Date(),
-          genre: 'Action',
-          developer: 'MockDev',
-          publisher: 'MockPub',
-          platform: ['PC'],
-          image: 'https://via.placeholder.com/150',
-          rating: 4.5,
-          reviews: 100,
-          systemRequirements: {
-            os: 'Windows 10',
-            processor: 'Intel i5',
-            memory: '8GB',
-            graphics: 'NVIDIA GTX 1060',
-            storage: '50GB',
-          },
-          trailer: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-          screenshot: ['https://via.placeholder.com/300'],
-          tags: ['mock', 'game'],
-          isFeatured: true,
-          discount: 0,
-        },
-        price: 59.99,
-        quantity: 1,
-        items: [],
-      },
-      {
-        game: {
-          id: '2',
-          title: 'Mock Game 2',
-          description: 'Description for Mock Game 2',
-          price: 39.99,
-          releaseDate: new Date(),
-          genre: 'Adventure',
-          developer: 'MockDev2',
-          publisher: 'MockPub2',
-          platform: ['PS5'],
-          image: 'https://via.placeholder.com/150',
-          rating: 4.0,
-          reviews: 50,
-          systemRequirements: {
-            os: 'Windows 10',
-            processor: 'Intel i5',
-            memory: '8GB',
-            graphics: 'NVIDIA GTX 1060',
-            storage: '50GB',
-          },
-          trailer: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-          screenshot: ['https://via.placeholder.com/300'],
-          tags: ['mock', 'game'],
-          isFeatured: false,
-          discount: 0,
-        },
-        price: 39.99,
-        quantity: 2,
-        items: [],
-      },
-    ];
+    this.cartService.getCartItems().subscribe((items) => {
+      this.cartItems = items;
+    });
+  }
+
+  removeFromCart(itemId: string): void {
+    this.cartService.removeFromCart(itemId);
+  }
+
+  increaseQuantity(item: CartItem): void {
+    this.cartService.updateCartItemQuantity(item.id.toString(), item.quantity + 1);
+  }
+
+  decreaseQuantity(item: CartItem): void {
+    this.cartService.updateCartItemQuantity(item.id.toString(), item.quantity - 1);
   }
 
   checkout(): void {
     console.log('Checkout clicked!');
-    // Implement checkout logic here
+    // Checkout to be added
     alert('Proceeding to checkout!');
   }
 

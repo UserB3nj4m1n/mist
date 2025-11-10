@@ -7,6 +7,8 @@ import { GetdataService } from '../../services/getdata.service';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SlideshowModule } from '../../models/slideshow/slideshow.module';
+import { CartService } from '../../services/cart.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   standalone: true,
@@ -21,7 +23,9 @@ export class DetaildPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private getdataService: GetdataService
+    private getdataService: GetdataService,
+    private cartService: CartService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -85,6 +89,9 @@ export class DetaildPageComponent implements OnInit {
   }
 
   addToCart() {
-    
+    if (this.game) {
+      this.cartService.addToCart(this.game);
+      alert('Game added to cart!');
+    }
   }
 }

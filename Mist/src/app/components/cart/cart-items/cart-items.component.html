@@ -1,56 +1,28 @@
-<!--<div class="cart-container">
+<div class="cartMainDiv">
+  <p class="cartText">Shopping Cart</p>
   <div *ngIf="cartItems.length === 0" class="empty-cart-message">
     <p>Your cart is empty.</p>
   </div>
-
-  <div *ngIf="cartItems.length > 0" class="cart-items-list">
-    <h2 class="">Shopping Cart</h2>
-    <div class="card-content">
-      <div *ngFor="let item of cartItems" class="cart-item">
-        <div class="item-details">
-          <img
-            [src]="item.game.image"
-            alt="{{ item.game.title }}"
-            class="item-image"
-          />
-          <div class="item-info">
-            <h3>{{ item.game.title }}</h3>
-            <p>Quantity: {{ item.quantity }}</p>
-            <p>Price: ${{ item.price | number : "1.2-2" }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart-summary">
-        <h3>Total: ${{ getTotal() | number : "1.2-2" }}</h3>
-        <button (click)="checkout()" class="checkout-button">
-          Proceed to Checkout
-        </button>
-      </div>
-    </div>
-  </div>
-</div>-->
-<div class="cartMainDiv">
-  <p class="cartText">Shopping Cart</p>
-  <div class="cartContainer">
+  <div class="cartContainer" *ngIf="cartItems.length > 0">
     <div class="cardItems">
       <div *ngFor="let item of cartItems" class="cart-item">
         <div class="item-details">
           <img
-            alt="{{ item.game.title }}"
+            [src]="item.game.cover.url"
+            alt="{{ item.game.name }}"
             class="item-image"
-            src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3vzn.jpg"
           />
           <div class="item-info">
-            <h3>{{ item.game.title }}</h3>
+            <h3>{{ item.game.name }}</h3>
             <p>{{ item.price | number : "1.2-2" }}€</p>
           </div>
           <div class="itemOperations">
             <p>
-              <span class="addremove">-</span> {{ item.quantity }}
-              <span class="addremove">+</span>
+              <span class="addremove" (click)="decreaseQuantity(item)">-</span> 
+              {{ item.quantity }}
+              <span class="addremove" (click)="increaseQuantity(item)">+</span>
             </p>
-            <i class="fa-solid fa-trash fa-lg trashIcon"></i>
+            <i class="fa-solid fa-trash fa-lg trashIcon" (click)="removeFromCart(item.id.toString())"></i>
           </div>
         </div>
       </div>
@@ -81,7 +53,7 @@
           </p>
         </div>
         <div class="summaryButtons">
-          <button class="checkout-button">Checkout</button>
+          <button class="checkout-button" (click)="checkout()">Checkout</button>
           <button class="checkout-buttonContinue">Continue Shopping</button>
         </div>
       </div>
