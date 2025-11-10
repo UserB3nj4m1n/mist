@@ -70,3 +70,4 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Create the shopping cart functions
   - Make a shopping cart css
   - Make AI chat bot
+  - Improve Alerts
