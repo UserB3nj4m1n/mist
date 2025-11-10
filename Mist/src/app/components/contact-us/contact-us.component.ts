@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase.config';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-us',
@@ -33,10 +34,19 @@ export class ContactUsComponent {
           date: new Date(),
         });
         this.contactForm.reset();
-        alert('Message sent successfully!');
+        Swal.fire({
+          title: 'Message sent successfully!',
+          icon: 'success',
+          confirmButtonColor: '#6e8396',
+        });
       } catch (e) {
         console.error('Error adding document: ', e);
-        alert('Error sending message. Please try again.');
+        Swal.fire({
+          title: 'Error sending message',
+          text: 'Please try again.',
+          icon: 'error',
+          confirmButtonColor: '#6e8396',
+        });
       }
     }
   }
