@@ -168,6 +168,7 @@ button {
 app-store-card {
   margin: 0 !important;
   padding: 0 !important;
+  cursor: pointer;
 }
 
 .form-control {

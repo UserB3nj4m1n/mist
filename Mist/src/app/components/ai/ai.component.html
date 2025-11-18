@@ -1,0 +1,15 @@
+<div class="ollama-demo">
+  <h2>Mist AI</h2>
+
+  <textarea [(ngModel)]="prompt" placeholder="Enter your prompt"></textarea>
+  <br />
+  <button (click)="generate()" [disabled]="loading">Generate</button>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="response">
+    <h3>Response:</h3>
+    <p>{{ response.response }}</p>
+  </div>
+</div>

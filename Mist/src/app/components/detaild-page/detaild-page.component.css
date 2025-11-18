@@ -1,4 +1,3 @@
-
 .add-to-cart-btn:active {
   animation: click-animation 0.2s ease;
 }
@@ -21,7 +20,6 @@
   border-radius: 20px;
   margin: 10px;
 }
-
 
 .game-details {
   padding: 10px;
@@ -73,6 +71,7 @@
 
 .game-price-container {
   justify-content: center;
+  align-items: end;
 }
 
 .game-auction-container {
@@ -107,7 +106,7 @@
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  width: 70%;
   height: 66px;
   margin-top: auto;
   transition: 0.3s;
@@ -208,7 +207,7 @@
   font-weight: bold;
   font-size: 1.15rem;
   color: #6e8396;
-  flex: 1;  
+  flex: 1;
 }
 
 .store-offer-price {
@@ -244,9 +243,13 @@
   margin-bottom: 30px;
 }
 
-#bottom{
+#bottom {
   justify-content: flex-end;
+  background-color: #ef6a16;
+  height: 150px;
 }
 #buybuttons {
   display: flex;
+  gap: 10px;
+  margin-bottom: 0;
 }

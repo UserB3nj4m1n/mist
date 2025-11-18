@@ -39,6 +39,8 @@ import { GamesComponent } from './components/admin-panel/tabs/games/games.compon
 import { CartSummaryComponent } from './components/cart/cart-summary/cart-summary.component';
 import { CartItemsComponent } from './components/cart/cart-items/cart-items.component';
 import { ProductComponent } from './components/cart/product/product.component';
+import { AIComponent } from './components/ai/ai.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { ProductComponent } from './components/cart/product/product.component';
     CartSummaryComponent,
     CartItemsComponent,
     ProductComponent,
+    AIComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { ProductComponent } from './components/cart/product/product.component';
     SlideshowModule,
     NgxChartsModule,
     GraphComponent,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

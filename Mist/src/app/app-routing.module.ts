@@ -15,6 +15,7 @@ import { ContactComponent } from './components/admin-panel/tabs/contact/contact.
 import { GamesComponent } from './components/admin-panel/tabs/games/games.component';
 import { AdminGuard } from './guards/admin.guard';
 import { CartItemsComponent } from './components/cart/cart-items/cart-items.component';
+import { AIComponent } from './components/ai/ai.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -25,7 +26,7 @@ const routes: Routes = [
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'graph', component: GraphComponent },
-  { path: 'cart', component: CartItemsComponent},
+  { path: 'cart', component: CartItemsComponent },
   {
     path: 'admin',
     component: AdminPanelComponent,
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'games', component: GamesComponent },
     ],
   },
+  { path: 'ai', component: AIComponent },
 
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
