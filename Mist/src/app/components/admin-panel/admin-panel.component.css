@@ -30,6 +30,7 @@
   display: flex;
   transition: all 0.3s ease;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .admin-panel-side div.active {

@@ -19,6 +19,7 @@ export class OllamaService {
       model: environment.llamaModel,
       prompt: prompt,
       stream: false,
+      
     };
 
     return this.httpClient.post<OllamaResponse>(

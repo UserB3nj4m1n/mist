@@ -1,15 +1,37 @@
-<div class="ollama-demo">
-  <h2>Mist AI</h2>
-
-  <textarea [(ngModel)]="prompt" placeholder="Enter your prompt"></textarea>
-  <br />
-  <button (click)="generate()" [disabled]="loading">Generate</button>
-
-  <div *ngIf="loading">Loading...</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <div *ngIf="response">
-    <h3>Response:</h3>
-    <p>{{ response.response }}</p>
+<div class="chat-Icon" (click)="toggleChat()" *ngIf="!showChat">
+  <span class="material-symbols-outlined" style="color: #f8f8f9"> chat </span>
+</div>
+<div class="ollama-demo" *ngIf="showChat">
+  <div class="text-header">
+    <div class="header-left">
+      <span class="material-symbols-outlined botIcon"> robot_2 </span>
+      <p class="title">Mist AI</p>
+    </div>
+    <span class="material-symbols-outlined close-icon" (click)="toggleChat()">
+      close
+    </span>
+  </div>
+  <div class="chat-body">
+    <div class="chat-window">
+      <div *ngFor="let msg of messages" class="msg" [ngClass]="msg.sender">
+        <span *ngIf="msg.sender === 'user'" class="label"
+          >{{ displayName }}:</span
+        >
+        <span *ngIf="msg.sender === 'ai'" class="label">AI:</span>
+        <span>{{ msg.text }}</span>
+      </div>
+      <div *ngIf="loading">...</div>
+      <div *ngIf="error" class="error">{{ error }}</div>
+    </div>
+    <div class="inputArea">
+      <textarea
+        [(ngModel)]="prompt"
+        placeholder="Type a message..."
+        class="input-msg"
+      ></textarea>
+      <button (click)="generate()" [disabled]="loading" class="sentBut">
+        <span class="material-symbols-outlined"> send </span>
+      </button>
+    </div>
   </div>
 </div>

@@ -119,7 +119,6 @@ export class StoreComponent implements OnInit {
 
   toggleView(mode: string) {
     this.isGridView = mode === 'grid';
-    
   }
 
   updatePagination(page: number = this.currentPage) {

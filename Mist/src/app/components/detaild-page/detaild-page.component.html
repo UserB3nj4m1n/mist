@@ -39,10 +39,12 @@
           </tr>
           <tr id="bottom">
             <td id="buybuttons">
-              <button class="buy-now add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
+              <button class="buy-now add-to-cart-btn" (click)="addToCart()">
+                Add to Cart
+              </button>
               <button class="buy-now">Buy Now</button>
             </td>
-            <td>
+            <td id="price-td">
               <div class="game-price-container">
                 <p class="game-price">{{ game.discountedPrice }}€</p>
                 <div class="game-auction-container">

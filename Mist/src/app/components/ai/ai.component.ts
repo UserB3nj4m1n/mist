@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { OllamaService } from '../../services/services/ollama.service';
 import { OllamaResponse } from '../../interface/models/ollama-response';
+import { AuthService } from '../../services/auth.service';
+
+interface ChatMessage {
+  sender: 'user' | 'ai';
+  text: string;
+}
 
 @Component({
   selector: 'app-ai',
@@ -10,22 +16,49 @@ import { OllamaResponse } from '../../interface/models/ollama-response';
 })
 export class AIComponent {
   prompt: string = '';
-  response?: OllamaResponse;
+  messages: ChatMessage[] = [];
   loading: boolean = false;
   error: string = '';
+  displayName: string = '';
+  email: string = '';
 
-  constructor(private ollamaService: OllamaService) {}
+  showChat = false;
+
+  toggleChat() {
+    this.showChat = !this.showChat;
+  }
+
+  constructor(
+    private ollamaService: OllamaService,
+    private auth: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.auth.getUserData().subscribe((user) => {
+      if (user) {
+        this.displayName = user.displayName || 'No Display Name';
+        this.email = user.email || 'No Email';
+      }
+    });
+  }
 
   generate() {
-    if (!this.prompt.trim()) return;
+    const trimmed = this.prompt.trim();
+    if (!trimmed) return;
+
+    this.messages.push({ sender: 'user', text: trimmed });
 
     this.loading = true;
     this.error = '';
-    this.response = undefined;
 
-    this.ollamaService.processPrompt(this.prompt).subscribe({
+    this.ollamaService.processPrompt(trimmed).subscribe({
       next: (res: OllamaResponse) => {
-        this.response = res;
+        this.messages.push({
+          sender: 'ai',
+          text: res.response,
+        });
+
+        this.prompt = '';
         this.loading = false;
       },
       error: (err: any) => {

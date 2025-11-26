@@ -18,11 +18,14 @@
           </div>
           <div class="itemOperations">
             <p>
-              <span class="addremove" (click)="decreaseQuantity(item)">-</span> 
+              <span class="addremove" (click)="decreaseQuantity(item)">-</span>
               {{ item.quantity }}
               <span class="addremove" (click)="increaseQuantity(item)">+</span>
             </p>
-            <i class="fa-solid fa-trash fa-lg trashIcon" (click)="removeFromCart(item.id.toString())"></i>
+            <i
+              class="fa-solid fa-trash fa-lg trashIcon"
+              (click)="removeFromCart(item.id.toString())"
+            ></i>
           </div>
         </div>
       </div>
@@ -54,7 +57,9 @@
         </div>
         <div class="summaryButtons">
           <button class="checkout-button" (click)="checkout()">Checkout</button>
-          <button class="checkout-buttonContinue">Continue Shopping</button>
+          <button class="checkout-buttonContinue" routerLink="/store">
+            Continue Shopping
+          </button>
         </div>
       </div>
     </div>
