@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { doc, setDoc } from 'firebase/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { BehaviorSubject, from, Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { db } from '../firebase.config';
 import Swal from 'sweetalert2';
 
@@ -14,8 +14,6 @@ export class AuthService {
   private isAuthenticatedSubject: BehaviorSubject<boolean>;
   isAuthenticated$: Observable<boolean>;
 
-  private adminEmails = ['cenigamartin@gmail.com', 'bengenixgames@outlook.sk'];
-
   isAdmin$: Observable<boolean>;
 
   constructor(private fireauth: AngularFireAuth, private router: Router) {
@@ -25,7 +23,21 @@ export class AuthService {
     this.isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
     this.isAdmin$ = this.fireauth.authState.pipe(
-      map((user) => !!user && this.adminEmails.includes(user.email ?? ''))
+      switchMap((user) => {
+        if (user && user.email) {
+          const userDocRef = doc(db, 'users', user.email);
+          return from(getDoc(userDocRef)).pipe(
+            map((docSnap) => {
+              if (docSnap.exists()) {
+                return docSnap.data()?.['role'] === 'admin';
+              }
+              return false;
+            })
+          );
+        } else {
+          return of(false);
+        }
+      })
     );
   }
 
@@ -37,14 +49,19 @@ export class AuthService {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
 
-  createUserDataDocument(user: any) {
+  createUserDataDocument(user: any, displayName?: string) {
     if (user && user.email) {
       const userDocRef = doc(db, 'users', user.email);
-      setDoc(userDocRef, {
+      const data: any = {
         email: user.email,
         uid: user.uid,
         createdAt: new Date().toISOString(),
-      });
+        role: 'user',
+      };
+      if (displayName) {
+        data.displayName = displayName;
+      }
+      setDoc(userDocRef, data);
     }
   }
 
@@ -87,7 +104,7 @@ export class AuthService {
         if (displayName) {
           res.user?.updateProfile({ displayName }).then(() => {
             console.log('Display name updated:', displayName);
-            doc(db, 'users', email);
+            this.createUserDataDocument(res.user, displayName);
           });
         } else {
           this.createUserDataDocument(res.user);
