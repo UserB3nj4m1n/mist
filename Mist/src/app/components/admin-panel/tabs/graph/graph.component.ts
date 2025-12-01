@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { GraphService } from '../../services/graph.service';
+import { GraphService } from '../../../../services/graph.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrl: './graph.component.css',
-  imports: [NgxChartsModule],
+  imports: [NgxChartsModule, CommonModule],
 })
 export class GraphComponent implements OnInit {
   single: any[] = [];

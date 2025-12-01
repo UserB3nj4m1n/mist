@@ -1,20 +1,76 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-container-bottom {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  padding-top: 0;
 }
 
 .card {
-  border-radius: 5px;
-  padding: 1rem;
-  text-align: center;
-  background-color: #6e839620;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #63636310;
+  padding: 22px;
+  border-radius: 16px;
+  width: auto;
 }
 
 .card-label {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
 }
 
 .card-value {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.change {
+  font-size: 14px;
+  margin: 6px 0 0;
+}
+
+.change.positive {
+  color: #10b981;
+}
+
+.change.negative {
+  color: #ef4444;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: #6e839620;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box span {
+  font-size: 32px;
+}
+
+.cardMainGraf {
+  background-color: #63636310;
+  width: 70%;
+  height: 400px;
+  border-radius: 16px;
+}
+
+.cardBestSelling {
+  background-color: #63636310;
+  width: 30%;
+  height: 400px;
+  border-radius: 16px;
 }

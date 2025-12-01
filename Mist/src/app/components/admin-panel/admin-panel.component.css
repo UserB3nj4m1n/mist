@@ -4,14 +4,14 @@
 }
 
 .admin-panel-side {
-  width: 23%;
+  width: 15%;
   background-color: rgba(0, 255, 255, 0);
   padding: 1em 2em 1em 2em;
   border-right: 2px solid #d9d9d9;
 }
 
 .admin-panel-main {
-  width: 77%;
+  width: 85%;
   background-color: rgba(245, 245, 220, 0);
   padding: 1em 2em 1em 2em;
 }
@@ -25,12 +25,13 @@
 .admin-list {
   height: 50px;
   text-align: center;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   display: flex;
   transition: all 0.3s ease;
   border-radius: 5px;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 .admin-panel-side div.active {

@@ -85,14 +85,14 @@
 }
 
 .msg.user {
-  background: #85adda;
+  background: #a8b7c4;
   align-self: flex-end;
   text-align: right;
   margin-left: auto;
 }
 
 .msg.ai {
-  background: #f1f1f1;
+  background: #6e839620;
 }
 
 .label {
@@ -113,12 +113,13 @@
   max-height: 150px;
   padding: 10px 15px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: none;
   resize: none;
   font-size: 16px;
   font-family: Arial, sans-serif;
   outline: none;
   transition: all 0.2s ease-in-out;
+  background-color: #6e839620;
 }
 .sentBut {
   background-color: #6e8396;
