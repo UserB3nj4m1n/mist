@@ -68,6 +68,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
 #### Sprint 3 (2.12.) 🚩
   - Remove the isAdmin email from frontend
   - Create the shopping cart functions
-  - Make a shopping cart css
-  - Make AI chat bot
-  - Improve Alerts
+  - Make a shopping cart css ✔
+  - Make AI chat bot ✔
+  - Improve Alerts ✔
