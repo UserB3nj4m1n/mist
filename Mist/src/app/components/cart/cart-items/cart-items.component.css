@@ -4,6 +4,7 @@
 .cartContainer {
   display: flex;
   flex-direction: row;
+  margin-bottom: 150px;
 }
 
 .cardItems {
@@ -145,4 +146,10 @@
 }
 .trashIcon:hover {
   color: rgb(196, 0, 0);
+}
+
+.empty-cart-message {
+  height: 530px;
+  text-align: center;
+  margin-top: 250px;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../interface/cart';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart-items',
@@ -24,17 +25,26 @@ export class CartItemsComponent implements OnInit {
   }
 
   increaseQuantity(item: CartItem): void {
-    this.cartService.updateCartItemQuantity(item.id.toString(), item.quantity + 1);
+    this.cartService.updateCartItemQuantity(
+      item.id.toString(),
+      item.quantity + 1
+    );
   }
 
   decreaseQuantity(item: CartItem): void {
-    this.cartService.updateCartItemQuantity(item.id.toString(), item.quantity - 1);
+    this.cartService.updateCartItemQuantity(
+      item.id.toString(),
+      item.quantity - 1
+    );
   }
 
   checkout(): void {
-    console.log('Checkout clicked!');
-    // Checkout to be added
-    alert('Proceeding to checkout!');
+    Swal.fire({
+      title: 'Success!',
+      text: 'You have successfully checked out.',
+      icon: 'success',
+      confirmButtonColor: '#6e8396',
+    });
   }
 
   getTotal(): number {
