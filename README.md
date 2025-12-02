@@ -71,3 +71,5 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Make a shopping cart css ✔
   - Make AI chat bot ✔
   - Improve Alerts ✔
+#### Sprint 4 (-.--.) 🚩
+
