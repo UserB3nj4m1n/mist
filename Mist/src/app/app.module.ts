@@ -41,6 +41,8 @@ import { CartItemsComponent } from './components/cart/cart-items/cart-items.comp
 import { ProductComponent } from './components/cart/product/product.component';
 import { AIComponent } from './components/ai/ai.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartItemsComponent,
     ProductComponent,
     AIComponent,
+    SettingsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,13 +77,14 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ProfileComponent,
+
     MatTabsModule,
     DetaildPageComponent,
     SlideshowModule,
     NgxChartsModule,
     GraphComponent,
     HttpClientModule,
+    AccountProfileComponent,
   ],
   providers: [
     provideClientHydration(withEventReplay()),

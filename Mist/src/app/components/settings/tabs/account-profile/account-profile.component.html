@@ -1,0 +1,85 @@
+<div class="MainBox">
+  <div>
+    <p class="MainText">Profile information</p>
+    <p class="smalText">Manage your account information and settings here.</p>
+  </div>
+  <div class="ContentBox">
+    <div class="ProfilePic">
+      <img
+        [src]="userProfile.photoURL || '/ProfilPic.png'"
+        class="ProfileImage"
+      />
+
+      <div class="Button">Change Picture</div>
+      <input
+        type="text"
+        placeholder="Enter profile url"
+        [(ngModel)]="userProfile.photoURL"
+      />
+    </div>
+    <div class="InfoBox">
+      <div class="InfoLine">
+        <p class="smalText">First Name</p>
+        <input
+          type="text"
+          [(ngModel)]="userProfile.realname"
+          placeholder="Enter your first name"
+          class="input-field"
+        />
+      </div>
+      <div class="InfoLine">
+        <p class="smalText">Last Name</p>
+        <input
+          type="text"
+          [(ngModel)]="userProfile.realsurname"
+          placeholder="Enter your last name"
+          class="input-field"
+        />
+      </div>
+    </div>
+    <div class="InfoLine">
+      <p class="smalText">Profile Name</p>
+      <input
+        type="text"
+        [(ngModel)]="userProfile.displayName"
+        placeholder="Enter your profile name"
+        class="input-field"
+      />
+    </div>
+    <div class="InfoLine">
+      <p class="smalText">Email Address</p>
+      <input
+        type="text"
+        value="{{ userProfile.email }}"
+        placeholder="Enter your email address (example@example.com)"
+        class="input-field"
+        style="caret-color: transparent"
+        disabled
+      />
+    </div>
+    <div class="InfoLine">
+      <p class="smalText">Phone Number</p>
+      <input
+        type="tel"
+        [(ngModel)]="userProfile.phone"
+        placeholder="Enter your phone number (XXX-XXX-XXX)"
+        class="input-field"
+        maxlength="9"
+      />
+    </div>
+    <div class="InfoLine">
+      <p class="smalText">Bio</p>
+      <textarea
+        type="text"
+        [(ngModel)]="userProfile.bio"
+        placeholder="Enter your bio"
+        class="input-field"
+        style="resize: vertical"
+      ></textarea>
+    </div>
+    <div class="ButtonBox">
+      <div class="SaveButton" (click)="updateInfo()">Save Changes</div>
+      <div class="CancelButton" (click)="loadProfile()">Cancel</div>
+    </div>
+  </div>
+</div>
