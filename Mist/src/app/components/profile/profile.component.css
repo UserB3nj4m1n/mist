@@ -1,5 +1,5 @@
 .profile-container {
-  background-color: #6e839620;
+  background-color: #6e839610;
   border-radius: 20px;
 
   padding: 10px;
@@ -37,6 +37,7 @@
 .profile-image {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 }
 
 .profileName {
@@ -54,6 +55,13 @@
   color: #070708;
   margin-top: 10px;
   font-size: 18px;
+  padding-left: 20px;
+}
+
+.profileBio {
+  font-size: 16px;
+  color: #070708;
+  margin-top: 10px;
   padding-left: 20px;
 }
 

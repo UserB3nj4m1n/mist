@@ -2,15 +2,24 @@
   <div class="main-profile">
     <div class="Left-Profile">
       <div class="profilePic">
-        <img src="/ProfilPic.png" alt="profilePic" class="profile-image" />
+        <img
+          [src]="userProfile?.photoURL || '/ProfilPic.png'"
+          alt="profilePic"
+          class="profile-image"
+        />
       </div>
     </div>
     <div class="Right-Profile">
-      <p class="profileName">{{ displayName }}</p>
-      <p class="profileEmail">{{ email }}</p>
+      <p class="profileName">{{ userProfile?.displayName }}</p>
+      <p class="profileEmail">{{ userProfile?.email }}</p>
+      <p class="profileBio">{{ userProfile?.bio }}</p>
     </div>
     <div class="Right-Profile2">
-      <span class="material-symbols-outlined" style="cursor: pointer">
+      <span
+        class="material-symbols-outlined"
+        style="cursor: pointer"
+        routerLink="/settings/account-profile"
+      >
         edit
       </span>
     </div>

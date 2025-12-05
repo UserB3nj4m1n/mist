@@ -57,6 +57,12 @@ export class AuthService {
         uid: user.uid,
         createdAt: new Date().toISOString(),
         role: 'user',
+        realname: '',
+        realsurname: '',
+        address: '',
+        phone: '',
+        bio: '',
+        photoURL: '',
       };
       if (displayName) {
         data.displayName = displayName;

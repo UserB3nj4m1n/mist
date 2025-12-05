@@ -16,6 +16,8 @@ import { GamesComponent } from './components/admin-panel/tabs/games/games.compon
 import { AdminGuard } from './guards/admin.guard';
 import { CartItemsComponent } from './components/cart/cart-items/cart-items.component';
 import { AIComponent } from './components/ai/ai.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -40,7 +42,11 @@ const routes: Routes = [
     ],
   },
   { path: 'ai', component: AIComponent },
-
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    children: [{ path: 'account-profile', component: AccountProfileComponent }],
+  },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 

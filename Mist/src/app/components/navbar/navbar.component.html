@@ -7,7 +7,12 @@
     <a class="navBut">Library</a>
     <a *ngIf="isAdmin" routerLink="/admin/dashboard" class="navBut">Admin</a>
     <div class="dropdown">
-      <a class="navBut dropdown-toggle" id="SetingsBut">Settings</a>
+      <a
+        class="navBut dropdown-toggle"
+        id="SetingsBut"
+        routerLink="/settings/account-profile"
+        >Settings</a
+      >
       <div class="dropdown-menu">
         <div class="dropdown-toggle">
           <label class="switch">
@@ -19,7 +24,11 @@
     </div>
     <a class="navBut cart-link" routerLink="/cart">
       Cart
-      <span *ngIf="cartItemCount > 0" class="cart-bubble" [class.item-added-animation]="showItemAddedAnimation">
+      <span
+        *ngIf="cartItemCount > 0"
+        class="cart-bubble"
+        [class.item-added-animation]="showItemAddedAnimation"
+      >
         {{ cartItemCount }}
       </span>
     </a>
