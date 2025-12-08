@@ -15,7 +15,7 @@
     <div class="chat-window">
       <div *ngFor="let msg of messages" class="msg" [ngClass]="msg.sender">
         <span *ngIf="msg.sender === 'user'" class="label"
-          >{{ displayName }}:</span
+          >{{ userProfile?.displayName }}:</span
         >
         <span *ngIf="msg.sender === 'ai'" class="label">AI:</span>
         <span>{{ msg.text }}</span>

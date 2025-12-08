@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OllamaService } from '../../services/services/ollama.service';
 import { OllamaResponse } from '../../interface/models/ollama-response';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -21,6 +22,7 @@ export class AIComponent {
   error: string = '';
   displayName: string = '';
   email: string = '';
+  userProfile: any;
 
   showChat = false;
 
@@ -30,7 +32,8 @@ export class AIComponent {
 
   constructor(
     private ollamaService: OllamaService,
-    private auth: AuthService
+    private auth: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,9 @@ export class AIComponent {
         this.displayName = user.displayName || 'No Display Name';
         this.email = user.email || 'No Email';
       }
+    });
+    this.userService.getUserProfile().subscribe((data) => {
+      this.userProfile = data;
     });
   }
 

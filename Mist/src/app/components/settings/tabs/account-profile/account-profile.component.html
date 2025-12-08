@@ -10,13 +10,24 @@
         class="ProfileImage"
       />
 
-      <div class="Button">Change Picture</div>
-      <input
-        type="text"
-        placeholder="Enter profile url"
-        [(ngModel)]="userProfile.photoURL"
-      />
+      <div class="Button" *ngIf="!showInput" (click)="toggleInput()">
+        Change Picture
+      </div>
+      <div
+        *ngIf="showInput"
+        class="InfoLine"
+        style="margin-top: 10px; width: 100%"
+      >
+        <p class="smalText">Profile Picture URL</p>
+        <input
+          type="text"
+          placeholder="Enter profile url"
+          [(ngModel)]="userProfile.photoURL"
+          class="input-field"
+        />
+      </div>
     </div>
+
     <div class="InfoBox">
       <div class="InfoLine">
         <p class="smalText">First Name</p>
@@ -78,8 +89,8 @@
       ></textarea>
     </div>
     <div class="ButtonBox">
-      <div class="SaveButton" (click)="updateInfo()">Save Changes</div>
-      <div class="CancelButton" (click)="loadProfile()">Cancel</div>
+      <div class="SaveButton" (click)="saveProfile()">Save Changes</div>
+      <div class="CancelButton" (click)="cancelProfile()">Cancel</div>
     </div>
   </div>
 </div>

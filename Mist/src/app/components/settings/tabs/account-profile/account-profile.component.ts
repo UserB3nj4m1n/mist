@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../../firebase.config';
 import { User } from '../../../../interface/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-account-profile',
   standalone: true,
   templateUrl: './account-profile.component.html',
   styleUrls: ['./account-profile.component.css'],
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
 })
 export class AccountProfileComponent {
   userProfile: User = {
@@ -22,6 +23,7 @@ export class AccountProfileComponent {
     displayName: '',
     photoURL: '',
   };
+  showInput = false;
 
   constructor(
     private userService: UserService,
@@ -30,6 +32,20 @@ export class AccountProfileComponent {
 
   ngOnInit() {
     this.loadProfile();
+  }
+
+  saveProfile() {
+    this.updateInfo();
+    this.showInput = false;
+  }
+
+  cancelProfile() {
+    this.loadProfile();
+    this.showInput = false;
+  }
+
+  toggleInput() {
+    this.showInput = !this.showInput;
   }
 
   loadProfile() {
