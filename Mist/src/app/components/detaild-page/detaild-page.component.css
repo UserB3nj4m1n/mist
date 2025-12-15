@@ -119,6 +119,8 @@
 
 .game-tags-container {
   display: flex;
+
+  vertical-align: middle;
   flex-direction: row;
   gap: 5px;
   margin-bottom: 0px;
@@ -171,9 +173,8 @@
 
 .price-compare-box {
   width: 100%;
-  background-color: #6e839620;
   border-radius: 12px;
-  padding: 18px 28px;
+
   margin: 10px 3em;
   box-sizing: border-box;
   transition: all 0.2s;
@@ -250,8 +251,9 @@
 }
 #buybuttons {
   display: flex;
-  gap: 20px;
-  margin-bottom: 0;
+  align-items: center;
+  vertical-align: middle;
+  gap: 10px;
   width: 70%;
 }
 #price-td {

@@ -1,136 +1,204 @@
 <div class="main" *ngIf="game">
   <div class="game-details">
-    <div class="game-top">
-      <div class="game-imageDiv">
-        <app-slideshow [images]="slideshowImages"></app-slideshow>
-      </div>
-      <div class="game-info">
-        <table class="game-info-table">
-          <tr>
-            <td colspan="2">
-              <h1 class="game-title">{{ game.name }}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <p>{{ game.rating_star }} ⭐</p>
-              <div class="game-platforms">
-                Platforms:
-                <div *ngFor="let platform of game.platforms">
-                  {{ platform.abbreviation }},
+    <!--     ---------------------------------------------     -->
+    <div class="card">
+      <div class="card">
+        <div style="display: flex">
+          <p-galleria
+            [showItemNavigators]="true"
+            [value]="images"
+            [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{ 'max-width': '400px' }"
+            [numVisible]="7"
+            [circular]="true"
+          >
+            <ng-template #item let-item>
+              <img
+                [src]="item.itemImageSrc"
+                style="
+                  width: 100%;
+                  height: 400px;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </ng-template>
+
+            <ng-template #thumbnail let-item>
+              <img
+                [src]="item.thumbnailImageSrc"
+                style="
+                  width: 60px;
+                  height: 40px;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </ng-template>
+          </p-galleria>
+          <div class="game-info" style="padding-left: 10px">
+            <table class="game-info-table">
+              <tr>
+                <td colspan="2">
+                  <h1 class="game-title">{{ game.name }}</h1>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p-rating
+                    [(ngModel)]="game.rating_star"
+                    [readonly]="true"
+                    style="padding-top: 10px"
+                  />
+                  <div class="game-platforms">
+                    Platforms:
+
+                    <p-tag
+                      *ngFor="let platform of game.platforms"
+                      severity="secondary"
+                      value="{{ platform.abbreviation }}"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p class="game-description">
+                    {{ game.summary }}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <div class="game-tags-container">
+                  <p-tag
+                    *ngFor="let genre of game.genres"
+                    severity="secondary"
+                    value="{{ genre.name }}"
+                  />
+                </div>
+              </tr>
+              <tr id="bottom">
+                <td id="buybuttons">
+                  <p-button
+                    label="Add to Cart"
+                    (click)="addToCart()"
+                    size="large"
+                    styleClass="big-cart-button"
+                  />
+
+                  <p-button label="Buy Now" size="large"></p-button>
+                </td>
+                <td id="price-td">
+                  <div class="game-price-container">
+                    <p class="game-price">{{ game.discountedPrice }}€</p>
+                    <div class="game-auction-container">
+                      <div class="original-price">
+                        {{ game.originalPrice }}€
+                      </div>
+                      <div class="game-discount">{{ game.discount }}%</div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p-tabs value="0">
+          <p-tablist>
+            <p-tab value="0">Prices</p-tab>
+            <p-tab value="1">Description</p-tab>
+            <p-tab value="2">Recommended</p-tab>
+          </p-tablist>
+          <p-tabpanels>
+            <p-tabpanel value="0">
+              <div
+                *ngFor="let offer of getStoreOffers()"
+                class="price-compare-row"
+              >
+                <div class="price-compare-box">
+                  <img
+                    class="store-logo"
+                    [src]="'/stores/' + offer.logo"
+                    [alt]="offer.name + ' logo'"
+                  />
+                  <div class="store-offer-header">{{ offer.name }}</div>
+                  <div class="store-offer-price">{{ offer.price }}€</div>
+                  <a
+                    [href]="offer.url"
+                    pButton
+                    target="_blank"
+                    rel="noopener "
+                    style="text-decoration: none"
+                  >
+                    <span pButtonLabel>Go to Store</span>
+                  </a>
+                </div>
+                <p-divider />
+              </div>
+            </p-tabpanel>
+            <p-tabpanel value="1">
+              <p class="m-0">
+                {{ game.storyline }}
+              </p>
+            </p-tabpanel>
+            <p-tabpanel value="2">
+              <div class="game-tab-container">
+                <div class="game-tab-div">
+                  <strong>Minimum:</strong><br />
+                  <ul class="bb_ul">
+                    <li>
+                      <strong>OS:</strong> Ubuntu 16.04 or Steam OS 2.0<br />
+                    </li>
+                    <li>
+                      <strong>Processor:</strong> Intel Core i5-2500K/AMD
+                      FX-8350<br />
+                    </li>
+                    <li><strong>Memory:</strong> 8 GB RAM<br /></li>
+                    <li>
+                      <strong>Graphics:</strong> Nvidia GeForce GTX 680/AMD R9
+                      270X graphics card or better*<br />
+                    </li>
+                    <li>
+                      <strong>Storage:</strong> 67 GB available space<br />
+                    </li>
+                    <li>
+                      <strong>Additional Notes:</strong> *NVIDIA graphics cards
+                      require driver version 375.26. AMD graphics cards require
+                      MESA 13.0.3 or better. Intel graphics cards will not be
+                      supported on release.
+                    </li>
+                  </ul>
+                </div>
+                <div class="game-tab-div">
+                  <strong>Recommended:</strong><br />
+                  <ul class="bb_ul">
+                    <li>
+                      <strong>OS:</strong> Ubuntu 16.10 or Steam OS 2.0<br />
+                    </li>
+                    <li>
+                      <strong>Processor:</strong> Intel Core i7 3770<br />
+                    </li>
+                    <li><strong>Memory:</strong> 16 GB RAM<br /></li>
+                    <li>
+                      <strong>Graphics:</strong> Nvidia GeForce GTX 970/AMD R9
+                      290 graphics card or better*<br />
+                    </li>
+                    <li>
+                      <strong>Storage:</strong> 67 GB available space<br />
+                    </li>
+                    <li>
+                      <strong>Additional Notes:</strong> *NVIDIA graphics cards
+                      require driver version 375.26. AMD graphics cards require
+                      MESA 13.0.3 or better. Intel graphics cards will not be
+                      supported on release.
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <p class="game-description">
-                {{ game.summary }}
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <div class="game-tags-container">
-              <p>Tags:</p>
-              <p class="game-tags" *ngFor="let genre of game.genres">
-                {{ genre.name }}
-              </p>
-            </div>
-          </tr>
-          <tr id="bottom">
-            <td id="buybuttons">
-              <button class="buy-now add-to-cart-btn" (click)="addToCart()">
-                Add to Cart
-              </button>
-              <button class="buy-now">Buy Now</button>
-            </td>
-            <td id="price-td">
-              <div class="game-price-container">
-                <p class="game-price">{{ game.discountedPrice }}€</p>
-                <div class="game-auction-container">
-                  <div class="original-price">{{ game.originalPrice }}€</div>
-                  <div class="game-discount">{{ game.discount }}%</div>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+            </p-tabpanel>
+          </p-tabpanels>
+        </p-tabs>
       </div>
     </div>
-
-    <mat-tab-group>
-      <mat-tab label="Prices">
-        <div *ngFor="let offer of getStoreOffers()" class="price-compare-row">
-          <div class="price-compare-box">
-            <img
-              class="store-logo"
-              [src]="'/stores/' + offer.logo"
-              [alt]="offer.name + ' logo'"
-            />
-            <div class="store-offer-header">{{ offer.name }}</div>
-            <div class="store-offer-price">{{ offer.price }}€</div>
-            <button class="store-offer-btn">
-              <a
-                class="store-offer-btn"
-                [href]="offer.url"
-                target="_blank"
-                rel="noopener"
-              >
-                Go to Store
-              </a>
-            </button>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="Description">
-        <p>
-          {{ game.storyline }}
-        </p>
-      </mat-tab>
-      <mat-tab label="Requirements">
-        <div class="game-tab-container">
-          <div class="game-tab-div">
-            <strong>Minimum:</strong><br />
-            <ul class="bb_ul">
-              <li><strong>OS:</strong> Ubuntu 16.04 or Steam OS 2.0<br /></li>
-              <li>
-                <strong>Processor:</strong> Intel Core i5-2500K/AMD FX-8350<br />
-              </li>
-              <li><strong>Memory:</strong> 8 GB RAM<br /></li>
-              <li>
-                <strong>Graphics:</strong> Nvidia GeForce GTX 680/AMD R9 270X
-                graphics card or better*<br />
-              </li>
-              <li><strong>Storage:</strong> 67 GB available space<br /></li>
-              <li>
-                <strong>Additional Notes:</strong> *NVIDIA graphics cards
-                require driver version 375.26. AMD graphics cards require MESA
-                13.0.3 or better. Intel graphics cards will not be supported on
-                release.
-              </li>
-            </ul>
-          </div>
-          <div class="game-tab-div">
-            <strong>Recommended:</strong><br />
-            <ul class="bb_ul">
-              <li><strong>OS:</strong> Ubuntu 16.10 or Steam OS 2.0<br /></li>
-              <li><strong>Processor:</strong> Intel Core i7 3770<br /></li>
-              <li><strong>Memory:</strong> 16 GB RAM<br /></li>
-              <li>
-                <strong>Graphics:</strong> Nvidia GeForce GTX 970/AMD R9 290
-                graphics card or better*<br />
-              </li>
-              <li><strong>Storage:</strong> 67 GB available space<br /></li>
-              <li>
-                <strong>Additional Notes:</strong> *NVIDIA graphics cards
-                require driver version 375.26. AMD graphics cards require MESA
-                13.0.3 or better. Intel graphics cards will not be supported on
-                release.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
   </div>
 </div>
