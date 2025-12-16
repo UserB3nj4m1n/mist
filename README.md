@@ -38,6 +38,8 @@ Mist
 An online store for purchasing PC games, built with Angular and Firebase. The platform allows users to browse, search, and filter games, add them to a shopping cart, and manage their game library.
 The goal is to create a fully functional e-commerce experience with an intuitive UI and seamless backend integration.
 
+### 3. Prepare Your Files
+
 ## Project Roadmap 🗺️
 
 TBD - Few lines about the project, what is its purpose and meaning.
@@ -51,6 +53,23 @@ TBD - Few lines about the project, what is its purpose and meaning.
 | Viewing Game Details                 | Genre, Price, etc..     | Managing User Profile       |
 | Price comparison for other stores    | Listing many stores     | Buying most cheap on Mist   |
 | Responsive Design                    | Phones, PC              | Tablet Responsivity         |
+
+---
+
+## How to Deploy Your Website to Netlify
+
+
+1. Go to [https://app.netlify.com/](https://app.netlify.com/)  
+2. Click **Sign up**.  
+3. You can sign up using:
+   - GitHub  
+   - GitLab  
+   - Bitbucket  
+   - or email  
+4. After signing up, log in to your account.
+5. On the Netlify dashboard, click **New site **
+
+---
 
 ## Project Plans
 
