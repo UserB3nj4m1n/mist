@@ -69,6 +69,8 @@ TBD - Few lines about the project, what is its purpose and meaning.
 4. After signing up, log in to your account.
 5. On the Netlify dashboard, click **New site **
 
+   ##[Our website] (https://mist1.netlify.app/)
+
 ---
 
 ## Project Plans
