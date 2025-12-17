@@ -3,6 +3,9 @@ import { OllamaService } from '../../services/services/ollama.service';
 import { OllamaResponse } from '../../interface/models/ollama-response';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import { ButtonModule } from 'primeng/button';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -11,9 +14,10 @@ interface ChatMessage {
 
 @Component({
   selector: 'app-ai',
-  standalone: false,
+  standalone: true,
   templateUrl: './ai.component.html',
   styleUrl: './ai.component.css',
+  imports: [ButtonModule, CommonModule, FormsModule],
 })
 export class AIComponent {
   prompt: string = '';

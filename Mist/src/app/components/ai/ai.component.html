@@ -1,5 +1,13 @@
 <div class="chat-Icon" (click)="toggleChat()" *ngIf="!showChat">
-  <span class="material-symbols-outlined" style="color: #f8f8f9"> chat </span>
+  <p-button
+    icon="fa-regular fa-message"
+    [rounded]="true"
+    [style]="{
+      'font-size': '25px',
+      height: '60px',
+      width: '60px'
+    }"
+  />
 </div>
 <div class="ollama-demo" *ngIf="showChat">
   <div class="text-header">

@@ -8,3 +8,10 @@
 .marginright {
   margin-right: 10px;
 }
+
+.maintext {
+  padding: 0 10px;
+  color: #10b981;
+  cursor: pointer;
+  font-weight: 700;
+}

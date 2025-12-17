@@ -20,11 +20,10 @@ import { TagModule } from 'primeng/tag';
 import { Rating } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 
-// Definícia typu pre obrázky v Gallerii
 interface GameImage {
   itemImageSrc: string;
   thumbnailImageSrc: string;
-  alt: string; // Voliteľné, pre alt text
+  alt: string;
 }
 
 @Component({
@@ -32,7 +31,7 @@ interface GameImage {
   selector: 'app-detaild-page',
   templateUrl: './detaild-page.component.html',
   styleUrls: ['./detaild-page.component.css'],
-  // 1. Pridanie GalleriaModule do imports
+
   imports: [
     CommonModule,
     MatTabsModule,
@@ -50,10 +49,8 @@ export class DetaildPageComponent implements OnInit {
   game: Game | undefined;
   slideshowImages: { url: string }[] = [];
 
-  // 2. Nová premenná pre Galleria dáta
   images: GameImage[] = [];
 
-  // 2. Konfigurácia pre responsiveOptions Galleria
   responsiveOptions: any[] = [
     {
       breakpoint: '1024px',

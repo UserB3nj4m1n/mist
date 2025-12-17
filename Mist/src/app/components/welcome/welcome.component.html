@@ -14,14 +14,20 @@
       </p>
     </div>
     <div class="mainLeftButtonsDiv">
-      <button
-        class="mainLeftButtons"
-        style="background-color: #a8b7c4; cursor: pointer"
-        routerLink="/store"
-      >
-        Buy
-      </button>
-      <button class="mainLeftButtons" style="color: #f8f8f9">Play</button>
+      <p-button
+        label="Buy"
+        [style]="{
+          'font-size': '25px',
+          padding: '10px 40px',
+          height: '60px',
+        }"
+        (onClick)="goStore()"
+      />
+
+      <p-button
+        label="Play"
+        [style]="{ 'font-size': '25px', padding: '10px 40px', height: '60px' }"
+      />
     </div>
     <div style="padding-top: 20px">
       <span style="display: flex; align-items: center">
@@ -39,6 +45,7 @@
       alt="3D model"
       camera-controls
       auto-rotate
+      disable-zoom
       background-color="#f8f8f9"
       style="width: 100%; height: 400px"
     ></model-viewer>
@@ -76,6 +83,7 @@
       Most popular
     </p>
   </div>
+
   <div class="top-games-row">
     <ng-container *ngIf="!loading">
       <div class="most-popular-box" *ngFor="let game of topGames">
@@ -85,7 +93,7 @@
             alt="{{ game.name }}"
             class="most-popular-image"
           />
-           <!-- Dorobiť -->
+          <!-- Dorobiť -->
           <!-- <div class="most-popular-price-container">
             <div class="discounted-price">
               <p class="discounted-price-text">{{ game.discountedPrice }}€</p>

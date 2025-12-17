@@ -302,3 +302,27 @@ app-store-card {
     display: none !important;
   }
 }
+
+/* ---------------------------------------------*/
+
+.FilterMainDiv {
+  width: 17rem;
+  padding: 5px;
+}
+
+.prizeRangeText {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.CategoriesDiv {
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.genreTag {
+  display: flex;
+  margin-left: auto;
+}

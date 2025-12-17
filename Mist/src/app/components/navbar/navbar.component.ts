@@ -49,40 +49,49 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Store',
         routerLink: '/store',
+        icon: 'fa-solid fa-store',
       },
       {
         label: 'Library',
         routerLink: '/library',
+        icon: 'fa-solid fa-book-open',
       },
 
       {
         label: 'Settings',
         routerLink: '/settings',
+        icon: 'fa-solid fa-gears',
       },
       {
         label: 'Admin',
-        routerLink: '/admin',
         visible: this.isAdmin,
+        icon: 'fa-brands fa-black-tie',
+
         items: [
           {
             label: 'Dashboard',
             routerLink: '/admin/dashboard',
+            icon: 'fa-solid fa-chart-line',
           },
           {
             label: 'Users',
             routerLink: '/admin/users',
+            icon: 'fa-solid fa-users',
           },
           {
             label: 'Games',
             routerLink: '/admin/games',
+            icon: 'fa-solid fa-gamepad',
           },
           {
             label: 'Contacts',
             routerLink: '/admin/contacts',
+            icon: 'fa-solid fa-phone',
           },
           {
             label: 'Graph',
             routerLink: '/admin/graph',
+            icon: 'fa-solid fa-chart-column',
           },
         ],
       },
@@ -90,6 +99,7 @@ export class NavbarComponent implements OnInit {
         label: 'Cart',
         routerLink: '/cart',
         badge: badgeValue,
+        icon: 'fa-solid fa-cart-shopping',
       },
     ];
   }
@@ -99,6 +109,9 @@ export class NavbarComponent implements OnInit {
   }
   goRegister() {
     this.router.navigate(['/login']);
+  }
+  goWelcome() {
+    this.router.navigate(['/welcome']);
   }
 
   ngOnInit(): void {

@@ -16,11 +16,23 @@ import { FormsModule } from '@angular/forms';
 import { StoreCardComponent } from '../store-card/store-card.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { AccordionModule } from 'primeng/accordion';
+import { Slider } from 'primeng/slider';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TagModule } from 'primeng/tag';
+import { BadgeModule } from 'primeng/badge';
+import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { RatingModule } from 'primeng/rating';
+import { InputIcon } from 'primeng/inputicon';
+import { IconField } from 'primeng/iconfield';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrl: './store.component.css',
+  standalone: true,
   imports: [
     FormsModule,
     MatFormFieldModule,
@@ -28,6 +40,17 @@ import { AuthService } from '../../services/auth.service';
     MatIconModule,
     StoreCardComponent,
     CommonModule,
+    AccordionModule,
+    Slider,
+    InputNumberModule,
+    CheckboxModule,
+    TagModule,
+    BadgeModule,
+    OverlayBadgeModule,
+    RatingModule,
+    InputIcon,
+    IconField,
+    InputTextModule,
   ],
 })
 export class StoreComponent implements OnInit {
@@ -44,6 +67,7 @@ export class StoreComponent implements OnInit {
   isGridView: boolean = true;
   isAuthenticated: boolean = false;
   loading: boolean = true;
+  rangeValues: number[] = [100];
 
   searchQuery: string = '';
   selPrice: number = 100;
@@ -145,40 +169,15 @@ export class StoreComponent implements OnInit {
     this.updatePagination(this.currentPage - 1);
   }
 
-  onCategoryChange(category: string, checked: boolean) {
-    if (checked) {
-      if (!this.selectedCategories.includes(category)) {
-        this.selectedCategories.push(category);
-      }
-    } else {
-      this.selectedCategories = this.selectedCategories.filter(
-        (c) => c !== category
-      );
-    }
+  onCategoryChange(event: any) {
     this.applyFilters();
   }
 
-  onPlatformChange(platform: string, checked: boolean) {
-    if (checked) {
-      if (!this.selectedPlatforms.includes(platform)) {
-        this.selectedPlatforms.push(platform);
-      }
-    } else {
-      this.selectedPlatforms = this.selectedPlatforms.filter(
-        (p) => p !== platform
-      );
-    }
+  onPlatformChange(event: any) {
     this.applyFilters();
   }
 
-  onRatingChange(rating: number, checked: boolean) {
-    if (checked) {
-      if (!this.selectedRatings.includes(rating)) {
-        this.selectedRatings.push(rating);
-      }
-    } else {
-      this.selectedRatings = this.selectedRatings.filter((r) => r !== rating);
-    }
+  onRatingChange(event: any) {
     this.applyFilters();
   }
 
@@ -239,5 +238,10 @@ export class StoreComponent implements OnInit {
   onSortChange() {
     this.applySorting();
     this.updatePagination(1);
+  }
+
+  truncate(text: string, limit: number = 20): string {
+    if (!text) return '';
+    return text.length > limit ? text.slice(0, limit) + '…' : text;
   }
 }

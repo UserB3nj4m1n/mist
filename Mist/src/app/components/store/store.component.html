@@ -1,132 +1,121 @@
 <div *ngIf="isAuthenticated; else notAuthenticated">
   <div class="main">
-    <div class="filter">
-      <p class="filter-title">Filters</p>
-      <div class="filterLine">
-        <p class="filterMainText" (click)="toggleFilter('search')">
-          Search
-          <span class="getTogleSymbol">{{ getToggleSymbol("search") }}</span>
-        </p>
-        <div *ngIf="!collapsedFilters['search']">
-          <input
-            type="search"
-            class="form-control"
-            id="Search"
-            placeholder="Search"
-            name="Search"
-            [(ngModel)]="searchQuery"
-            (input)="applyFilters()"
-          />
-        </div>
-      </div>
-      <div class="filterLine">
-        <p class="filterMainText" (click)="toggleFilter('price')">
-          Price
-          <span class="getTogleSymbol">{{ getToggleSymbol("price") }}</span>
-        </p>
-        <div *ngIf="!collapsedFilters['price']">
-          <p id="prizeRange">
-            0€ <span id="SelpriceText">{{ selPrice }}€</span>
-          </p>
-          <input
-            type="range"
-            name="Price"
-            id="Price"
-            min="20"
-            max="100"
-            style="width: 100%"
-            [(ngModel)]="selPrice"
-            (change)="applyFilters()"
-          />
-        </div>
-      </div>
-      <div class="filterLine category-container">
-        <p class="filterMainText" (click)="toggleFilter('categories')">
-          Categories
-          <span class="getTogleSymbol">{{
-            getToggleSymbol("categories")
-          }}</span>
-        </p>
-        <div *ngIf="!collapsedFilters['categories']">
-          <div *ngFor="let genre of genres">
-            <label [for]="genre.name" class="genre-label">
-              <input
-                type="checkbox"
-                [id]="genre.name"
-                [(ngModel)]="selectedCategoriesMap[genre.name]"
-                (ngModelChange)="onCategoryChange(genre.name, $event)"
+    <div class="FilterMainDiv">
+      <p-accordion value="0" [multiple]="true">
+        <p-accordion-panel value="0">
+          <p-accordion-header>Search</p-accordion-header>
+          <p-accordion-content>
+            <p-iconfield>
+              <div>
+                <p-inputicon class="fa-solid fa-magnifying-glass" />
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Search"
+                  [style]="{ width: '100%  ' }"
+                  [(ngModel)]="searchQuery"
+                  (input)="applyFilters()"
+                />
+              </div>
+            </p-iconfield>
+          </p-accordion-content>
+        </p-accordion-panel>
+        <p-accordion-panel value="1">
+          <p-accordion-header>Price</p-accordion-header>
+          <p-accordion-content>
+            <p-slider [(ngModel)]="rangeValues" class="w-56" />
+            <div class="prizeRangeText">
+              <p-inputnumber
+                inputId="rangeValues"
+                [style]="{ width: '100%' }"
+                [(ngModel)]="rangeValues"
               />
-              <span
-                class="genre-name"
-                [ngClass]="{ 'bold-text': selectedCategoriesMap[genre.name] }"
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="2">
+          <p-accordion-header>Categories</p-accordion-header>
+          <p-accordion-content>
+            <div *ngFor="let genre of genres" class="CategoriesDiv">
+              <p-checkbox
+                [inputId]="genre.name"
+                name="group"
+                [value]="genre.name"
+                [(ngModel)]="selectedCategories"
+                (ngModelChange)="onCategoryChange(genre.name)"
+                styleClass="genre-checkbox"
+              />
+              <label [for]="genre.name" style="padding-left: 10px">
+                {{ truncate(genre.name, 14) }}
+              </label>
+              <div class="genreTag">
+                <p-tag severity="secondary" value="{{ genre.value }}" />
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="3">
+          <p-accordion-header>Rating</p-accordion-header>
+          <p-accordion-content
+            ><div *ngFor="let rating of ratings" class="CategoriesDiv">
+              <p-checkbox
+                [inputId]="'rating-' + rating.rating"
+                name="ratings"
+                [value]="rating.rating"
+                [(ngModel)]="selectedRatings"
+                (ngModelChange)="onRatingChange(rating.rating)"
+                styleClass="genre-checkbox"
+              ></p-checkbox>
+              <p-rating
+                [(ngModel)]="rating.rating"
+                [readonly]="true"
+                style="padding-left: 10px"
+              />
+              <label
+                [for]="'rating-' + rating.rating"
+                style="padding-left: 10px; vertical-align: middle"
               >
-                {{ genre.name }}
-              </span>
-              <span class="Count">({{ genre.value }})</span>
-            </label>
-          </div>
-        </div>
-      </div>
+                {{ rating.rating }}
+              </label>
 
-      <div class="filterLine">
-        <p class="filterMainText" (click)="toggleFilter('rating')">
-          Rating
-          <span class="getTogleSymbol">{{ getToggleSymbol("rating") }}</span>
-        </p>
-        <div *ngIf="!collapsedFilters['rating']">
-          <div *ngFor="let rating of ratings">
-            <label [for]="'rating-' + rating.rating" class="genre-label">
-              <input
-                type="checkbox"
-                [id]="'rating-' + rating.rating"
-                [(ngModel)]="selectedRatingsMap[rating.rating]"
-                (ngModelChange)="onRatingChange(rating.rating, $event)"
-              />
-              <span
-                class="genre-name"
-                [ngClass]="{ 'bold-text': selectedRatingsMap[rating.rating] }"
-              >
-                {{ rating.rating }} <img src="Vector.svg" class="icon" />
-              </span>
+              <div class="genreTag">
+                <p-tag severity="secondary" value="{{ rating.count }}"></p-tag>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+        <p-accordion-panel value="4">
+          <p-accordion-header>Platforms</p-accordion-header>
+          <p-accordion-content>
+            <div *ngFor="let platform of platforms" class="CategoriesDiv">
+              <p-checkbox
+                [inputId]="'platform-' + platform.abbreviation"
+                name="platforms"
+                [value]="platform.abbreviation"
+                [(ngModel)]="selectedPlatforms"
+                (ngModelChange)="onPlatformChange(platform.abbreviation)"
+                styleClass="genre-checkbox"
+              ></p-checkbox>
 
-              <span class="Count">({{ rating.count }})</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="filterLine">
-        <p class="filterMainText" (click)="toggleFilter('platforms')">
-          Platforms
-          <span class="getTogleSymbol">{{ getToggleSymbol("platforms") }}</span>
-        </p>
-        <div *ngIf="!collapsedFilters['platforms']">
-          <div *ngFor="let platform of platforms">
-            <label
-              [for]="'platform-' + platform.abbreviation"
-              class="genre-label"
-            >
-              <input
-                type="checkbox"
-                [id]="'platform-' + platform.abbreviation"
-                [(ngModel)]="selectedPlatformsMap[platform.abbreviation]"
-                (ngModelChange)="
-                  onPlatformChange(platform.abbreviation, $event)
-                "
-              />
-              <span
-                class="genre-name"
-                [ngClass]="{
-                  'bold-text': selectedPlatformsMap[platform.abbreviation]
-                }"
+              <label
+                [for]="'platform-' + platform.abbreviation"
+                style="padding-left: 10px"
               >
                 {{ platform.abbreviation }}
-              </span>
-              <span class="Count">({{ platform.count }})</span>
-            </label>
-          </div>
-        </div>
-      </div>
+              </label>
+
+              <div class="genreTag">
+                <p-tag
+                  severity="secondary"
+                  value="{{ platform.count }}"
+                ></p-tag>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+      </p-accordion>
     </div>
 
     <div *ngIf="loading" class="loader-container">

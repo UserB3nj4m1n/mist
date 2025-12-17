@@ -44,7 +44,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #6e8396, #a8b7c4);
+  background: linear-gradient(90deg, #10b981, #6ee7b7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -259,4 +259,5 @@
   width: 35%;
   height: auto;
   opacity: 0.4;
+  filter: sepia(2) hue-rotate(90deg) saturate(1);
 }
