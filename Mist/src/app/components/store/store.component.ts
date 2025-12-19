@@ -27,6 +27,9 @@ import { RatingModule } from 'primeng/rating';
 import { InputIcon } from 'primeng/inputicon';
 import { IconField } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
+import { SelectModule } from 'primeng/select';
+import { Select } from 'primeng/select';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-store',
@@ -51,6 +54,9 @@ import { InputTextModule } from 'primeng/inputtext';
     InputIcon,
     IconField,
     InputTextModule,
+    SelectModule,
+    Select,
+    ButtonModule,
   ],
 })
 export class StoreComponent implements OnInit {
@@ -80,6 +86,13 @@ export class StoreComponent implements OnInit {
   selectedPlatforms: string[] = [];
   selectedPlatformsMap: { [key: string]: boolean } = {};
   sortBy: string = 'default';
+  sortOptions = [
+    { label: 'Default', value: 'default' },
+    { label: 'Price: Low to High', value: 'priceLowHigh' },
+    { label: 'Price: High to Low', value: 'priceHighLow' },
+    { label: 'Rating: Low to High', value: 'ratingLowHigh' },
+    { label: 'Rating: High to Low', value: 'ratingHighLow' },
+  ];
   ratingCounts: { [key: number]: number } = {};
   platformCounts: { [key: string]: number } = {};
 

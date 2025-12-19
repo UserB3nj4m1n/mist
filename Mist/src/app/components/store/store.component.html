@@ -125,40 +125,33 @@
     <div class="game-list" *ngIf="!loading">
       <div class="sort-by-container">
         <p>Sort by:</p>
-        <select
-          class="sortBy"
-          name="sortBy"
+
+        <p-select
+          [options]="sortOptions"
           [(ngModel)]="sortBy"
-          (change)="onSortChange()"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Sort by"
+          class="w-full md:w-56"
+          (onChange)="onSortChange()"
         >
-          <option value="default">Default</option>
-          <option value="priceLowHigh">Price: Low to High</option>
-          <option value="priceHighLow">Price: High to Low</option>
-          <option value="ratingLowHigh">Rating: Low to High</option>
-          <option value="ratingHighLow">Rating: High to Low</option>
-        </select>
+        </p-select>
 
         <div class="ViewLayaut">
-          <button
-            class="ButtonsView"
+          <p-button
+            icon="fa-solid fa-grip"
+            label="Grid"
+            severity="secondary"
             (click)="toggleView('grid')"
             [class.active]="isGridView"
-          >
-            <div class="ViewLayautCategory">
-              <mat-icon>grid_on</mat-icon>
-              <div>Grid</div>
-            </div>
-          </button>
-          <button
-            class="ButtonsView"
+          />
+          <p-button
+            icon="fa-solid fa-grip-lines"
+            label="Lines"
+            severity="secondary"
             (click)="toggleView('list')"
             [class.active]="!isGridView"
-          >
-            <div class="ViewLayautCategory">
-              <mat-icon>view_headline</mat-icon>
-              <div>Lines</div>
-            </div>
-          </button>
+          />
         </div>
       </div>
 

@@ -53,11 +53,7 @@ import Aura from '@primeuix/themes/aura';
     LoginComponent,
     RegisterComponent,
     ContactUsComponent,
-    AdminPanelComponent,
-    DashboardComponent,
     UsersComponent,
-    ContactComponent,
-    GamesComponent,
     CartSummaryComponent,
     CartItemsComponent,
     ProductComponent,
@@ -86,6 +82,10 @@ import Aura from '@primeuix/themes/aura';
     NavbarComponent,
     WelcomeComponent,
     AIComponent,
+    DashboardComponent,
+    GamesComponent,
+    ContactComponent,
+    AdminPanelComponent,
   ],
 
   providers: [
