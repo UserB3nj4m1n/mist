@@ -49,9 +49,6 @@ import Aura from '@primeuix/themes/aura';
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent,
     ContactUsComponent,
     UsersComponent,
     CartSummaryComponent,
@@ -86,6 +83,9 @@ import Aura from '@primeuix/themes/aura';
     GamesComponent,
     ContactComponent,
     AdminPanelComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent,
   ],
 
   providers: [
