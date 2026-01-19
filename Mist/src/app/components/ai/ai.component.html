@@ -10,36 +10,46 @@
   />
 </div>
 <div class="ollama-demo" *ngIf="showChat">
-  <div class="text-header">
-    <div class="header-left">
-      <span class="material-symbols-outlined botIcon"> robot_2 </span>
-      <p class="title">Mist AI</p>
-    </div>
-    <span class="material-symbols-outlined close-icon" (click)="toggleChat()">
-      close
-    </span>
-  </div>
-  <div class="chat-body">
-    <div class="chat-window">
-      <div *ngFor="let msg of messages" class="msg" [ngClass]="msg.sender">
-        <span *ngIf="msg.sender === 'user'" class="label"
-          >{{ userProfile?.displayName }}:</span
+  <p-card>
+    <div class="text-header">
+      <div class="header-left">
+        <span
+          class="material-symbols-outlined botIcon"
+          style="background-color: var(--p-button-primary-background)"
         >
-        <span *ngIf="msg.sender === 'ai'" class="label">AI:</span>
-        <span>{{ msg.text }}</span>
+          robot_2
+        </span>
+        <p class="title">Mist AI</p>
       </div>
-      <div *ngIf="loading">...</div>
-      <div *ngIf="error" class="error">{{ error }}</div>
+      <p-button
+        icon="fa-solid fa-xmark"
+        [rounded]="true"
+        [text]="true"
+        severity="danger"
+        (click)="toggleChat()"
+      />
     </div>
-    <div class="inputArea">
-      <textarea
-        [(ngModel)]="prompt"
-        placeholder="Type a message..."
-        class="input-msg"
-      ></textarea>
-      <button (click)="generate()" [disabled]="loading" class="sentBut">
-        <span class="material-symbols-outlined"> send </span>
-      </button>
+    <p-divider styleClass="midrow" />
+    <div class="chat-body">
+      <div class="chat-window">
+        <div *ngFor="let msg of messages" class="msg" [ngClass]="msg.sender">
+          <span *ngIf="msg.sender === 'user'" class="label"
+            >{{ userProfile?.displayName }}:</span
+          >
+          <span *ngIf="msg.sender === 'ai'" class="label">AI:</span>
+          <span>{{ msg.text }}</span>
+        </div>
+        <div *ngIf="loading">...</div>
+        <div *ngIf="error" class="error">{{ error }}</div>
+      </div>
+      <div class="inputArea">
+        <input type="text" pInputText [(ngModel)]="prompt" [fluid]="true" />
+        <p-button
+          icon="fa-regular fa-paper-plane"
+          (click)="generate()"
+          [disabled]="loading"
+        />
+      </div>
     </div>
-  </div>
+  </p-card>
 </div>

@@ -52,10 +52,7 @@ import Aura from '@primeuix/themes/aura';
     ContactUsComponent,
     UsersComponent,
     CartSummaryComponent,
-    CartItemsComponent,
     ProductComponent,
-    SettingsComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +83,9 @@ import Aura from '@primeuix/themes/aura';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    SettingsComponent,
+    CartItemsComponent,
+    ProfileComponent,
   ],
 
   providers: [

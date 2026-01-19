@@ -6,7 +6,6 @@
 }
 
 .MainBox {
-  background: #63636310;
   padding: 30px;
   padding-top: 10px;
   border-radius: 16px;
@@ -65,7 +64,9 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #ffffff10;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   box-sizing: border-box;
 }
 
@@ -109,4 +110,8 @@
   color: #f8f8f9;
   border: none;
   cursor: pointer;
+}
+
+.Input-Div {
+  margin-top: 35px;
 }

@@ -1,37 +1,40 @@
 <div class="profile-container">
-  <div class="main-profile">
-    <div class="Left-Profile">
-      <div class="profilePic">
-        <img
-          [src]="userProfile?.photoURL || '/ProfilPic.png'"
-          alt="profilePic"
-          class="profile-image"
-        />
+  <p-card>
+    <div class="main-profile">
+      <div class="Left-Profile">
+        <div class="profilePic">
+          <img
+            [src]="userProfile?.photoURL || '/ProfilPic.png'"
+            alt="profilePic"
+            class="profile-image"
+          />
+        </div>
+      </div>
+      <div class="Right-Profile">
+        <p class="profileName">{{ userProfile?.displayName }}</p>
+        <p class="profileEmail">{{ userProfile?.email }}</p>
+        <p class="profileBio">{{ userProfile?.bio }}</p>
+      </div>
+      <div class="Right-Profile2">
+        <span
+          class="material-symbols-outlined"
+          style="cursor: pointer"
+          routerLink="/settings/account-profile"
+        >
+          edit
+        </span>
       </div>
     </div>
-    <div class="Right-Profile">
-      <p class="profileName">{{ userProfile?.displayName }}</p>
-      <p class="profileEmail">{{ userProfile?.email }}</p>
-      <p class="profileBio">{{ userProfile?.bio }}</p>
+    <div class="profile-info">
+      <p class="profileGames">Your games</p>
+      <div class="game-list">
+        <p class="game-item">Game 1</p>
+        <p class="game-item">Game 2</p>
+        <p class="game-item">Game 3</p>
+        <p class="game-item">Game 4</p>
+        <p class="game-item">Game 5</p>
+      </div>
     </div>
-    <div class="Right-Profile2">
-      <span
-        class="material-symbols-outlined"
-        style="cursor: pointer"
-        routerLink="/settings/account-profile"
-      >
-        edit
-      </span>
-    </div>
-  </div>
-  <div class="profile-info">
-    <p class="profileGames">Your games</p>
-    <div class="game-list">
-      <p class="game-item">Game 1</p>
-      <p class="game-item">Game 2</p>
-      <p class="game-item">Game 3</p>
-      <p class="game-item">Game 4</p>
-      <p class="game-item">Game 5</p>
-    </div>
-  </div>
+  </p-card>
 </div>
+<p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()" />

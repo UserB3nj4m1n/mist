@@ -10,7 +10,6 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
-import { Fluid } from 'primeng/fluid';
 
 @Component({
   selector: 'app-login',
@@ -55,10 +54,10 @@ export class LoginComponent {
         icon: 'error',
         confirmButtonColor: '#6e8396',
       });
+
       return;
     }
 
     this.auth.login(this.email, this.password);
   }
-  value3: string | undefined;
 }

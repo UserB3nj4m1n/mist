@@ -1,96 +1,134 @@
-<div class="MainBox">
-  <div>
-    <p class="MainText">Profile information</p>
-    <p class="smalText">Manage your account information and settings here.</p>
-  </div>
-  <div class="ContentBox">
-    <div class="ProfilePic">
-      <img
-        [src]="userProfile.photoURL || '/ProfilPic.png'"
-        class="ProfileImage"
-      />
+<p-card>
+  <div class="MainBox">
+    <div>
+      <p class="MainText">Profile information</p>
+      <p class="smalText">Manage your account information and settings here.</p>
+    </div>
+    <div class="ContentBox">
+      <div class="ProfilePic">
+        <img
+          [src]="userProfile.photoURL || '/ProfilPic.png'"
+          class="ProfileImage"
+        />
+        <p-button
+          icon="fa-solid fa-camera"
+          label="Change Picture"
+          *ngIf="!showInput"
+          (click)="toggleInput()"
+        />
+        <div
+          *ngIf="showInput"
+          class="InfoLine"
+          style="margin-top: 10px; width: 100%"
+        >
+          <p-inputgroup>
+            <p-inputgroup-addon>www</p-inputgroup-addon>
+            <p-floatlabel>
+              <input
+                pInputText
+                id="Profile Picture URL"
+                [(ngModel)]="userProfile.photoURL"
+              />
+              <label for="Profile Picture URL">Profile Picture URL</label>
+            </p-floatlabel>
+          </p-inputgroup>
+        </div>
+      </div>
 
-      <div class="Button" *ngIf="!showInput" (click)="toggleInput()">
-        Change Picture
-      </div>
-      <div
-        *ngIf="showInput"
-        class="InfoLine"
-        style="margin-top: 10px; width: 100%"
-      >
-        <p class="smalText">Profile Picture URL</p>
-        <input
-          type="text"
-          placeholder="Enter profile url"
-          [(ngModel)]="userProfile.photoURL"
-          class="input-field"
-        />
-      </div>
-    </div>
-
-    <div class="InfoBox">
-      <div class="InfoLine">
-        <p class="smalText">First Name</p>
-        <input
-          type="text"
-          [(ngModel)]="userProfile.realname"
-          placeholder="Enter your first name"
-          class="input-field"
-        />
+      <div class="InfoBox">
+        <div>
+          <p-floatlabel>
+            <input
+              pInputText
+              id="First Name"
+              [(ngModel)]="userProfile.realname"
+              autocomplete="off"
+              fluid
+            />
+            <label for="First Name">First Name</label>
+          </p-floatlabel>
+        </div>
+        <div>
+          <p-floatlabel>
+            <input
+              pInputText
+              id="Last Name"
+              [(ngModel)]="userProfile.realsurname"
+              autocomplete="off"
+              fluid
+            />
+            <label for="Last Name">Last Name</label>
+          </p-floatlabel>
+        </div>
       </div>
       <div class="InfoLine">
-        <p class="smalText">Last Name</p>
-        <input
-          type="text"
-          [(ngModel)]="userProfile.realsurname"
-          placeholder="Enter your last name"
-          class="input-field"
-        />
+        <div class="Input-Div">
+          <p-floatlabel>
+            <input
+              pInputText
+              id="Profile Name"
+              [(ngModel)]="userProfile.displayName"
+              autocomplete="off"
+              fluid
+            />
+            <label for="Profile Name">Profile Name</label>
+          </p-floatlabel>
+        </div>
       </div>
-    </div>
-    <div class="InfoLine">
-      <p class="smalText">Profile Name</p>
-      <input
-        type="text"
-        [(ngModel)]="userProfile.displayName"
-        placeholder="Enter your profile name"
-        class="input-field"
-      />
-    </div>
-    <div class="InfoLine">
-      <p class="smalText">Email Address</p>
-      <input
-        type="text"
-        value="{{ userProfile.email }}"
-        placeholder="Enter your email address (example@example.com)"
-        class="input-field"
-        style="caret-color: transparent"
-        disabled
-      />
-    </div>
-    <div class="InfoLine">
-      <p class="smalText">Phone Number</p>
-      <input
-        type="tel"
-        [(ngModel)]="userProfile.phone"
-        placeholder="Enter your phone number (XXX-XXX-XXX)"
-        class="input-field"
-        maxlength="9"
-      />
-    </div>
-    <div class="InfoLine">
-      <p class="smalText">Bio</p>
-      <textarea
-        type="text"
-        [(ngModel)]="userProfile.bio"
-        placeholder="Enter your bio"
-        class="input-field"
-        style="resize: vertical"
-      ></textarea>
-    </div>
-    <div class="ButtonBox">
-      <div class="SaveButton" (click)="saveProfile()">Save Changes</div>
-      <div class="CancelButton" (click)="cancelProfile()">Cancel</div>
+      <div class="InfoLine">
+        <div class="Input-Div">
+          <p-floatlabel>
+            <input
+              pInputText
+              id="Email Address"
+              value="{{ userProfile.email }}"
+              autocomplete="off"
+              fluid
+              disabled
+              placeholder="example.email.com"
+            />
+            <label for="Email Address">Email Address</label>
+          </p-floatlabel>
+        </div>
+      </div>
+      <div class="InfoLine">
+        <div class="Input-Div">
+          <p-floatlabel>
+            <p-inputmask
+              id="Phone Number"
+              [(ngModel)]="userProfile.phone"
+              mask="+999-999-999-999"
+              fluid="true"
+            />
+            <label for="Phone Number">Phone Number</label>
+          </p-floatlabel>
+        </div>
+      </div>
+      <div class="InfoLine">
+        <div class="Input-Div">
+          <p-floatlabel>
+            <textarea
+              pTextarea
+              id="Bio"
+              [(ngModel)]="userProfile.bio"
+              rows="5"
+              cols="30"
+              style="resize: none"
+              class="h-full"
+              fluid
+            ></textarea>
+            <label for="Bio">Bio</label>
+          </p-floatlabel>
+        </div>
+      </div>
+      <div class="ButtonBox">
+        <p-button
+          label="Save Changes"
+          severity="success"
+          (click)="saveProfile()"
+        />
+        <p-button label="Cancel" severity="danger" (click)="cancelProfile()" />
+      </div>
     </div>
   </div>
-</div>
+</p-card>

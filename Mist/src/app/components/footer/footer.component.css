@@ -9,14 +9,6 @@
   padding-top: 0;
 }
 
-footer[data-theme="dark"] {
-  color: #ffffff;
-}
-
-footer[data-theme="light"] {
-  color: #070708;
-}
-
 .footer-top {
 }
 
@@ -53,16 +45,16 @@ footer[data-theme="light"] {
 }
 /**/
 .footer-col ul li a {
-  color: #070708;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s;
 }
 .footer-col ul li a[data-theme="dark"] {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .footer-col ul li a[data-theme="light"] {
-  color: #000000;
+  color: var(--text-color);
 }
 
 /**/

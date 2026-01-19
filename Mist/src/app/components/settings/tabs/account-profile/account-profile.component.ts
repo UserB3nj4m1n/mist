@@ -5,13 +5,32 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../../firebase.config';
 import { User } from '../../../../interface/user';
 import { CommonModule } from '@angular/common';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { TextareaModule } from 'primeng/textarea';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-account-profile',
   standalone: true,
   templateUrl: './account-profile.component.html',
   styleUrls: ['./account-profile.component.css'],
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CardModule,
+    ButtonModule,
+    FloatLabelModule,
+    InputTextModule,
+    InputMaskModule,
+    TextareaModule,
+    InputGroupModule,
+    InputGroupAddonModule,
+  ],
 })
 export class AccountProfileComponent {
   userProfile: User = {
@@ -27,7 +46,7 @@ export class AccountProfileComponent {
 
   constructor(
     private userService: UserService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {

@@ -6,6 +6,9 @@ import { UserService } from '../../services/user.service';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { DividerModule } from 'primeng/divider';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -17,7 +20,14 @@ interface ChatMessage {
   standalone: true,
   templateUrl: './ai.component.html',
   styleUrl: './ai.component.css',
-  imports: [ButtonModule, CommonModule, FormsModule],
+  imports: [
+    ButtonModule,
+    CommonModule,
+    FormsModule,
+    CardModule,
+    InputTextModule,
+    DividerModule,
+  ],
 })
 export class AIComponent {
   prompt: string = '';

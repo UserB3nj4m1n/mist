@@ -4,18 +4,19 @@ import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 import { Menu } from 'primeng/menu';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
-  imports: [FormsModule, RouterModule, Menu],
+  imports: [FormsModule, RouterModule, Menu, DividerModule],
   templateUrl: './admin-panel.component.html',
   styleUrl: './admin-panel.component.css',
 })
 export class AdminPanelComponent {
   items: MenuItem[] = [
     {
-      label: 'Options',
+      label: 'Admin Panel',
       items: [
         {
           label: 'Dashboard',
@@ -40,7 +41,7 @@ export class AdminPanelComponent {
         {
           label: 'Graphs',
           icon: 'fa-solid fa-chart-bar',
-          routerLink: '/admin/graphs',
+          routerLink: '/admin/graph',
         },
       ],
     },

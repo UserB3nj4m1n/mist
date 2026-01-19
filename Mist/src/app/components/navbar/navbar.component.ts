@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit {
 
       {
         label: 'Settings',
-        routerLink: '/settings',
+        routerLink: '/settings/account-profile',
         icon: 'fa-solid fa-gears',
       },
       {

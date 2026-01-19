@@ -16,10 +16,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #63636310;
   padding: 22px;
   border-radius: 16px;
   width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .card-label {
