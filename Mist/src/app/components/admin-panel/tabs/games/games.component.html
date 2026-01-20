@@ -1,30 +1,50 @@
-<table *ngIf="games$ | async as games; else loading">
-  <thead>
+<div class="filter">
+  <p-selectbutton
+    [options]="sizes"
+    [(ngModel)]="selectedSize"
+    [multiple]="false"
+    optionLabel="name"
+    optionValue="value"
+  />
+  <p-iconfield>
+    <p-inputicon class="fa-solid fa-magnifying-glass" />
+    <input type="text" pInputText placeholder="Search" />
+  </p-iconfield>
+</div>
+<p-table
+  *ngIf="games$ | async as games; else loading"
+  [value]="games"
+  [tableStyle]="{ 'min-width': '60rem' }"
+  [size]="selectedSize"
+  [paginator]="true"
+  [rows]="20"
+  [rowsPerPageOptions]="[5, 10, 20, 50]"
+>
+  <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
       <th>Game Name</th>
       <th>Rating</th>
       <th>Price</th>
       <th>Discounted Price</th>
-      <th></th>
+      <th style="text-align: center"></th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let game of games">
+  </ng-template>
+
+  <ng-template pTemplate="body" let-game>
+    <tr>
       <td>{{ game?.id }}</td>
       <td>{{ game?.name }}</td>
       <td>{{ game?.rating_star }}</td>
       <td>{{ game?.originalPrice }}€</td>
       <td>{{ game?.discountedPrice }}€</td>
       <td style="text-align: center">
-        <span class="material-symbols-outlined" style="cursor: pointer">
-          edit
-        </span>
+        <i class="fa-solid fa-pen" style="cursor: pointer"></i>
       </td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>
 
 <ng-template #loading>
-  <p>Loading games…</p>
+  <p>Loading...</p>
 </ng-template>

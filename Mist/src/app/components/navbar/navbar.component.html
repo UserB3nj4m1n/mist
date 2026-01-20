@@ -1,45 +1,33 @@
-<nav class="navbar">
-  <div class="navbar-brand">
-    <img routerLink="welcome" src="/LogoMist.jpg" />
-  </div>
-  <div class="navbar-links">
-    <a routerLink="store" class="navBut">Store</a>
-    <a class="navBut">Library</a>
-    <a *ngIf="isAdmin" routerLink="/admin/dashboard" class="navBut">Admin</a>
-    <div class="dropdown">
-      <a
-        class="navBut dropdown-toggle"
-        id="SetingsBut"
-        routerLink="/settings/account-profile"
-        >Settings</a
-      >
-      <div class="dropdown-menu">
-        <div class="dropdown-toggle">
-          <label class="switch">
-            <input type="checkbox" (change)="toggleTheme($event)" />
-            <span class="slider round"></span>
-          </label>
-        </div>
-      </div>
+<p-menubar [model]="items" class="custom-menubar">
+  <ng-template pTemplate="start">
+    <div class="navbar-brand" (onClick)="goWelcome()">
+      <img
+        src="/LogoMist.jpg"
+        alt="logo"
+        class="logo-img"
+        (onClick)="goWelcome()"
+      />
     </div>
-    <a class="navBut cart-link" routerLink="/cart">
-      Cart
-      <span
-        *ngIf="cartItemCount > 0"
-        class="cart-bubble"
-        [class.item-added-animation]="showItemAddedAnimation"
-      >
-        {{ cartItemCount }}
-      </span>
-    </a>
+  </ng-template>
+
+  <ng-template pTemplate="end">
     <ng-container *ngIf="!isAuthenticated; else authenticated">
-      <a routerLink="login" class="loginBut marginright">Login / Register</a>
+      <p-button
+        label="Login / Register"
+        (onClick)="goRegister()"
+        class="marginright"
+      ></p-button>
     </ng-container>
+
     <ng-template #authenticated>
-      <a routerLink="profile" class="loginBut">Profile</a>
-      <a routerLink="store" class="navBut marginright" (click)="logout()">
-        <i class="fas fa-sign-out-alt"></i>
-      </a>
+      <p-button
+        icon="fa-regular fa-user"
+        label="Profile"
+        (onClick)="goProfile()"
+        class="marginright"
+      ></p-button>
+
+      <p-button icon="fas fa-sign-out-alt" (onClick)="logout()"></p-button>
     </ng-template>
-  </div>
-</nav>
+  </ng-template>
+</p-menubar>

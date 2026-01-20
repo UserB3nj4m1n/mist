@@ -1,26 +1,56 @@
-<table class="contact-table">
-  <thead>
-    <tr class="contact-header">
-      <th class="contact-date">Date</th>
-      <th class="contact-name">Name</th>
-      <th class="contact-surname">Surname</th>
-      <th class="contact-email">Email</th>
-      <th class="contact-message">Message</th>
+<div class="filter">
+  <p-selectbutton
+    [options]="sizes"
+    [(ngModel)]="selectedSize"
+    [multiple]="false"
+    optionLabel="name"
+    optionValue="value"
+  />
+  <p-iconfield>
+    <p-inputicon class="fa-solid fa-magnifying-glass" />
+    <input type="text" pInputText placeholder="Search" />
+  </p-iconfield>
+</div>
+<p-table
+  *ngIf="contacts.length; else loading"
+  [value]="contacts"
+  [tableStyle]="{ 'min-width': '60rem' }"
+  [size]="selectedSize"
+  [paginator]="true"
+  [rows]="20"
+  [rowsPerPageOptions]="[5, 10, 20, 50]"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Message</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let contact of contacts">
-      <td class="contact-date">
+  </ng-template>
+
+  <ng-template pTemplate="body" let-contact>
+    <tr>
+      <td>
         {{
           contact.date?.toDate
             ? (contact.date.toDate() | date : "short")
             : contact.date
         }}
       </td>
-      <td class="contact-name">{{ contact.name }}</td>
-      <td class="contact-surname">{{ contact.surname }}</td>
-      <td class="contact-email">{{ contact.email }}</td>
-      <td class="contact-message">{{ contact.message }}</td>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.surname }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.message }}</td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

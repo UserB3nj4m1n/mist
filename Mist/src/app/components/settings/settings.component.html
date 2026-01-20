@@ -1,49 +1,10 @@
 <div class="admin-panel">
   <div class="admin-panel-side">
-    <div
-      routerLink="account-profile"
-      routerLinkActive="active"
-      class="admin-list"
-    >
-      <p style="display: flex; align-items: center; gap: 8px">
-        <span class="material-symbols-outlined"> account_circle </span>
-        Profile
-      </p>
-    </div>
-    <div routerLink="users" routerLinkActive="active" class="admin-list">
-      <p style="display: flex; align-items: center; gap: 8px">
-        <span class="material-symbols-outlined"> people </span>
-        History Orders
-      </p>
-    </div>
-    <div routerLink="games" routerLinkActive="active" class="admin-list">
-      <p style="display: flex; align-items: center; gap: 8px">
-        <span class="material-symbols-outlined"> gamepad </span>
-        Games
-      </p>
-    </div>
-    <div routerLink="contacts" routerLinkActive="active" class="admin-list">
-      <p style="display: flex; align-items: center; gap: 8px">
-        <span class="material-symbols-outlined"> contact_support </span>
-        Contacts
-      </p>
-    </div>
-
-    <div routerLink="graph" routerLinkActive="active" class="admin-list">
-      <p style="display: flex; align-items: center; gap: 8px">
-        <span class="material-symbols-outlined">bar_chart</span>
-        Graph
-      </p>
-    </div>
+    <p-menu [model]="items" styleClass="sidebar" />
   </div>
   <div class="admin-panel-main">
     <div class="admin-panel-side-content">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
-<div class="admin-wrapper">
-  <nav class="admin-nav"></nav>
-
-  <div class="admin-content"></div>
 </div>

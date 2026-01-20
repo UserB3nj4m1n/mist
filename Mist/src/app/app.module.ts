@@ -43,27 +43,16 @@ import { AIComponent } from './components/ai/ai.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    WelcomeComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent,
     ContactUsComponent,
-    AdminPanelComponent,
-    DashboardComponent,
     UsersComponent,
-    ContactComponent,
-    GamesComponent,
     CartSummaryComponent,
-    CartItemsComponent,
     ProductComponent,
-    AIComponent,
-    SettingsComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +66,6 @@ import { AccountProfileComponent } from './components/settings/tabs/account-prof
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
     MatTabsModule,
     DetaildPageComponent,
     SlideshowModule,
@@ -85,10 +73,32 @@ import { AccountProfileComponent } from './components/settings/tabs/account-prof
     GraphComponent,
     HttpClientModule,
     AccountProfileComponent,
+    NavbarComponent,
+    WelcomeComponent,
+    AIComponent,
+    DashboardComponent,
+    GamesComponent,
+    ContactComponent,
+    AdminPanelComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent,
+    SettingsComponent,
+    CartItemsComponent,
+    ProfileComponent,
   ],
+
   providers: [
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: '.my-app-dark',
+        },
+      },
+    }),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

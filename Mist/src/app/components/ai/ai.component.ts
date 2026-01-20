@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { OllamaService } from '../../services/services/ollama.service';
 import { OllamaResponse } from '../../interface/models/ollama-response';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { ButtonModule } from 'primeng/button';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { DividerModule } from 'primeng/divider';
 
 interface ChatMessage {
   sender: 'user' | 'ai';
@@ -10,9 +17,17 @@ interface ChatMessage {
 
 @Component({
   selector: 'app-ai',
-  standalone: false,
+  standalone: true,
   templateUrl: './ai.component.html',
   styleUrl: './ai.component.css',
+  imports: [
+    ButtonModule,
+    CommonModule,
+    FormsModule,
+    CardModule,
+    InputTextModule,
+    DividerModule,
+  ],
 })
 export class AIComponent {
   prompt: string = '';
@@ -21,6 +36,7 @@ export class AIComponent {
   error: string = '';
   displayName: string = '';
   email: string = '';
+  userProfile: any;
 
   showChat = false;
 
@@ -30,7 +46,8 @@ export class AIComponent {
 
   constructor(
     private ollamaService: OllamaService,
-    private auth: AuthService
+    private auth: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +56,9 @@ export class AIComponent {
         this.displayName = user.displayName || 'No Display Name';
         this.email = user.email || 'No Email';
       }
+    });
+    this.userService.getUserProfile().subscribe((data) => {
+      this.userProfile = data;
     });
   }
 

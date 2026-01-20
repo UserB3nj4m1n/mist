@@ -6,62 +6,94 @@
   <div class="cartContainer" *ngIf="cartItems.length > 0">
     <div class="cardItems">
       <div *ngFor="let item of cartItems" class="cart-item">
-        <div class="item-details">
-          <img
-            [src]="item.game.cover.url"
-            alt="{{ item.game.name }}"
-            class="item-image"
-          />
-          <div class="item-info">
-            <h3>{{ item.game.name }}</h3>
-            <p>{{ item.price | number : "1.2-2" }}€</p>
+        <p-card styleClass="item-card-div">
+          <div class="item-details">
+            <img
+              [src]="item.game.cover.url"
+              alt="{{ item.game.name }}"
+              class="item-image"
+            />
+            <div class="item-info">
+              <h3>{{ item.game.name }}</h3>
+              <p>{{ item.price | number: "1.2-2" }}€</p>
+            </div>
+            <div class="itemOperations">
+              <p>
+                <p-button
+                  icon="fa-solid fa-minus"
+                  [rounded]="true"
+                  [outlined]="true"
+                  size="small"
+                  (click)="decreaseQuantity(item)"
+                />
+                <span class="quantity-number">{{ item.quantity }}</span>
+
+                <p-button
+                  icon="fa-solid fa-plus"
+                  [rounded]="true"
+                  [outlined]="true"
+                  size="small"
+                  (click)="increaseQuantity(item)"
+                />
+              </p>
+              <p-button
+                icon="fa-solid fa-trash fa-lg trashIcon"
+                [rounded]="true"
+                [text]="true"
+                severity="danger"
+                (click)="removeFromCart(item.id.toString())"
+              />
+            </div>
           </div>
-          <div class="itemOperations">
-            <p>
-              <span class="addremove" (click)="decreaseQuantity(item)">-</span>
-              {{ item.quantity }}
-              <span class="addremove" (click)="increaseQuantity(item)">+</span>
-            </p>
-            <i
-              class="fa-solid fa-trash fa-lg trashIcon"
-              (click)="removeFromCart(item.id.toString())"
-            ></i>
-          </div>
-        </div>
+        </p-card>
       </div>
     </div>
+
     <div class="cardSummary">
-      <div class="sumaryTextDiv"><p class="summaryText">Order Summary</p></div>
-      <div class="sumaryTextDiv">
-        <div class="summaryRow" style="margin-top: 10px">
-          <p class="sumarryInfo">Subtotal</p>
-          <p class="sumarryValue">{{ getTotal() | number : "1.2-2" }}€</p>
+      <p-card>
+        <div class="sumaryTextDiv">
+          <p class="summaryText">Order Summary</p>
         </div>
-        <div class="summaryRow">
-          <p class="sumarryInfo">Shipping</p>
-          <p class="sumarryValue">Free</p>
+        <p-divider />
+        <div class="sumaryTextDiv">
+          <div class="summaryRow" style="margin-top: 10px">
+            <p class="sumarryInfo">Subtotal</p>
+            <p class="sumarryValue">{{ getTotal() | number: "1.2-2" }}€</p>
+          </div>
+          <div class="summaryRow">
+            <p class="sumarryInfo">Shipping</p>
+            <p class="sumarryValue">Free</p>
+          </div>
+          <div class="summaryRow" style="margin-bottom: 10px">
+            <p class="sumarryInfo">Taxes (15%)</p>
+            <p class="sumarryValue">
+              {{ getTotal() * 0.15 | number: "1.2-2" }}€
+            </p>
+          </div>
         </div>
-        <div class="summaryRow" style="margin-bottom: 10px">
-          <p class="sumarryInfo">Taxes (15%)</p>
-          <p class="sumarryValue">
-            {{ getTotal() * 0.15 | number : "1.2-2" }}€
-          </p>
+        <p-divider />
+        <div>
+          <div class="summaryRow" style="margin-top: 10px; margin-bottom: 10px">
+            <p class="sumarryValue" style="font-size: large">Total</p>
+            <p class="sumarryValue" style="font-size: large">
+              {{ getTotal() * 1.15 | number: "1.2-2" }}€
+            </p>
+          </div>
+          <div class="summaryButtons">
+            <p-button
+              label="Checkout"
+              (click)="checkout()"
+              styleClass="checkout-button-new"
+            />
+            <p-button
+              label="Continue Shopping"
+              styleClass="checkout-button-new"
+              routerLink="/store"
+              severity="secondary"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="summaryRow" style="margin-top: 10px; margin-bottom: 10px">
-          <p class="sumarryValue" style="font-size: large">Total</p>
-          <p class="sumarryValue" style="font-size: large">
-            {{ getTotal() * 1.15 | number : "1.2-2" }}€
-          </p>
-        </div>
-        <div class="summaryButtons">
-          <button class="checkout-button" (click)="checkout()">Checkout</button>
-          <button class="checkout-buttonContinue" routerLink="/store">
-            Continue Shopping
-          </button>
-        </div>
-      </div>
+      </p-card>
     </div>
   </div>
 </div>

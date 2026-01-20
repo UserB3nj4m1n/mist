@@ -12,7 +12,7 @@
   <div class="card-content">
     <div class="game-info">
       <p class="game-title">
-        {{ game.name | slice : 0 : 20
+        {{ game.name | slice: 0 : 20
         }}<span *ngIf="game.name.length > 20">...</span>
       </p>
 
@@ -34,7 +34,7 @@
         <p class="p-game-discount">-{{ game.discount }}%</p>
       </div>
       <div class="discounted-price">
-        <p>{{ game.discountedPrice }}€</p>
+        <p class="stock-price">{{ game.discountedPrice }}€</p>
       </div>
       <div *ngIf="game.discount > 0" class="original-price">
         <p class="p-original-price">{{ game.originalPrice }}€</p>
@@ -57,7 +57,7 @@
   <div class="card-content">
     <div class="game-info">
       <p class="game-title">
-        {{ game.name | slice : 0 : 20
+        {{ game.name | slice: 0 : 20
         }}<span *ngIf="game.name.length > 20">...</span>
       </p>
 

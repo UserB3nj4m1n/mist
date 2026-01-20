@@ -1,87 +1,12 @@
 .container {
-  width: 400px;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #6e839620;
+  width: 1000px;
   justify-items: center;
   margin: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  /**/
-  margin-top: 60px;
-  margin-bottom: 110px;
-}
-
-.LoginText {
-  text-align: center;
-}
-
-.mainDiv {
-  justify-items: center;
-  padding-top: 50px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  justify-items: center;
-}
-
-.form-control {
-  padding: 10px;
-  border-radius: 5px 5px 0 0;
-  border: none;
-  border-bottom: #6e8396 1px solid !important;
-  background-color: transparent;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 15px;
-  transition: 0.3s;
-  margin-bottom: 15px;
-  width: 250px;
-}
-
-#nickname {
-  padding-left: 25px;
-  background: url("/IconUser.png") no-repeat left;
-  background-size: 20px;
-}
-
-#pwd {
-  padding-left: 25px;
-  background: url("/IconPassword.png") no-repeat left;
-  background-size: 20px;
-}
-
-.form-control:focus {
-  outline: none;
-  border-bottom: #6e8396 2px solid !important;
-}
-
-::placeholder[data-theme="dark"] {
-  color: #f8f8f9;
-}
-
-::placeholder[data-theme="light"] {
-  color: #070708;
-}
-
-.loginButton {
-  background-color: #6e8396;
-  color: #f8f8f9;
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: auto;
-  transition: 0.3s;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 a {
@@ -111,10 +36,28 @@ a {
   margin-top: 10px;
 }
 
-.LinksRegPass[data-theme="dark"] {
-  color: #f8f8f9;
+.login-button-div {
+  display: flex;
+  justify-content: center;
 }
 
-.LinksRegPass[data-theme="light"] {
-  color: #070708;
+.login-button {
+  width: 200px;
+}
+
+login-button {
+  width: 200px;
+}
+
+.inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.register-card-div {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
 }

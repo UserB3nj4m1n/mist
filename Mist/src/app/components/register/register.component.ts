@@ -2,12 +2,38 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { RouterModule } from '@angular/router';
+
+import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
+import { Ripple } from 'primeng/ripple';
 
 @Component({
   selector: 'app-register',
-  standalone: false,
+  standalone: true,
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
+  imports: [
+    FormsModule,
+    CardModule,
+    InputIconModule,
+    IconFieldModule,
+    InputTextModule,
+    FloatLabelModule,
+    PasswordModule,
+    ButtonModule,
+    RouterModule,
+    Toast,
+  ],
+  providers: [MessageService],
 })
 export class RegisterComponent {
   email: string = '';
@@ -15,56 +41,59 @@ export class RegisterComponent {
   confirmPassword: string = '';
   displayName: string = '';
 
-  constructor(private auth: AuthService) {}
+  constructor(
+    private auth: AuthService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {}
 
   register() {
     if (this.displayName == '') {
-      Swal.fire({
-        title: 'Empty Name',
-        text: 'Please enter a valid name',
-        icon: 'error',
-        confirmButtonColor: '#6e8396',
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Empty Nickname',
+        detail: 'Please enter a nickname',
+        life: 3000,
       });
       return;
     }
     if (this.email == '') {
-      Swal.fire({
-        title: 'Empty Email',
-        text: 'Please enter a valid email',
-        icon: 'error',
-        confirmButtonColor: '#6e8396',
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Empty Email',
+        detail: 'Please enter a valid email',
+        life: 3000,
       });
       return;
     }
 
     if (this.password == '') {
-      Swal.fire({
-        title: 'Empty Password',
-        text: 'Please enter a password',
-        icon: 'error',
-        confirmButtonColor: '#6e8396',
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Empty Password',
+        detail: 'Please enter a password',
+        life: 3000,
       });
       return;
     }
 
     if (this.confirmPassword == '') {
-      Swal.fire({
-        title: 'Empty Confirm Password',
-        text: 'Please confirm your password',
-        icon: 'error',
-        confirmButtonColor: '#6e8396',
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Empty Confirm Password',
+        detail: 'Please confirm your password',
+        life: 3000,
       });
       return;
     }
 
     if (this.password !== this.confirmPassword) {
-      Swal.fire({
-        title: 'Password Mismatch',
-        text: 'Passwords do not match',
-        icon: 'error',
-        confirmButtonColor: '#6e8396',
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Password Mismatch',
+        detail: 'Passwords do not match',
+        life: 3000,
       });
       return;
     }

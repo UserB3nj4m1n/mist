@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../interface/cart';
 import Swal from 'sweetalert2';
+import { CardModule } from 'primeng/card';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-cart-items',
-  standalone: false,
+  standalone: true,
   templateUrl: './cart-items.component.html',
   styleUrl: './cart-items.component.css',
+  imports: [CardModule, CommonModule, FormsModule, ButtonModule, DividerModule],
 })
 export class CartItemsComponent implements OnInit {
   cartItems: CartItem[] = [];
@@ -27,14 +33,14 @@ export class CartItemsComponent implements OnInit {
   increaseQuantity(item: CartItem): void {
     this.cartService.updateCartItemQuantity(
       item.id.toString(),
-      item.quantity + 1
+      item.quantity + 1,
     );
   }
 
   decreaseQuantity(item: CartItem): void {
     this.cartService.updateCartItemQuantity(
       item.id.toString(),
-      item.quantity - 1
+      item.quantity - 1,
     );
   }
 
@@ -50,7 +56,7 @@ export class CartItemsComponent implements OnInit {
   getTotal(): number {
     return this.cartItems.reduce(
       (acc, item) => acc + item.price * item.quantity,
-      0
+      0,
     );
   }
 }

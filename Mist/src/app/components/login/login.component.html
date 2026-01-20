@@ -1,42 +1,50 @@
-<div class="mainDiv">
-  <div class="container">
-    <h2 class="LoginText">Login</h2>
-    <form action="">
-      <div class="form-group">
-        <input
-          class="form-control"
-          id="nickname"
-          placeholder="Enter email"
-          type="email"
-          name="email"
-          [(ngModel)]="email"
-        />
-
-        <input
-          type="password"
-          class="form-control"
-          id="pwd"
-          placeholder="Enter password"
-          name="password"
-          [(ngModel)]="password"
-        />
-        <div class="ForgotPassDiv">
-          <p class="ForgotPass">
-            <a class="LinksRegPass">Forgot password</a>
-          </p>
-          <p class="Register">
-            <a
-              routerLink="/register"
-              class="LinksRegPass"
-              style="color: #6e8396"
-              >Register</a
-            >
-          </p>
-        </div>
-        <button type="login" class="loginButton" (click)="login()">
-          Login
-        </button>
+<div class="container">
+  <div class="register-card-div">
+    <p-card header="Login"
+      ><div class="inputs-div">
+        <p-floatlabel variant="on">
+          <p-iconfield>
+            <p-inputicon class="fa fa-envelope" />
+            <input
+              pInputText
+              id="over_label"
+              [(ngModel)]="email"
+              autocomplete="off"
+              [fluid]="true"
+            />
+          </p-iconfield>
+          <label for="over_label">Enter email</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on">
+          <p-iconfield>
+            <p-inputicon class="fa fa-lock" />
+            <input
+              type="password"
+              pInputText
+              id="over_label"
+              [(ngModel)]="password"
+              autocomplete="off"
+            />
+          </p-iconfield>
+          <label for="over_label">Enter password</label>
+        </p-floatlabel>
       </div>
-    </form>
+      <div class="ForgotPassDiv">
+        <p class="ForgotPass">
+          <a class="LinksRegPass">Forgot password</a>
+        </p>
+        <p class="Register">
+          <a
+            routerLink="/register"
+            class="LinksRegPass"
+            style="color: var(--p-primary-500)"
+            >Register</a
+          >
+        </p>
+      </div>
+      <div class="login-button-div">
+        <p-button styleClass="login-button" label="Login" (click)="login()" />
+      </div>
+    </p-card>
   </div>
 </div>

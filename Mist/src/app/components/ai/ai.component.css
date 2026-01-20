@@ -2,24 +2,16 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #6e8396;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1000;
 }
 
 .ollama-demo {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  width: 250px;
-  background-color: #ffffff;
+  padding: 15px;
+  width: 400px;
   position: fixed;
   bottom: 5px;
   right: 5px;
@@ -32,7 +24,6 @@
   align-items: center;
   margin-bottom: 10px;
   padding: 10px 0;
-  border-bottom: 1px solid #ccc;
 }
 .header-left {
   display: flex;
@@ -86,7 +77,8 @@
 }
 
 .msg.user {
-  background: #a8b7c4;
+  background-color: var(--p-button-primary-background);
+  color: var(--p-button-primary-color);
   align-self: flex-end;
   text-align: right;
   margin-left: auto;
@@ -94,6 +86,8 @@
 
 .msg.ai {
   background: #6e839620;
+  background-color: var(--p-button-secondary-background);
+  color: var(--p-button-secondary-color);
 }
 
 .label {
@@ -129,4 +123,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.midrow {
+  margin: 0;
 }

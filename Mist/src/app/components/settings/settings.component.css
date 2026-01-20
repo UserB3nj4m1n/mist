@@ -5,9 +5,7 @@
 
 .admin-panel-side {
   width: 15%;
-  background-color: rgba(0, 255, 255, 0);
-  padding: 1em 2em 1em 2em;
-  border-right: 2px solid #d9d9d9;
+  padding-left: 7px;
 }
 
 .admin-panel-main {
@@ -36,4 +34,9 @@
 
 .admin-panel-side div.active {
   background-color: #63636310;
+}
+
+:host ::ng-deep .sidebar.p-menu {
+  border: 0 none;
+  box-shadow: none;
 }

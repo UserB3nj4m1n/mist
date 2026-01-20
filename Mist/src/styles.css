@@ -20,8 +20,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
-  }
 }
 
 html,
@@ -41,14 +39,4 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff00;
-}
-
-body[data-theme="dark"] {
-  background-color: #212123;
-  color: #f8f8f9;
-}
-
-body[data-theme="light"] {
-  background-color: #f8f8f9;
-  color: #070708;
 }

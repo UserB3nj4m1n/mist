@@ -1,8 +1,5 @@
 .profile-container {
-  background-color: #6e839610;
   border-radius: 20px;
-
-  padding: 10px;
   margin: 10px 12%;
 }
 
@@ -45,14 +42,14 @@
   padding-left: 20px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #070708;
+  color: var(--text-color);
   margin-top: 10px;
   margin-bottom: -10px;
 }
 
 .profileEmail {
   font-size: 20px;
-  color: #070708;
+  color: var(--text-color);
   margin-top: 10px;
   font-size: 18px;
   padding-left: 20px;
@@ -60,7 +57,7 @@
 
 .profileBio {
   font-size: 16px;
-  color: #070708;
+  color: var(--text-color);
   margin-top: 10px;
   padding-left: 20px;
 }
