@@ -207,14 +207,14 @@
 .store-offer-header {
   font-weight: bold;
   font-size: 1.15rem;
-  color: #6e8396;
+  color: var(--text-color);
   flex: 1;
 }
 
 .store-offer-price {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #070708;
+  color: var(--text-color);
   min-width: 70px;
   text-align: right;
 }

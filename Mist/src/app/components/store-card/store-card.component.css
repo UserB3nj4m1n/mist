@@ -16,7 +16,7 @@
 .game-title {
   padding: 0;
   margin: 0;
-  color: var(--primary-color-text);
+  color: var(--text-color-secondary);
   font-size: 16px;
   padding-top: 16px;
 }
@@ -57,7 +57,7 @@
   margin: 0;
 }
 .rating {
-  color: #6b7280;
+  color: var(--text-color);
   font-size: 12px;
   margin-left: 4px;
 }
@@ -87,7 +87,7 @@
 }
 
 .discounted-price {
-  color: #111827;
+  color: var(--text-color);
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
@@ -96,7 +96,6 @@
 .p-game-discount {
   color: var(--p-button-primary-color);
   font-size: 15px;
-
   background-color: var(--p-primary-color);
   padding: 3px;
   border-radius: 5px;
@@ -128,4 +127,8 @@
   transform: scale(1.05);
   transform: translateY(-5px);
   transition: all 0.3s ease;
+}
+
+.stock-price {
+  color: var(--text-color);
 }

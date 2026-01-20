@@ -34,7 +34,7 @@
         <p class="p-game-discount">-{{ game.discount }}%</p>
       </div>
       <div class="discounted-price">
-        <p>{{ game.discountedPrice }}€</p>
+        <p class="stock-price">{{ game.discountedPrice }}€</p>
       </div>
       <div *ngIf="game.discount > 0" class="original-price">
         <p class="p-original-price">{{ game.originalPrice }}€</p>
