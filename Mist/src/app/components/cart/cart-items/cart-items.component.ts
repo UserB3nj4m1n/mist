@@ -55,7 +55,12 @@ export class CartItemsComponent implements OnInit {
 
   getTotal(): number {
     return this.cartItems.reduce(
-      (acc, item) => acc + item.price * item.quantity,
+      (acc, item) =>
+        acc +
+        (item.game
+          ? (item.game.discountedPrice || item.game.originalPrice) *
+            item.quantity
+          : 0),
       0,
     );
   }

@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from './auth.service';
 import { CartItem } from '../interface/cart';
 import { Game } from '../interface/game';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, combineLatest } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
@@ -33,9 +33,7 @@ export class CartService {
             const currentQuantity = doc.data()['quantity'] + 1;
             cartItemRef.update({ quantity: currentQuantity });
           } else {
-            const newItem: CartItem = {
-              game: game,
-              price: game.discountedPrice || game.originalPrice,
+            const newItem = {
               quantity: 1,
               id: game.id.toString(),
             };
@@ -54,11 +52,30 @@ export class CartService {
       switchMap((user) => {
         if (user && user.email) {
           return this.afs
-            .collection<CartItem>(`users/${user.email}/cart`)
+            .collection<{ id: string; quantity: number }>(
+              `users/${user.email}/cart`
+            )
             .valueChanges();
         } else {
           return of([]);
         }
+      }),
+      switchMap((items) => {
+        if (items.length === 0) {
+          return of([]);
+        }
+        const observables = items.map((item) => {
+          return this.afs
+            .doc<Game>(`games/${item.id}`)
+            .valueChanges()
+            .pipe(
+              map((game) => ({
+                ...item,
+                game,
+              }))
+            );
+        });
+        return combineLatest(observables);
       })
     );
   }

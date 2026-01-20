@@ -7,7 +7,7 @@
     <div class="cardItems">
       <div *ngFor="let item of cartItems" class="cart-item">
         <p-card styleClass="item-card-div">
-          <div class="item-details">
+          <div *ngIf="item.game" class="item-details">
             <img
               [src]="item.game.cover.url"
               alt="{{ item.game.name }}"
@@ -15,7 +15,12 @@
             />
             <div class="item-info">
               <h3>{{ item.game.name }}</h3>
-              <p>{{ item.price | number: "1.2-2" }}€</p>
+              <p>
+                {{
+                  (item.game.discountedPrice || item.game.originalPrice)
+                    | number: "1.2-2"
+                }}€
+              </p>
             </div>
             <div class="itemOperations">
               <p>
