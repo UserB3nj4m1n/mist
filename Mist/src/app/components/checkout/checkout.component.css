@@ -1,0 +1,16 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+p-card {
+  margin-bottom: 2rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}

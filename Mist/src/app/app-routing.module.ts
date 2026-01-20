@@ -18,6 +18,7 @@ import { CartItemsComponent } from './components/cart/cart-items/cart-items.comp
 import { AIComponent } from './components/ai/ai.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'game/:id', component: DetaildPageComponent },
   { path: 'contact', component: ContactUsComponent },
-
+  { path: 'checkout', component: CheckoutComponent },
   { path: 'cart', component: CartItemsComponent },
   {
     path: 'admin',

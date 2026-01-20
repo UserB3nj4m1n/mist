@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../interface/cart';
-import Swal from 'sweetalert2';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart-items',
   standalone: true,
   templateUrl: './cart-items.component.html',
   styleUrl: './cart-items.component.css',
-  imports: [CardModule, CommonModule, FormsModule, ButtonModule, DividerModule],
+  imports: [
+    CardModule,
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    DividerModule,
+    RouterLink,
+  ],
 })
 export class CartItemsComponent implements OnInit {
   cartItems: CartItem[] = [];
@@ -42,15 +49,6 @@ export class CartItemsComponent implements OnInit {
       item.id.toString(),
       item.quantity - 1,
     );
-  }
-
-  checkout(): void {
-    Swal.fire({
-      title: 'Success!',
-      text: 'You have successfully checked out.',
-      icon: 'success',
-      confirmButtonColor: '#6e8396',
-    });
   }
 
   getTotal(): number {

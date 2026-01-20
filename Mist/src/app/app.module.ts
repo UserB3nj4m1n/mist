@@ -1,3 +1,6 @@
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   BrowserModule,
@@ -45,6 +48,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,7 @@ import Aura from '@primeuix/themes/aura';
     UsersComponent,
     CartSummaryComponent,
     ProductComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +91,9 @@ import Aura from '@primeuix/themes/aura';
     SettingsComponent,
     CartItemsComponent,
     ProfileComponent,
+    InputTextModule,
+    CardModule,
+    ButtonModule
   ],
 
   providers: [
