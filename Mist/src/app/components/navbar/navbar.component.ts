@@ -1,18 +1,15 @@
-import { Component, Renderer2, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
-
 import { MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
-
 import { BadgeModule } from 'primeng/badge';
 import { AvatarModule } from 'primeng/avatar';
 import { InputTextModule } from 'primeng/inputtext';
-import { Ripple } from 'primeng/ripple';
-
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -29,17 +26,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isAuthenticated: boolean = false;
   isAdmin: boolean = false;
   cartItemCount: number = 0;
   showItemAddedAnimation: boolean = false;
   items: MenuItem[] | undefined;
+  authStatusResolved: boolean = false;
+  isAuthenticated: boolean = false;
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private cartService: CartService,
     private router: Router
-  ) {}
+  ) { }
 
   loadMenuItems(): void {
     const badgeValue =
@@ -56,7 +54,6 @@ export class NavbarComponent implements OnInit {
         routerLink: '/library',
         icon: 'fa-solid fa-book-open',
       },
-
       {
         label: 'Settings',
         routerLink: '/settings/account-profile',
@@ -66,7 +63,6 @@ export class NavbarComponent implements OnInit {
         label: 'Admin',
         visible: this.isAdmin,
         icon: 'fa-brands fa-black-tie',
-
         items: [
           {
             label: 'Dashboard',
@@ -107,25 +103,35 @@ export class NavbarComponent implements OnInit {
   goProfile() {
     this.router.navigate(['/profile']);
   }
+
   goRegister() {
     this.router.navigate(['/login']);
   }
+
   goWelcome() {
     this.router.navigate(['/welcome']);
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated$.subscribe((status: boolean) => {
+    this.authService.isAuthenticated$.pipe(first()).subscribe(status => {
+      this.isAuthenticated = status;
+      this.authStatusResolved = true;
+    });
+
+    this.authService.isAuthenticated$.subscribe(status => {
       this.isAuthenticated = status;
     });
+
     this.authService.isAdmin().subscribe((isAdmin: boolean) => {
       this.isAdmin = isAdmin;
       this.loadMenuItems();
     });
-    this.cartService.getCartItemCount().subscribe((count) => {
+
+    this.cartService.getCartItemCount().subscribe(count => {
       this.cartItemCount = count;
       this.loadMenuItems();
     });
+
     this.cartService.itemAdded.subscribe(() => {
       this.showItemAddedAnimation = true;
       setTimeout(() => {

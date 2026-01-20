@@ -1,33 +1,35 @@
-<p-menubar [model]="items" class="custom-menubar">
-  <ng-template pTemplate="start">
-    <div class="navbar-brand" (onClick)="goWelcome()">
-      <img
-        src="/LogoMist.jpg"
-        alt="logo"
-        class="logo-img"
-        (onClick)="goWelcome()"
-      />
-    </div>
-  </ng-template>
-
-  <ng-template pTemplate="end">
-    <ng-container *ngIf="!isAuthenticated; else authenticated">
-      <p-button
-        label="Login / Register"
-        (onClick)="goRegister()"
-        class="marginright"
-      ></p-button>
-    </ng-container>
-
-    <ng-template #authenticated>
-      <p-button
-        icon="fa-regular fa-user"
-        label="Profile"
-        (onClick)="goProfile()"
-        class="marginright"
-      ></p-button>
-
-      <p-button icon="fas fa-sign-out-alt" (onClick)="logout()"></p-button>
+<ng-container *ngIf="authStatusResolved">
+  <p-menubar [model]="items" class="custom-menubar">
+    <ng-template pTemplate="start">
+      <div class="navbar-brand" (onClick)="goWelcome()">
+        <img
+          src="/LogoMist.jpg"
+          alt="logo"
+          class="logo-img"
+          (onClick)="goWelcome()"
+        />
+      </div>
     </ng-template>
-  </ng-template>
-</p-menubar>
+
+    <ng-template pTemplate="end">
+      <ng-container *ngIf="!isAuthenticated; else authenticated">
+        <p-button
+          label="Login / Register"
+          (onClick)="goRegister()"
+          class="marginright"
+        ></p-button>
+      </ng-container>
+
+      <ng-template #authenticated>
+        <p-button
+          icon="fa-regular fa-user"
+          label="Profile"
+          (onClick)="goProfile()"
+          class="marginright"
+        ></p-button>
+
+        <p-button icon="fas fa-sign-out-alt" (onClick)="logout()"></p-button>
+      </ng-template>
+    </ng-template>
+  </p-menubar>
+</ng-container>
