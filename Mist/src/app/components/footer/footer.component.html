@@ -4,25 +4,45 @@
     <div class="container">
       <div class="footer-row">
         <div class="footer-col">
-          <h4>About Us</h4>
+          <h4>{{ "footer.aboutUs.title" | transloco }}</h4>
           <ul>
-            <li><a href="">Store</a></li>
-            <li><a href="">Goal</a></li>
-            <li><a href="">Sponsors</a></li>
-            <li><a href="">FAQ</a></li>
+            <li>
+              <a href="">{{ "footer.aboutUs.store" | transloco }}</a>
+            </li>
+            <li>
+              <a href="">{{ "footer.aboutUs.goal" | transloco }}</a>
+            </li>
+            <li>
+              <a href="">{{ "footer.aboutUs.sponsors" | transloco }}</a>
+            </li>
+            <li>
+              <a href="">{{ "footer.aboutUs.faq" | transloco }}</a>
+            </li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h4>Help</h4>
+          <h4>{{ "footer.help.title" | transloco }}</h4>
           <ul>
-            <li><a href="">Suport</a></li>
-            <li><a routerLink="/contact">Contact Us</a></li>
-            <li><a routerLink="/store">Shop</a></li>
-            <li><a href="">Payment methods</a></li>
+            <li>
+              <a href="">{{ "footer.help.support" | transloco }}</a>
+            </li>
+            <li>
+              <a routerLink="/contact">{{
+                "footer.help.contact" | transloco
+              }}</a>
+            </li>
+            <li>
+              <a routerLink="/store">{{ "footer.help.shop" | transloco }}</a>
+            </li>
+            <li>
+              <a href="">{{ "footer.help.payments" | transloco }}</a>
+            </li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h4>Social Media</h4>
+          <h4>{{ "footer.socials.title" | transloco }}</h4>
           <ul class="social-links">
             <li><a href="https://www.instagram.com/">Instagram</a></li>
             <li><a href="https://www.tiktok.com/">TikTok</a></li>
@@ -33,5 +53,8 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom"><p>&copy;2025 Mist. All rights reserved.</p></div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Mist. {{ "footer.rights" | transloco }}</p>
+  </div>
 </div>

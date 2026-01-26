@@ -1,0 +1,24 @@
+{
+  "welcome": "Hello! The assets folder is working.",
+
+  "footer": {
+    "aboutUs": {
+      "title": "About Us",
+      "store": "Store",
+      "goal": "Goal",
+      "sponsors": "Sponsors",
+      "faq": "FAQ"
+    },
+    "help": {
+      "title": "Help",
+      "support": "Support",
+      "contact": "Contact Us",
+      "shop": "Shop",
+      "payments": "Payment methods"
+    },
+    "socials": {
+      "title": "Social Media"
+    },
+    "rights": "All rights reserved."
+  }
+}

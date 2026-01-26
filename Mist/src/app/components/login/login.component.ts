@@ -1,4 +1,4 @@
-import { Component, Inject, signal } from '@angular/core';
+import { Component, Inject, signal, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { CardModule } from 'primeng/card';

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { AppRoutingModule } from '../../app-routing.module';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   standalone: true,
-  imports: [CardModule, ButtonModule],
+  imports: [CardModule, ButtonModule, TranslocoPipe],
 })
 export class ProfileComponent implements OnInit {
   displayName: string = '';
@@ -37,5 +38,14 @@ export class ProfileComponent implements OnInit {
   toggleDarkMode() {
     const element = document.querySelector('html');
     element?.classList.toggle('my-app-dark');
+  }
+  private translocoService = inject(TranslocoService);
+
+  get activeLang() {
+    return this.translocoService.getActiveLang();
+  }
+
+  changeLang(lang: string) {
+    this.translocoService.setActiveLang(lang);
   }
 }

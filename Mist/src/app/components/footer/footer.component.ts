@@ -6,6 +6,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-footer',
@@ -18,6 +19,7 @@ import { DividerModule } from 'primeng/divider';
     ButtonModule,
     InputTextModule,
     DividerModule,
+    TranslocoPipe,
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',

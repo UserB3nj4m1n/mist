@@ -113,7 +113,7 @@ export class StoreComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private getDataService: GetdataService,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.games$ = this.getDataService.getGames();
@@ -143,7 +143,7 @@ export class StoreComponent implements OnInit {
       // Initialize map for platforms
       this.selectedPlatformsMap = {};
       platforms.forEach(
-        (p) => (this.selectedPlatformsMap[p.abbreviation] = false)
+        (p) => (this.selectedPlatformsMap[p.abbreviation] = false),
       );
     });
     this.ratings$.subscribe((ratings) => {
@@ -207,12 +207,12 @@ export class StoreComponent implements OnInit {
       const matchesCategories =
         this.selectedCategories.length === 0 ||
         game.genres.some((genre) =>
-          this.selectedCategories.includes(genre.name)
+          this.selectedCategories.includes(genre.name),
         );
       const matchesPlatform =
         this.selectedPlatforms.length === 0 ||
         game.platforms.some((platform) =>
-          this.selectedPlatforms.includes(platform.abbreviation)
+          this.selectedPlatforms.includes(platform.abbreviation),
         );
 
       return (

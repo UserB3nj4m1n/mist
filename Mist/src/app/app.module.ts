@@ -49,6 +49,10 @@ import { AccountProfileComponent } from './components/settings/tabs/account-prof
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { provideTransloco } from '@jsverse/transloco';
+import { isDevMode } from '@angular/core';
+import { TranslocoHttpLoader } from './transloco-loader';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -97,6 +101,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
   ],
 
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
     providePrimeNG({
@@ -106,6 +111,15 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
           darkModeSelector: '.my-app-dark',
         },
       },
+    }),
+    provideTransloco({
+      config: {
+        availableLangs: ['en', 'es'],
+        defaultLang: 'en',
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
     }),
   ],
   bootstrap: [AppComponent],

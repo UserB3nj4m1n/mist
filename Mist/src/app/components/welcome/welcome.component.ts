@@ -34,7 +34,7 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private getDataService: GetdataService,
-    private router: Router
+    private router: Router,
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.games$ = this.getDataService.getGames();
