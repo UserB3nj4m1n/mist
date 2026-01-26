@@ -57,7 +57,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     UsersComponent,
     CartSummaryComponent,
     ProductComponent,
-    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +92,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ProfileComponent,
     InputTextModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    CheckoutComponent,
   ],
 
   providers: [

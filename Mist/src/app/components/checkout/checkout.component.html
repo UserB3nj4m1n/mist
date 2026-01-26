@@ -1,63 +1,165 @@
-<div class="checkout-container">
-  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-    <p-card header="Account Details">
-      <div class="p-fluid">
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" pInputText formControlName="email">
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div class="checkout-container">
+    <p-card header="Checkout" styleClass="LeftCard">
+      <div>
+        <div class="p-fluid">
+          <div class="rowDiv">
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="name"
+                formControlName="name"
+                autocomplete="off"
+                fluid
+              />
+              <label for="name">Name</label>
+            </p-floatlabel>
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="lastName"
+                formControlName="lastName"
+                autocomplete="off"
+                fluid
+              />
+              <label for="lastName">Last Name</label>
+            </p-floatlabel>
+          </div>
+          <p-floatlabel variant="on">
+            <input
+              pInputText
+              id="email"
+              formControlName="email"
+              autocomplete="off"
+              fluid
+            />
+            <label for="email">Email</label>
+          </p-floatlabel>
         </div>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" pInputText formControlName="name">
-        </div>
-        <div class="field">
-          <label for="lastName">Last Name</label>
-          <input id="lastName" type="text" pInputText formControlName="lastName">
-        </div>
-      </div>
-    </p-card>
 
-    <p-card header="Address">
-      <div class="p-fluid">
-        <div class="field">
-          <label for="postCode">Post Code</label>
-          <input id="postCode" type="text" pInputText formControlName="postCode">
-        </div>
-        <div class="field">
-          <label for="address">Address</label>
-          <input id="address" type="text" pInputText formControlName="address">
-        </div>
-        <div class="field">
-          <label for="city">City</label>
-          <input id="city" type="text" pInputText formControlName="city">
-        </div>
-        <div class="field">
-          <label for="country">Country</label>
-          <input id="country" type="text" pInputText formControlName="country">
-        </div>
-      </div>
-    </p-card>
+        <p-divider />
 
-    <p-card header="Billing Details">
-      <div class="p-fluid">
-        <div class="field">
-          <label for="cardNumber">Card Number</label>
-          <input id="cardNumber" type="text" pInputText formControlName="cardNumber">
+        <div class="p-fluid">
+          <p-floatlabel variant="on">
+            <input
+              pInputText
+              id="address"
+              formControlName="address"
+              autocomplete="off"
+              fluid
+            />
+            <label for="address">Address</label>
+          </p-floatlabel>
+          <div class="rowDiv">
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="postCode"
+                formControlName="postCode"
+                autocomplete="off"
+                fluid
+              />
+              <label for="postCode">Post Code</label>
+            </p-floatlabel>
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="city"
+                formControlName="city"
+                autocomplete="off"
+                fluid
+              />
+              <label for="city">City</label>
+            </p-floatlabel>
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="country"
+                formControlName="country"
+                autocomplete="off"
+                fluid
+              />
+              <label for="country">Country</label>
+            </p-floatlabel>
+          </div>
         </div>
-        <div class="field">
-          <label for="expirationDate">Expiration Date (MM/YY)</label>
-          <input id="expirationDate" type="text" pInputText formControlName="expirationDate">
-        </div>
-        <div class="field">
-          <label for="cvv">CVV</label>
-          <input id="cvv" type="text" pInputText formControlName="cvv">
-        </div>
-      </div>
-    </p-card>
+        <p-divider />
 
-    <div class="mt-4">
-      <p-button label="Submit" type="submit" [disabled]="!checkoutForm.valid"></p-button>
+        <div class="p-fluid">
+          <p-floatlabel variant="on">
+            <input
+              pInputText
+              id="cardNumber"
+              formControlName="cardNumber"
+              autocomplete="off"
+              fluid
+            />
+            <label for="cardNumber">Card Number</label>
+          </p-floatlabel>
+          <div class="rowDiv">
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="expirationDate"
+                formControlName="expirationDate"
+                autocomplete="off"
+                fluid
+              />
+              <label for="expirationDate">Expiration Date (MM/YY)</label>
+            </p-floatlabel>
+            <p-floatlabel variant="on" style="width: 50%">
+              <input
+                pInputText
+                id="cvv"
+                formControlName="cvv"
+                autocomplete="off"
+                fluid
+              />
+              <label for="cvv">CVV</label>
+            </p-floatlabel>
+          </div>
+        </div>
+      </div></p-card
+    >
+    <div class="cardSummary">
+      <p-card>
+        <div class="sumaryTextDiv">
+          <p class="summaryText">Order Summary</p>
+        </div>
+        <p-divider />
+        <div class="sumaryTextDiv">
+          <div class="summaryRow" style="margin-top: 10px">
+            <p class="sumarryInfo">Subtotal</p>
+            <p class="sumarryValue">{{ getTotal() | number: "1.2-2" }}€</p>
+          </div>
+          <div class="summaryRow">
+            <p class="sumarryInfo">Shipping</p>
+            <p class="sumarryValue">Free</p>
+          </div>
+          <div class="summaryRow" style="margin-bottom: 10px">
+            <p class="sumarryInfo">Taxes (15%)</p>
+            <p class="sumarryValue">
+              {{ getTotal() * 0.15 | number: "1.2-2" }}€
+            </p>
+          </div>
+        </div>
+        <p-divider />
+        <div>
+          <div class="summaryRow" style="margin-top: 10px; margin-bottom: 10px">
+            <p class="sumarryValue" style="font-size: large">Total</p>
+            <p class="sumarryValue" style="font-size: large">
+              {{ getTotal() * 1.15 | number: "1.2-2" }}€
+            </p>
+          </div>
+          <div class="summaryButtons">
+            <p-button
+              label="Pay Now"
+              styleClass="checkout-button-new"
+              [disabled]="!checkoutForm.valid"
+            />
+          </div>
+        </div>
+      </p-card>
     </div>
-  </form>
-</div>
-
+  </div>
+</form>
