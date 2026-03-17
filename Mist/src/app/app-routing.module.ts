@@ -19,6 +19,7 @@ import { AIComponent } from './components/ai/ai.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AccountProfileComponent } from './components/settings/tabs/account-profile/account-profile.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { SettingsTab } from './components/settings/tabs/settings-tab/settings-tab';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -46,7 +47,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-    children: [{ path: 'account-profile', component: AccountProfileComponent }],
+    children: [
+      { path: 'account-profile', component: AccountProfileComponent },
+      { path: 'settings-tab', component: SettingsTab },
+    ],
   },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];

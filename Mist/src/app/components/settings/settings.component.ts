@@ -41,7 +41,7 @@ export class SettingsComponent {
         {
           label: 'Settings',
           icon: 'fa-solid fa-gears',
-          routerLink: '/settings',
+          routerLink: '/settings/settings-tab',
         },
       ],
     },

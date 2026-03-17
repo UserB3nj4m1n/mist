@@ -53,6 +53,7 @@ import { provideTransloco } from '@jsverse/transloco';
 import { isDevMode } from '@angular/core';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { SettingsTab } from './components/settings/tabs/settings-tab/settings-tab';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     CardModule,
     ButtonModule,
     CheckoutComponent,
+    SettingsTab,
   ],
 
   providers: [

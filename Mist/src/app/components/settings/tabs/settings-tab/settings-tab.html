@@ -1,0 +1,26 @@
+<p-card>
+  <div class="settings-content">
+    <p>Change Theme</p>
+    <p-toggleswitch [(ngModel)]="checked" (click)="toggleDarkMode()" />
+  </div>
+  <p-divider />
+  <div class="settings-content">
+    <p>Language</p>
+    <p-select
+      [options]="cities"
+      optionLabel="name"
+      placeholder="Select a Language"
+      (onChange)="changeLang($event.value.code)"
+    />
+  </div>
+  <p-divider />
+  <div class="settings-content">
+    <p>Toggle Switch</p>
+    <p-toggleswitch [(ngModel)]="settings" />
+  </div>
+  <p-divider />
+  <div class="settings-content">
+    <p>Toggle Switch</p>
+    <p-toggleswitch [(ngModel)]="settings" />
+  </div>
+</p-card>
