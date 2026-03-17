@@ -96,4 +96,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Code readability improvement
   - New UI
   - Fix some bugs
+#### Sprint 4 (-.--.) 🚩
+  - Track user clicks on game genres to understand their interests and personalize the experience
 
