@@ -96,4 +96,6 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Code readability improvement
   - New UI
   - Fix some bugs
-
+#### Sprint 4 (-.--.) 🚩
+  - Track user activity on game genres and save it on firebase
+  - Use user activity to generate popularity statistics using python
