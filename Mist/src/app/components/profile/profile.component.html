@@ -1,19 +1,19 @@
 <div class="profile-container">
   <p-card>
-    <div class="main-profile">
+    <div class="main-profile" *ngIf="userProfile">
       <div class="Left-Profile">
         <div class="profilePic">
           <img
-            [src]="userProfile?.photoURL || '/ProfilPic.png'"
+            [src]="userProfile.photoURL || '/ProfilPic.png'"
             alt="profilePic"
             class="profile-image"
           />
         </div>
       </div>
       <div class="Right-Profile">
-        <p class="profileName">{{ userProfile?.displayName }}</p>
-        <p class="profileEmail">{{ userProfile?.email }}</p>
-        <p class="profileBio">{{ userProfile?.bio }}</p>
+        <p class="profileName">{{ userProfile.displayName }}</p>
+        <p class="profileEmail">{{ userProfile.email }}</p>
+        <p class="profileBio">{{ userProfile.bio }}</p>
       </div>
       <div class="Right-Profile2">
         <span

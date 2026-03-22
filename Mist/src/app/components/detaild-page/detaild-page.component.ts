@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { Game } from '../../interface/game';
 import { GetdataService } from '../../services/getdata.service';
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SlideshowModule } from '../../models/slideshow/slideshow.module';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 import { TabsModule } from 'primeng/tabs';
 import { GalleriaModule } from 'primeng/galleria'; // <-- 1. Import GalleriaModule
@@ -70,7 +71,8 @@ export class DetaildPageComponent implements OnInit {
     private route: ActivatedRoute,
     private getdataService: GetdataService,
     private cartService: CartService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -105,6 +107,13 @@ export class DetaildPageComponent implements OnInit {
               ? `Screenshot of ${this.game.name}`
               : 'Game screenshot',
           }));
+
+          // Track game view
+          this.authService.getUserData().pipe(take(1)).subscribe(user => {
+            if (user && user.email) {
+              this.userService.trackGameView(user.email, game.id);
+            }
+          });
         } else {
           console.error('Game not found or invalid ID.');
         }

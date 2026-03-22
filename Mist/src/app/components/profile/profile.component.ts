@@ -1,17 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
-import { AppRoutingModule } from '../../app-routing.module';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   standalone: true,
-  imports: [CardModule, ButtonModule, TranslocoPipe],
+  imports: [CardModule, ButtonModule, TranslocoPipe, CommonModule, RouterModule],
 })
 export class ProfileComponent implements OnInit {
   displayName: string = '';

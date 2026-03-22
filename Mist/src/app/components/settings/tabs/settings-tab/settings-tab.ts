@@ -12,7 +12,7 @@ import { SelectModule } from 'primeng/select';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputNumberModule } from 'primeng/inputnumber';
 
-import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 
 interface City {
   name: string;
@@ -36,7 +36,6 @@ interface City {
     SelectModule,
     InputGroupModule,
     InputNumberModule,
-    TranslocoPipe,
   ],
 })
 export class SettingsTab implements OnInit {
