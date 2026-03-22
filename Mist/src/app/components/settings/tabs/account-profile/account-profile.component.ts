@@ -33,7 +33,7 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
   ],
 })
 export class AccountProfileComponent {
-  userProfile: User = {
+  userProfile: User | null = {
     email: '',
     realname: '',
     realsurname: '',

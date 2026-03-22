@@ -1,4 +1,4 @@
-<p-card>
+<p-card *ngIf="userProfile">
   <div class="MainBox">
     <div>
       <p class="MainText">Profile information</p>
@@ -81,7 +81,7 @@
             <input
               pInputText
               id="Email Address"
-              value="{{ userProfile.email }}"
+              [value]="userProfile.email"
               autocomplete="off"
               fluid
               disabled
