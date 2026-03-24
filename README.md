@@ -92,10 +92,10 @@ TBD - Few lines about the project, what is its purpose and meaning.
   - Make a shopping cart css ✔
   - Make AI chat bot ✔
   - Improve Alerts ✔
-#### Sprint XMAS (-.--,.) 🎄
+#### Sprint XMAS (-.--.) 🎄
   - Code readability improvement
   - New UI
   - Fix some bugs
-#### Sprint 4 (-.--.) 🚩
-  - Track user activity on game genres and save it on firebase
-  - Use user activity to generate popularity statistics using python
+#### Sprint 4 (24.3.) 🚩
+  - Track user activity on game genres and save it on firebase ✔
+  - Use user activity to generate popularity statistics using python ✔
