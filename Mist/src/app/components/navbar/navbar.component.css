@@ -1,7 +1,7 @@
-.navbar-brand img {
+.logo-img {
   height: 30px;
   cursor: pointer;
-  display: flex;
+  display: block;
   vertical-align: middle;
 }
 

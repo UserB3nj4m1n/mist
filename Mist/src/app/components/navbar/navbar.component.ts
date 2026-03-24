@@ -113,13 +113,9 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated$.pipe(first()).subscribe(status => {
-      this.isAuthenticated = status;
-      this.authStatusResolved = true;
-    });
-
     this.authService.isAuthenticated$.subscribe(status => {
       this.isAuthenticated = status;
+      this.authStatusResolved = true;
     });
 
     this.authService.isAdmin().subscribe((isAdmin: boolean) => {

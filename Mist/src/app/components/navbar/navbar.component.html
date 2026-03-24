@@ -1,15 +1,15 @@
 <ng-container *ngIf="authStatusResolved">
-  <p-menubar [model]="items" class="custom-menubar">
+  <p-menubar [model]="items" class="custom-menubar" ngSkipHydration>
     <ng-template pTemplate="start">
-      <div class="navbar-brand" (onClick)="goWelcome()">
-        <img
-          src="/LogoMist.jpg"
-          alt="logo"
-          class="logo-img"
-          (onClick)="goWelcome()"
-        />
-      </div>
+      <img
+        src="/LogoMist.jpg"
+        alt="logo"
+        class="logo-img"
+        style="cursor: pointer;"
+        (click)="goWelcome()"
+      />
     </ng-template>
+
 
     <ng-template pTemplate="end">
       <ng-container *ngIf="!isAuthenticated; else authenticated">
