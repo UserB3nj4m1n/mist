@@ -3,10 +3,20 @@
   <ngx-charts-pie-chart
     [tooltipDisabled]="showTooltip"
     [view]="view"
-    [results]="single"
+    [results]="genres"
     [legend]="showLegend"
     [labels]="showLabels"
     [doughnut]="isDoughnut"
   >
   </ngx-charts-pie-chart>
+</div>
+<div class="chart-container">
+  <p>Popularity</p>
+  <ngx-charts-bar-vertical
+    [tooltipDisabled]="showTooltip"
+    [view]="view"
+    [results]="globalStats"
+    [legend]="showLegend"
+  >
+  </ngx-charts-bar-vertical>
 </div>

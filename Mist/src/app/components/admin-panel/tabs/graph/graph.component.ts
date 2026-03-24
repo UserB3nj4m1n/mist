@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraphService } from '../../../../services/graph.service';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,8 @@ export class GraphComponent implements OnInit {
   single: any[] = [];
   view: [number, number] = [700, 400];
 
+  genres: any[] = [];
+  globalStats: any[] = [];
   // options
   gradient: boolean = true;
   showLegend: boolean = true;
@@ -25,7 +27,10 @@ export class GraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.graphService.getGenreDistribution().subscribe((data) => {
-      this.single = data;
+      this.genres = data;
+    });
+    this.graphService.getGlobalStats().subscribe((data) => {
+      this.globalStats = data;
     });
   }
 
