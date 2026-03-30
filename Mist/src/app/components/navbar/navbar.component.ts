@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private cartService: CartService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   loadMenuItems(): void {
     const badgeValue =
@@ -49,55 +49,62 @@ export class NavbarComponent implements OnInit {
         routerLink: '/store',
         icon: 'fa-solid fa-store',
       },
-      {
+    ];
+
+    if (this.isAuthenticated) {
+      this.items.push({
         label: 'Library',
         routerLink: '/library',
         icon: 'fa-solid fa-book-open',
-      },
-      {
+      });
+      this.items.push({
         label: 'Settings',
         routerLink: '/settings/account-profile',
         icon: 'fa-solid fa-gears',
-      },
-      {
-        label: 'Admin',
-        visible: this.isAdmin,
-        icon: 'fa-brands fa-black-tie',
-        items: [
-          {
-            label: 'Dashboard',
-            routerLink: '/admin/dashboard',
-            icon: 'fa-solid fa-chart-line',
-          },
-          {
-            label: 'Users',
-            routerLink: '/admin/users',
-            icon: 'fa-solid fa-users',
-          },
-          {
-            label: 'Games',
-            routerLink: '/admin/games',
-            icon: 'fa-solid fa-gamepad',
-          },
-          {
-            label: 'Contacts',
-            routerLink: '/admin/contacts',
-            icon: 'fa-solid fa-phone',
-          },
-          {
-            label: 'Graph',
-            routerLink: '/admin/graph',
-            icon: 'fa-solid fa-chart-column',
-          },
-        ],
-      },
-      {
+      });
+    }
+
+    this.items.push({
+      label: 'Admin',
+      visible: this.isAdmin,
+      icon: 'fa-brands fa-black-tie',
+      items: [
+        {
+          label: 'Dashboard',
+          routerLink: '/admin/dashboard',
+          icon: 'fa-solid fa-chart-line',
+        },
+        {
+          label: 'Users',
+          routerLink: '/admin/users',
+          icon: 'fa-solid fa-users',
+        },
+        {
+          label: 'Games',
+          routerLink: '/admin/games',
+          icon: 'fa-solid fa-gamepad',
+        },
+        {
+          label: 'Contacts',
+          routerLink: '/admin/contacts',
+          icon: 'fa-solid fa-phone',
+        },
+        {
+          label: 'Graph',
+          routerLink: '/admin/graph',
+          icon: 'fa-solid fa-chart-column',
+        },
+      ],
+    });
+
+    if (this.isAuthenticated) {
+      this.items.push({
         label: 'Cart',
         routerLink: '/cart',
         badge: badgeValue,
         icon: 'fa-solid fa-cart-shopping',
-      },
-    ];
+      });
+    }
   }
 
   goProfile() {
@@ -113,9 +120,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated$.subscribe(status => {
+    this.authService.isAuthenticated$.subscribe((status) => {
       this.isAuthenticated = status;
       this.authStatusResolved = true;
+      this.loadMenuItems();
     });
 
     this.authService.isAdmin().subscribe((isAdmin: boolean) => {
@@ -123,7 +131,7 @@ export class NavbarComponent implements OnInit {
       this.loadMenuItems();
     });
 
-    this.cartService.getCartItemCount().subscribe(count => {
+    this.cartService.getCartItemCount().subscribe((count) => {
       this.cartItemCount = count;
       this.loadMenuItems();
     });
