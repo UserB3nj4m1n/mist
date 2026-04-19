@@ -9,9 +9,6 @@
   padding-top: 0;
 }
 
-.footer-top {
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -69,4 +66,9 @@
 }
 .dividerFoter {
   margin-bottom: 0;
+}
+
+.footer-wave {
+  height: 10px;
+  position: relative;
 }

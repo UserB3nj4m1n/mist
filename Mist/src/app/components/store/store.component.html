@@ -163,23 +163,12 @@
         ></app-store-card>
       </div>
 
-      <div class="pagination">
-        <button
-          class="NextPrevPage"
-          (click)="prevPage()"
-          [disabled]="currentPage === 1"
-        >
-          <
-        </button>
-        <span>Page {{ currentPage }} of {{ totalPages }}</span>
-        <button
-          class="NextPrevPage"
-          (click)="nextPage()"
-          [disabled]="currentPage === totalPages"
-        >
-          >
-        </button>
-      </div>
+      <p-paginator
+        [first]="first"
+        [rows]="itemsPerPage"
+        [totalRecords]="filteredGames.length"
+        (onPageChange)="onPageChange($event)"
+      />
     </div>
   </div>
 </div>

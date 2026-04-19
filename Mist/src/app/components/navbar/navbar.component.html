@@ -5,11 +5,10 @@
         src="/LogoMist.jpg"
         alt="logo"
         class="logo-img"
-        style="cursor: pointer;"
+        style="cursor: pointer"
         (click)="goWelcome()"
       />
     </ng-template>
-
 
     <ng-template pTemplate="end">
       <ng-container *ngIf="!isAuthenticated; else authenticated">

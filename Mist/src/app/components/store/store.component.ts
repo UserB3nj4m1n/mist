@@ -30,6 +30,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { Select } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
+import { Paginator, PaginatorModule } from 'primeng/paginator';
+import { PaginatorState } from 'primeng/paginator';
 
 @Component({
   selector: 'app-store',
@@ -57,6 +59,8 @@ import { ButtonModule } from 'primeng/button';
     SelectModule,
     Select,
     ButtonModule,
+    Paginator,
+    PaginatorModule,
   ],
 })
 export class StoreComponent implements OnInit {
@@ -159,27 +163,26 @@ export class StoreComponent implements OnInit {
   }
 
   updatePagination(page: number = this.currentPage) {
-    if (page < 1) {
-      page = 1;
-    }
-    if (page > this.totalPages) {
-      page = this.totalPages;
-    }
+    this.totalPages = Math.ceil(this.filteredGames.length / this.itemsPerPage);
+
+    if (page < 1) page = 1;
+    if (page > this.totalPages) page = this.totalPages;
+
     this.currentPage = page;
+    this.first = (this.currentPage - 1) * this.itemsPerPage; // sync s PrimeNG
 
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-
     this.paginatedGames = this.filteredGames.slice(startIndex, endIndex);
-    this.totalPages = Math.ceil(this.filteredGames.length / this.itemsPerPage);
   }
 
-  nextPage() {
-    this.updatePagination(this.currentPage + 1);
-  }
+  first: number = 0;
 
-  prevPage() {
-    this.updatePagination(this.currentPage - 1);
+  onPageChange(event: PaginatorState): void {
+    this.first = event.first ?? 0;
+    this.itemsPerPage = event.rows ?? this.itemsPerPage;
+    this.currentPage = Math.floor(this.first / this.itemsPerPage) + 1;
+    this.updatePagination(this.currentPage);
   }
 
   onCategoryChange(event: any) {
