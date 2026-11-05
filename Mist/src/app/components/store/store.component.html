@@ -1,5 +1,4 @@
-<div *ngIf="isAuthenticated; else notAuthenticated">
-  <div class="main">
+<div class="main">
     <div class="FilterMainDiv">
       <p-accordion value="0" [multiple]="true">
         <p-accordion-panel value="0">
@@ -171,10 +170,3 @@
       />
     </div>
   </div>
-</div>
-
-<ng-template #notAuthenticated>
-  <div class="notAuthenticated">
-    <p class="MustLog">You must be logged in to access this page.</p>
-  </div>
-</ng-template>
