@@ -10,12 +10,21 @@
 }
 
 .ollama-demo {
-  padding: 15px;
-  width: 400px;
+  padding: 10px;
+  width: 380px;
+  max-width: calc(100vw - 20px);
   position: fixed;
-  bottom: 5px;
-  right: 5px;
-  z-index: 100;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .chat-Icon {
+    bottom: 16px;
+    right: 16px;
+  }
 }
 
 .text-header {

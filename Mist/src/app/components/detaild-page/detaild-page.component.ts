@@ -59,11 +59,15 @@ export class DetaildPageComponent implements OnInit {
     },
     {
       breakpoint: '768px',
-      numVisible: 3,
+      numVisible: 4,
     },
     {
       breakpoint: '560px',
-      numVisible: 1,
+      numVisible: 4,
+    },
+    {
+      breakpoint: '400px',
+      numVisible: 3,
     },
   ];
 

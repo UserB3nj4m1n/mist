@@ -7,24 +7,26 @@
             <p-inputicon class="fa fa-user" />
             <input
               pInputText
-              id="over_label"
+              id="reg_nickname"
               [(ngModel)]="displayName"
               autocomplete="off"
+              [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Enter nickname</label>
+          <label for="reg_nickname">Enter nickname</label>
         </p-floatlabel>
         <p-floatlabel variant="on">
           <p-iconfield>
             <p-inputicon class="fa fa-envelope" />
             <input
               pInputText
-              id="over_label"
+              id="reg_email"
               [(ngModel)]="email"
               autocomplete="off"
+              [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Enter email</label>
+          <label for="reg_email">Enter email</label>
         </p-floatlabel>
         <p-floatlabel variant="on">
           <p-iconfield>
@@ -32,12 +34,13 @@
             <input
               type="password"
               pInputText
-              id="over_label"
+              id="reg_password"
               [(ngModel)]="password"
               autocomplete="off"
+              [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Enter password</label>
+          <label for="reg_password">Enter password</label>
         </p-floatlabel>
         <p-floatlabel variant="on">
           <p-iconfield>
@@ -45,12 +48,13 @@
             <input
               type="password"
               pInputText
-              id="over_label"
+              id="reg_confirm_password"
               [(ngModel)]="confirmPassword"
               autocomplete="off"
+              [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Confirm password</label>
+          <label for="reg_confirm_password">Confirm password</label>
         </p-floatlabel>
       </div>
       <div class="ForgotPassDiv">

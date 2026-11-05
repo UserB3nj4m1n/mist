@@ -7,13 +7,13 @@
             <p-inputicon class="fa fa-envelope" />
             <input
               pInputText
-              id="over_label"
+              id="login_email"
               [(ngModel)]="email"
               autocomplete="off"
               [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Enter email</label>
+          <label for="login_email">Enter email</label>
         </p-floatlabel>
         <p-floatlabel variant="on">
           <p-iconfield>
@@ -21,12 +21,13 @@
             <input
               type="password"
               pInputText
-              id="over_label"
+              id="login_password"
               [(ngModel)]="password"
               autocomplete="off"
+              [fluid]="true"
             />
           </p-iconfield>
-          <label for="over_label">Enter password</label>
+          <label for="login_password">Enter password</label>
         </p-floatlabel>
       </div>
       <div class="ForgotPassDiv">

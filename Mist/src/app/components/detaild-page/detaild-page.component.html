@@ -3,40 +3,31 @@
     <!--     ---------------------------------------------     -->
     <div class="card">
       <div class="card">
-        <div style="display: flex">
-          <p-galleria
-            [showItemNavigators]="true"
-            [value]="images"
-            [responsiveOptions]="responsiveOptions"
-            [containerStyle]="{ 'max-width': '400px' }"
-            [numVisible]="7"
-            [circular]="true"
-          >
-            <ng-template #item let-item>
-              <img
-                [src]="item.itemImageSrc"
-                style="
-                  width: 100%;
-                  height: 400px;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </ng-template>
+        <div class="game-hero-section">
+          <div class="game-galleria-wrapper">
+            <p-galleria
+              [showItemNavigators]="true"
+              [value]="images"
+              [responsiveOptions]="responsiveOptions"
+              [numVisible]="5"
+              [circular]="true"
+            >
+              <ng-template #item let-item>
+                <img
+                  [src]="item.itemImageSrc"
+                  class="galleria-main-image"
+                />
+              </ng-template>
 
-            <ng-template #thumbnail let-item>
-              <img
-                [src]="item.thumbnailImageSrc"
-                style="
-                  width: 60px;
-                  height: 40px;
-                  object-fit: cover;
-                  display: block;
-                "
-              />
-            </ng-template>
-          </p-galleria>
-          <div class="game-info" style="padding-left: 10px">
+              <ng-template #thumbnail let-item>
+                <img
+                  [src]="item.thumbnailImageSrc"
+                  class="galleria-thumb-image"
+                />
+              </ng-template>
+            </p-galleria>
+          </div>
+          <div class="game-info">
             <table class="game-info-table">
               <tr>
                 <td colspan="2">
@@ -119,7 +110,7 @@
                 <div class="price-compare-box">
                   <img
                     class="store-logo"
-                    [src]="'/stores/' + offer.logo"
+                    [src]="'stores/' + offer.logo"
                     [alt]="offer.name + ' logo'"
                   />
                   <div class="store-offer-header">{{ offer.name }}</div>

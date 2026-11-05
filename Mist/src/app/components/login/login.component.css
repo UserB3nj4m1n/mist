@@ -1,63 +1,82 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .container {
-  width: 1000px;
-  justify-items: center;
-  margin: auto;
+  width: 100%;
+  max-width: 440px;
+  margin: 60px auto 100px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
-  margin-bottom: 200px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 30px auto 80px auto;
+  }
 }
 
 a {
   text-decoration: none;
-
   font-size: 14px;
-  margin-top: 10px;
 }
 
 .ForgotPass {
   text-decoration: none;
-
   font-size: 14px;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .ForgotPassDiv {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .Register {
   text-decoration: none;
-
   font-size: 14px;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .login-button-div {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
-.login-button {
-  width: 200px;
-}
-
-login-button {
-  width: 200px;
+:host ::ng-deep .login-button {
+  width: 100%;
 }
 
 .inputs-div {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 100%;
+}
+
+:host ::ng-deep .inputs-div .p-floatlabel,
+:host ::ng-deep .inputs-div .p-iconfield,
+:host ::ng-deep .inputs-div input {
+  width: 100% !important;
 }
 
 .register-card-div {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+:host ::ng-deep .register-card-div .p-card {
+  width: 100%;
 }
