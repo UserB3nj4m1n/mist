@@ -46,7 +46,7 @@
     ></model-viewer>
   </div>
 </section>
-<section>
+<section class="why-section">
   <div class="mainLeftWhy">
     <p class="mainLeftTextWhy">
       Why Mist
@@ -54,25 +54,25 @@
   </div>
   <div class="mainWhyReason">
     <div class="mainWhyBox">
-      <img src="rush.jpg" class="mainWhyIcon" />
+      <img src="rush.jpg" class="mainWhyIcon" alt="Fast" />
       <p class="mainWhyBoxReason">Fast</p>
       <p class="mainWhyParagraf">
         Mist save you hours finding perfect game for you.
       </p>
     </div>
     <div class="mainWhyBox">
-      <img src="easy.jpg" class="mainWhyIcon" />
+      <img src="easy.jpg" class="mainWhyIcon" alt="Simple" />
       <p class="mainWhyBoxReason">Simple</p>
       <p class="mainWhyParagraf">Push a button and play.</p>
     </div>
     <div class="mainWhyBox">
-      <img src="24-7.jpg" class="mainWhyIcon" />
+      <img src="24-7.jpg" class="mainWhyIcon" alt="24/7" />
       <p class="mainWhyBoxReason">24/7</p>
       <p class="mainWhyParagraf">Mist is going 24/7.</p>
     </div>
   </div>
 </section>
-<section>
+<section class="popular-section">
   <div class="mainLeftWhy">
     <p class="mainLeftTextWhy">
       Most popular
@@ -81,32 +81,16 @@
 
   <div class="top-games-row">
     <ng-container *ngIf="!loading">
-      <div class="most-popular-box" *ngFor="let game of topGames">
+      <div class="most-popular-box" *ngFor="let game of topGames" (click)="goToGame(game.id)">
         <div class="most-popular-row">
           <img
             [src]="game.cover.url"
             alt="{{ game.name }}"
             class="most-popular-image"
           />
-          <!-- Dorobiť -->
-          <!-- <div class="most-popular-price-container">
-            <div class="discounted-price">
-              <p class="discounted-price-text">{{ game.discountedPrice }}€</p>
-            </div>
-            <div *ngIf="game.discount > 0" class="original-price">
-              {{ game.originalPrice }}€
-            </div>
-            <div *ngIf="game.discount > 0" class="game-discount">
-              -{{ game.discount }}%
-            </div>
-          </div> -->
         </div>
         <div class="most-popular-title">
-          {{
-            game.name.length > 18
-              ? (game.name | slice: 0 : 18) + "..."
-              : game.name
-          }}
+          {{ game.name }}
         </div>
       </div>
     </ng-container>

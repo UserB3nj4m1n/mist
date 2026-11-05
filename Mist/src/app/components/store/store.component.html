@@ -36,20 +36,22 @@
         <p-accordion-panel value="2">
           <p-accordion-header>Categories</p-accordion-header>
           <p-accordion-content>
-            <div *ngFor="let genre of genres" class="CategoriesDiv">
-              <p-checkbox
-                [inputId]="genre.name"
-                name="group"
-                [value]="genre.name"
-                [(ngModel)]="selectedCategories"
-                (ngModelChange)="onCategoryChange(genre.name)"
-                styleClass="genre-checkbox"
-              />
-              <label [for]="genre.name" style="padding-left: 10px">
-                {{ truncate(genre.name, 14) }}
-              </label>
-              <div class="genreTag">
-                <p-tag severity="secondary" value="{{ genre.value }}" />
+            <div class="filter-options-grid">
+              <div *ngFor="let genre of genres" class="CategoriesDiv">
+                <p-checkbox
+                  [inputId]="genre.name"
+                  name="group"
+                  [value]="genre.name"
+                  [(ngModel)]="selectedCategories"
+                  (ngModelChange)="onCategoryChange(genre.name)"
+                  styleClass="genre-checkbox"
+                />
+                <label [for]="genre.name" style="padding-left: 10px">
+                  {{ truncate(genre.name, 14) }}
+                </label>
+                <div class="genreTag">
+                  <p-tag severity="secondary" value="{{ genre.value }}" />
+                </div>
               </div>
             </div>
           </p-accordion-content>
@@ -57,59 +59,64 @@
 
         <p-accordion-panel value="3">
           <p-accordion-header>Rating</p-accordion-header>
-          <p-accordion-content
-            ><div *ngFor="let rating of ratings" class="CategoriesDiv">
-              <p-checkbox
-                [inputId]="'rating-' + rating.rating"
-                name="ratings"
-                [value]="rating.rating"
-                [(ngModel)]="selectedRatings"
-                (ngModelChange)="onRatingChange(rating.rating)"
-                styleClass="genre-checkbox"
-              ></p-checkbox>
-              <p-rating
-                [(ngModel)]="rating.rating"
-                [readonly]="true"
-                style="padding-left: 10px"
-              />
-              <label
-                [for]="'rating-' + rating.rating"
-                style="padding-left: 10px; vertical-align: middle"
-              >
-                {{ rating.rating }}
-              </label>
+          <p-accordion-content>
+            <div class="filter-options-grid">
+              <div *ngFor="let rating of ratings" class="CategoriesDiv">
+                <p-checkbox
+                  [inputId]="'rating-' + rating.rating"
+                  name="ratings"
+                  [value]="rating.rating"
+                  [(ngModel)]="selectedRatings"
+                  (ngModelChange)="onRatingChange(rating.rating)"
+                  styleClass="genre-checkbox"
+                ></p-checkbox>
+                <p-rating
+                  [(ngModel)]="rating.rating"
+                  [readonly]="true"
+                  style="padding-left: 10px"
+                />
+                <label
+                  [for]="'rating-' + rating.rating"
+                  style="padding-left: 10px; vertical-align: middle"
+                >
+                  {{ rating.rating }}
+                </label>
 
-              <div class="genreTag">
-                <p-tag severity="secondary" value="{{ rating.count }}"></p-tag>
+                <div class="genreTag">
+                  <p-tag severity="secondary" value="{{ rating.count }}"></p-tag>
+                </div>
               </div>
             </div>
           </p-accordion-content>
         </p-accordion-panel>
+
         <p-accordion-panel value="4">
           <p-accordion-header>Platforms</p-accordion-header>
           <p-accordion-content>
-            <div *ngFor="let platform of platforms" class="CategoriesDiv">
-              <p-checkbox
-                [inputId]="'platform-' + platform.abbreviation"
-                name="platforms"
-                [value]="platform.abbreviation"
-                [(ngModel)]="selectedPlatforms"
-                (ngModelChange)="onPlatformChange(platform.abbreviation)"
-                styleClass="genre-checkbox"
-              ></p-checkbox>
+            <div class="filter-options-grid">
+              <div *ngFor="let platform of platforms" class="CategoriesDiv">
+                <p-checkbox
+                  [inputId]="'platform-' + platform.abbreviation"
+                  name="platforms"
+                  [value]="platform.abbreviation"
+                  [(ngModel)]="selectedPlatforms"
+                  (ngModelChange)="onPlatformChange(platform.abbreviation)"
+                  styleClass="genre-checkbox"
+                ></p-checkbox>
 
-              <label
-                [for]="'platform-' + platform.abbreviation"
-                style="padding-left: 10px"
-              >
-                {{ platform.abbreviation }}
-              </label>
+                <label
+                  [for]="'platform-' + platform.abbreviation"
+                  style="padding-left: 10px"
+                >
+                  {{ platform.abbreviation }}
+                </label>
 
-              <div class="genreTag">
-                <p-tag
-                  severity="secondary"
-                  value="{{ platform.count }}"
-                ></p-tag>
+                <div class="genreTag">
+                  <p-tag
+                    severity="secondary"
+                    value="{{ platform.count }}"
+                  ></p-tag>
+                </div>
               </div>
             </div>
           </p-accordion-content>
@@ -123,18 +130,19 @@
     </div>
     <div class="game-list" *ngIf="!loading">
       <div class="sort-by-container">
-        <p>Sort by:</p>
+        <div class="sort-select-wrapper">
+          <span class="sort-label">Sort by:</span>
 
-        <p-select
-          [options]="sortOptions"
-          [(ngModel)]="sortBy"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Sort by"
-          class="w-full md:w-56"
-          (onChange)="onSortChange()"
-        >
-        </p-select>
+          <p-select
+            [options]="sortOptions"
+            [(ngModel)]="sortBy"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Sort by"
+            (onChange)="onSortChange()"
+          >
+          </p-select>
+        </div>
 
         <div class="ViewLayaut">
           <p-button

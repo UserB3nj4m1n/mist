@@ -1,77 +1,103 @@
 .main {
   display: flex;
-  flex-direction: row;
-  gap: 24px;
-  padding: 20px 24px;
-  max-width: 1600px;
-  margin: 0 auto;
+  flex-direction: column !important;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 20px;
   box-sizing: border-box;
+  gap: 16px;
 }
 
-/* Filters Sidebar */
+/* Filters on Top */
 .FilterMainDiv {
-  width: 280px;
-  min-width: 240px;
-  flex-shrink: 0;
+  width: 100% !important;
+  box-sizing: border-box;
+  background: var(--surface-card, #ffffff);
+  border-radius: 12px;
+  border: 1px solid var(--surface-border, rgba(110, 131, 150, 0.2));
+  overflow: hidden;
 }
 
 :host ::ng-deep .p-accordion {
   width: 100%;
 }
 
-:host ::ng-deep .p-accordionpanel {
-  border-bottom: 1px solid var(--surface-border, #e5e7eb);
+:host ::ng-deep .p-accordionheader {
+  font-weight: 600;
+  padding: 12px 16px;
+  background: transparent;
+}
+
+:host ::ng-deep .p-accordioncontent-content {
+  padding: 12px 16px 16px;
 }
 
 .prizeRangeText {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin-top: 14px;
   gap: 8px;
+  max-width: 320px;
+}
+
+.filter-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  width: 100%;
 }
 
 .CategoriesDiv {
-  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 6px;
+  min-width: 140px;
+  margin: 2px 0;
 }
 
 .genreTag {
   display: flex;
   margin-left: auto;
+  padding-left: 6px;
 }
 
-/* Game List & Controls */
+/* Game List */
 .game-list {
-  flex: 1 1 auto;
-  min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .sort-by-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
   width: 100%;
+  margin: 4px 0 16px;
+  gap: 12px;
 }
 
-.sort-by-container p {
-  margin: 0;
-  font-weight: 500;
+.sort-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-label {
+  font-weight: 600;
   white-space: nowrap;
+  font-size: 15px;
+  color: var(--text-color, #111827);
+}
+
+:host ::ng-deep .sort-select-wrapper .p-select {
+  min-width: 180px;
 }
 
 .ViewLayaut {
   display: flex;
-  gap: 10px;
-  margin-left: auto;
+  gap: 8px;
 }
 
 :host ::ng-deep .ViewLayaut .p-button {
@@ -84,12 +110,20 @@
   border-color: var(--primary-color, #10b981) !important;
 }
 
-/* Responsive Grid and List */
+/* Games Grid - Strict 2 columns on phone / tablet */
 .grid-view {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 18px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .grid-view {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
+  }
 }
 
 .list-view {
@@ -115,7 +149,7 @@ app-store-card {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 250px;
   width: 100%;
 }
 
@@ -142,28 +176,10 @@ app-store-card {
   justify-content: center;
 }
 
-/* Tablet & Mobile Screens */
-@media (max-width: 960px) {
-  .main {
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .FilterMainDiv {
-    width: 100%;
-    min-width: auto;
-  }
-
-  .grid-view {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
-  }
-}
-
 @media (max-width: 600px) {
   .main {
-    padding: 10px;
+    padding: 10px 12px;
+    gap: 12px;
   }
 
   .ViewLayaut {
@@ -171,22 +187,15 @@ app-store-card {
   }
 
   .sort-by-container {
-    gap: 8px;
+    margin-bottom: 12px;
   }
 
-  :host ::ng-deep .sort-by-container .p-select {
-    flex: 1 1 auto;
-    min-width: 160px;
+  :host ::ng-deep .sort-select-wrapper .p-select {
+    min-width: 140px;
   }
 
   .grid-view {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px;
-  }
-}
-
-@media (max-width: 360px) {
-  .grid-view {
-    grid-template-columns: 1fr;
   }
 }

@@ -55,4 +55,8 @@ export class WelcomeComponent implements AfterViewInit, OnDestroy {
   goStore() {
     this.router.navigate(['/store']);
   }
+
+  goToGame(id: number) {
+    this.router.navigate(['/game', id]);
+  }
 }
