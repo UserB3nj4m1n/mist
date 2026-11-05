@@ -1,12 +1,12 @@
 .main {
-  display: flex;
+  display: flex !important;
   flex-direction: column !important;
-  width: 100%;
+  width: 100% !important;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 12px 14px;
   box-sizing: border-box;
-  gap: 16px;
+  gap: 14px;
 }
 
 /* Filters on Top */
@@ -25,12 +25,13 @@
 
 :host ::ng-deep .p-accordionheader {
   font-weight: 600;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: transparent;
+  font-size: 15px;
 }
 
 :host ::ng-deep .p-accordioncontent-content {
-  padding: 12px 16px 16px;
+  padding: 10px 14px 14px;
 }
 
 .prizeRangeText {
@@ -52,7 +53,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  min-width: 140px;
+  min-width: 130px;
   margin: 2px 0;
 }
 
@@ -64,9 +65,10 @@
 
 /* Game List */
 .game-list {
-  width: 100%;
+  width: 100% !important;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .sort-by-container {
@@ -74,25 +76,25 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 4px 0 16px;
+  margin: 4px 0 14px;
   gap: 12px;
 }
 
 .sort-select-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .sort-label {
   font-weight: 600;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-color, #111827);
 }
 
 :host ::ng-deep .sort-select-wrapper .p-select {
-  min-width: 180px;
+  min-width: 140px;
 }
 
 .ViewLayaut {
@@ -101,7 +103,7 @@
 }
 
 :host ::ng-deep .ViewLayaut .p-button {
-  padding: 6px 12px;
+  padding: 6px 10px;
 }
 
 :host ::ng-deep .ViewLayaut .p-button.active {
@@ -110,19 +112,32 @@
   border-color: var(--primary-color, #10b981) !important;
 }
 
-/* Games Grid - Strict 2 columns on phone / tablet */
+/* Mobile-First: ALWAYS 2 COLUMNS by default */
 .grid-view {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 18px;
-  width: 100%;
-  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-@media (max-width: 900px) {
+app-store-card {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Large Screens (Laptops & Desktop) */
+@media (min-width: 1024px) {
+  .main {
+    padding: 20px 24px;
+    gap: 20px;
+  }
+
   .grid-view {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important;
+    gap: 18px !important;
   }
 }
 
@@ -134,11 +149,6 @@
 }
 
 .list-view app-store-card {
-  display: block;
-  width: 100%;
-}
-
-app-store-card {
   display: block;
   width: 100%;
 }
@@ -177,25 +187,11 @@ app-store-card {
 }
 
 @media (max-width: 600px) {
-  .main {
-    padding: 10px 12px;
-    gap: 12px;
-  }
-
   .ViewLayaut {
     display: none !important;
   }
 
   .sort-by-container {
-    margin-bottom: 12px;
-  }
-
-  :host ::ng-deep .sort-select-wrapper .p-select {
-    min-width: 140px;
-  }
-
-  .grid-view {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px;
+    margin-bottom: 10px;
   }
 }
