@@ -1,0 +1,24 @@
+{
+  "welcome": "¡Hola! La carpeta de assets está funcionando.",
+
+  "footer": {
+    "aboutUs": {
+      "title": "Sobre nosotros",
+      "store": "Tienda",
+      "goal": "Objetivo",
+      "sponsors": "Patrocinadores",
+      "faq": "Preguntas frecuentes"
+    },
+    "help": {
+      "title": "Ayuda",
+      "support": "Soporte",
+      "contact": "Contáctenos",
+      "shop": "Comprar",
+      "payments": "Métodos de pago"
+    },
+    "socials": {
+      "title": "Redes sociales"
+    },
+    "rights": "Todos los derechos reservados."
+  }
+}
