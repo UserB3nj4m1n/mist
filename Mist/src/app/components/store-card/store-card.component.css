@@ -1,134 +1,171 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .game-card {
-  width: 12.5em;
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   background-color: transparent;
   box-shadow: none;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .game-card:hover {
   background-color: #63636310;
-  transform: scale(1.05);
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
+  transform: translateY(-4px);
 }
 
-.game-title {
-  padding: 0;
-  margin: 0;
-  color: var(--text-color-secondary);
-  font-size: 16px;
-  padding-top: 16px;
-}
-.game-category {
-  padding: 0;
-  margin: 0;
-  color: var(--text-color-secondary);
-  font-size: 14px;
-  padding-top: 4px;
+.game-image {
+  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
 }
 
-.game-card {
+.card-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1 1 auto;
+  padding: 8px 4px 4px;
 }
 
 .game-info {
   flex: 1 1 auto;
 }
 
-.icons {
-  padding: 10px 0;
-  margin-top: auto;
+.game-title {
+  padding: 0;
+  margin: 0;
+  color: var(--text-color, #111827);
+  font-size: 15px;
+  font-weight: 600;
+  padding-top: 6px;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
-.game-image {
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
+.game-category {
+  padding: 0;
+  margin: 0;
+  color: var(--text-color-secondary, #6b7280);
+  font-size: 13px;
+  padding-top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .icons {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 0;
-  margin: 0;
+  gap: 3px;
+  padding: 6px 0 4px;
+  margin-top: auto;
 }
+
 .rating {
-  color: var(--text-color);
+  color: var(--text-color, #111827);
   font-size: 12px;
-  margin-left: 4px;
+  margin: 0 0 0 4px;
 }
+
 .icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
-.original-price {
-  color: #111827;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-  padding-bottom: 10px;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 5px;
-}
 .game-price {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-}
-
-.discounted-price {
-  color: var(--text-color);
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
 }
 
 .p-game-discount {
-  color: var(--p-button-primary-color);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ef6a16, #ebd254);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.discounted-price {
+  margin: 0;
+}
+
+.stock-price {
+  color: var(--text-color, #111827);
+  font-weight: 700;
   font-size: 15px;
-  background-color: var(--p-primary-color);
-  padding: 3px;
-  border-radius: 5px;
+  margin: 0;
+}
+
+.original-price {
+  margin: 0;
 }
 
 .p-original-price {
   text-decoration: line-through;
   color: #a8b7c4;
+  font-size: 13px;
+  margin: 0;
 }
 
+/* List View */
 .list {
+  flex-direction: row !important;
+  width: 100% !important;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+}
+
+.list .game-image {
+  width: 110px;
+  height: 80px;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+}
+
+.list .card-content {
+  padding: 0;
   flex-direction: row;
-  width: 12.5em;
-  height: 100%;
-  background-color: transparent;
-  box-shadow: none;
-  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.list:hover {
-  background-color: #63636310;
-  transform: scale(1.05);
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
-}
+@media (max-width: 600px) {
+  .game-title {
+    font-size: 13px;
+  }
 
-.list:hover {
-  background-color: #63636310;
-  transform: scale(1.05);
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
-}
+  .game-category {
+    font-size: 11px;
+  }
 
-.stock-price {
-  color: var(--text-color);
+  .stock-price {
+    font-size: 13px;
+  }
+
+  .p-game-discount {
+    font-size: 11px;
+    padding: 1px 4px;
+  }
+
+  .list .game-image {
+    width: 80px;
+    height: 60px;
+  }
 }

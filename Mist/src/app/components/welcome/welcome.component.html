@@ -16,20 +16,16 @@
     <div class="mainLeftButtonsDiv">
       <p-button
         label="Buy"
-        [style]="{
-          'font-size': '25px',
-          padding: '10px 40px',
-          height: '60px',
-        }"
+        styleClass="welcome-hero-btn hero-btn-buy"
         (onClick)="goStore()"
       />
 
       <p-button
         label="Play"
-        [style]="{ 'font-size': '25px', padding: '10px 40px', height: '60px' }"
+        styleClass="welcome-hero-btn hero-btn-play"
       />
     </div>
-    <div style="padding-top: 20px">
+    <div class="scroll-hint">
       <span style="display: flex; align-items: center">
         <mat-icon style="font-size: 20px">mouse</mat-icon>
         <p style="margin: 0; font-size: 14px">scroll for more</p>
@@ -47,13 +43,12 @@
       auto-rotate
       disable-zoom
       background-color="#f8f8f9"
-      style="width: 100%; height: 400px"
     ></model-viewer>
   </div>
 </section>
 <section>
   <div class="mainLeftWhy">
-    <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
+    <p class="mainLeftTextWhy">
       Why Mist
     </p>
   </div>
@@ -79,7 +74,7 @@
 </section>
 <section>
   <div class="mainLeftWhy">
-    <p class="mainLeftTextWhy" style="font-size: 50px; margin-top: 6rem">
+    <p class="mainLeftTextWhy">
       Most popular
     </p>
   </div>

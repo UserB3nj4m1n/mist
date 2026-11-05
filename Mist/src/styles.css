@@ -13,18 +13,23 @@
 
 */
 
-body {
-  font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif !important;
-  user-select: none;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif !important;
+  user-select: none;
+  margin: 0;
 }
 
 /*scrollbar*/
